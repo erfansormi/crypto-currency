@@ -14,6 +14,9 @@ import styles from "./nav.module.css"
 // icon
 import { BsArrowCounterclockwise } from "react-icons/bs"
 
+// components
+import SwitchDarkmode from './SwitchDarkMode'
+
 const Nav = () => {
     const global = useSelector((state: State) => state.global.global);
     const other = useSelector((state: State) => state.global);
@@ -46,33 +49,41 @@ const Nav = () => {
 
                     // nav
                     <div>
-                        {navInfoData(global).map((item) =>
-                            <div
-                                key={item.value}
-                                className={styles.info_container}
-                            >
-                                <span className={styles.text}>
-                                    {item.text}:
-                                </span>
-                                <span className={styles.value}>
-                                    {item.value}
-                                </span>
-                            </div>
-                        )}
-                        <div className={styles.dominance_container}>
-                            <span className={styles.text}>
-                                {navDominanceData(global).text}
-                            </span>
-                            {navDominanceData(global).value.map(item =>
-                                <div className={styles.dominance_value}>
-                                    <span>
-                                        {item.text}
+                        <div>
+                            {navInfoData(global).map((item) =>
+                                <div
+                                    key={item.value}
+                                    className={styles.info_container}
+                                >
+                                    <span className={styles.text}>
+                                        {item.text}:
                                     </span>
-                                    <span>
+                                    <span className={styles.value}>
                                         {item.value}
                                     </span>
                                 </div>
                             )}
+                            <div className={styles.dominance_container}>
+                                <span className={styles.text}>
+                                    {navDominanceData(global).text}
+                                </span>
+                                {navDominanceData(global).value.map(item =>
+                                    <div
+                                        key={item.value}
+                                        className={styles.dominance_value}
+                                    >
+                                        <span>
+                                            {item.text}
+                                        </span>
+                                        <span>
+                                            {item.value}
+                                        </span>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                        <div>
+                            <SwitchDarkmode />
                         </div>
                     </div>
             }

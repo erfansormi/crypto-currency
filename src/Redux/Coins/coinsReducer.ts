@@ -2,9 +2,10 @@
 import { iCoinsInitialValue, coinsActionsTypes, coinsActions } from "./coinsTypes"
 
 const initialValue: iCoinsInitialValue = {
-    coins: [],
+    coins: null,
     loading: false,
-    error: ""
+    error: "",
+    page: 1
 }
 
 const coinsReducer = (state = initialValue, action: coinsActionsTypes) => {
@@ -27,6 +28,13 @@ const coinsReducer = (state = initialValue, action: coinsActionsTypes) => {
         case coinsActions.fetchRequestFailure:
             state.loading = false;
             state.error = action.payload;
+
+            return {
+                ...state
+            }
+
+        case coinsActions.pageHandleChange:
+            state.page = action.payload;
 
             return {
                 ...state

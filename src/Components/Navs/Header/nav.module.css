@@ -1,10 +1,8 @@
 .nav {
-    background-color: #fff;
     font-size: 0.7rem;
     height: 53px;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid var(--border-color);
 }
 
 .nav>div {
@@ -13,7 +11,22 @@
     height: 100%;
     padding: 0 15px;
     width: 100%;
-    color: var(--text-color-sub);
+    justify-content: space-between;
+}
+
+.nav>div>div:first-child {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.nav>div>div:nth-child(2)>label {
+    margin: 0;
+}
+
+.nav>div>div:nth-child(2)>label>span {
+    margin: 0;
 }
 
 .nav .error_container {
@@ -43,16 +56,11 @@
     margin-left: 5px;
 }
 
-.info_container .text {
-    color: var(--text-color-sub);
-}
-
 .dominance_container {
     display: flex;
 }
 
 .dominance_container .text {
-    color: var(--text-color-sub);
     margin-right: 5px;
 }
 

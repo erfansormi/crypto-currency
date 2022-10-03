@@ -55,7 +55,8 @@ button {
   --var-text-small: 14px;
   --up-color: #16c784;
   --down-color: #ea3943;
-  --border-color: #eff2f5;
+  --border-color: #edf0f3;
+  --border-color-dark: #363e4b;
   --bg-color: #fff;
   --color-primary-black: #000;
   --color-primary-white: #fff;
@@ -77,10 +78,29 @@ button {
   --button-border-color: #cfd6e4;
   --button-bg-color: #222531;
   --breakpoint-md: 768px;
-  --dark-bg: #000;
+  --dark-bg-1: #1e272e;
+  --dark-bg-2: #2d3436;
   --card-bg: #fff;
   --box-shadow: 0px 0px 2px rgba(128, 138, 157, 0.12), 0px 0px 24px rgba(128, 138, 157, 0.14);
   --tiny-box-shadow: 0px 4px 24px rgba(88, 102, 126, 0.08), 0px 1px 2px rgba(88, 102, 126, 0.12);
   --input-shadow-color-focus: #e6f0ff;
   --shadow-normal: 0px 1px 2px rgba(128, 138, 157, 0.12), 0px 8px 32px rgba(128, 138, 157, 0.24);
+}
+
+.MuiTableCell-root {
+  padding: 6px !important;
+}
+
+.MuiTableCell-root>div>canvas {
+  width: 210px !important;
+  height: 105px !important;
+}
+
+.MuiPaginationItem-root {
+  color: inherit !important;
+  font-weight: 600 !important;
+}
+
+.css-1to7aaw-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+  color: var(--color-light-neutral-2) !important;
 }

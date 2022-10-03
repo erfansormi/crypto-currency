@@ -33,20 +33,27 @@ export interface iCoins {
     sparkline_in_7d: {
         price: number[]
     },
-    price_change_percentage_7d_in_currency: number,
+    price_change_percentage_1h_in_currency: number,
+    price_change_percentage_24h_in_currency: number,
+    price_change_percentage_7d_in_currency: number
 }
 
+type nullType = null;
+export type coinsType = iCoins[] | nullType;
+
 export interface iCoinsInitialValue {
-    coins: [] | iCoins[],
+    coins: coinsType,
     loading: boolean,
-    error: string
+    error: string,
+    page: number
 }
 
 // enum
 export enum coinsActions {
     fetchRequest = "COINS_FETCH_REQUEST",
     fetchRequestSuccess = "COINS_FETCH_REQUEST_SUCCESS",
-    fetchRequestFailure = "COINS_FETCH_REQUEST_FAILURE"
+    fetchRequestFailure = "COINS_FETCH_REQUEST_FAILURE",
+    pageHandleChange = "PAGE_HANDLE_CHANGE"
 }
 
 // action types
@@ -64,4 +71,9 @@ interface fetchRequestFailure {
     payload: string
 }
 
-export type coinsActionsTypes = fetchRequest | fetchRequestFailure | fetchRequestSuccess;
+interface pageHandleChange {
+    type: coinsActions.pageHandleChange,
+    payload: number
+}
+
+export type coinsActionsTypes = fetchRequest | fetchRequestFailure | fetchRequestSuccess | pageHandleChange;
