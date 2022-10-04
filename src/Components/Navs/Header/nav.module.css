@@ -14,18 +14,39 @@
     justify-content: space-between;
 }
 
-.nav>div>div:first-child {
+.nav>div>.nav_content_container {
     display: flex;
     align-items: center;
     height: 100%;
     width: 100%;
+    overflow-x: scroll;
+    margin-right: 10px;
+    padding-left: 15px;
 }
 
-.nav>div>div:nth-child(2)>label {
+.nav>div>.nav_content_container::-webkit-scrollbar {
+    display: none;
+}
+
+.nav>div .darkMode_container {
+    padding-right: 15px;
+}
+
+@media (max-width:767px) {
+    .nav>div>.nav_content_container {
+        padding-left: 8px;
+    }
+
+    .nav>div .darkMode_container {
+        padding-right: 8px;
+    }
+}
+
+.nav>div .darkMode_container>label {
     margin: 0;
 }
 
-.nav>div>div:nth-child(2)>label>span {
+.nav>div .darkMode_container>label>span {
     margin: 0;
 }
 
@@ -46,7 +67,16 @@
 }
 
 
-.nav>div .text {
+.nav>div .info_container {
+    display: flex;
+    align-items: center;
+}
+
+.nav>div .info_container span {
+    min-width: max-content;
+}
+
+.nav>div .info_container .text {
     text-transform: capitalize;
 }
 
@@ -62,6 +92,7 @@
 
 .dominance_container .text {
     margin-right: 5px;
+    text-transform: capitalize;
 }
 
 .dominance_container .dominance_value {

@@ -6,6 +6,10 @@ import globalFetchRequest from './Redux/Global/globalActions'
 import { useSelector, useDispatch } from 'react-redux'
 import { State } from './Redux/store'
 
+// mui
+import { ThemeProvider } from '@mui/material/styles';
+import { theme } from './Components/Mui/CustomizeColor'
+
 // components
 import Header from './Components/Header/Header'
 import CoinsTabale from './Components/Coins/CoinsTabale'
@@ -44,8 +48,10 @@ const App = () => {
 
   return (
     <>
-      <Header />
-      <CoinsTabale />
+      <ThemeProvider theme={theme} >
+        <Header />
+        <CoinsTabale />
+      </ThemeProvider>
     </>
   )
 }

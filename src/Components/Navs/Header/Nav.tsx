@@ -30,12 +30,7 @@ const Nav = () => {
     return (
         <nav className={styles.nav}>
 
-            {/* loading */}
-            {other.loading ?
-                <div>
-                    Loading...
-                </div> :
-
+            {
                 // error
                 other.error ?
                     <div className={styles.error_container}>
@@ -46,43 +41,50 @@ const Nav = () => {
                             </button>
                         </div>
                     </div> :
+                    <div style={{ padding: 0 }}>
 
-                    // nav
-                    <div>
-                        <div>
-                            {navInfoData(global).map((item) =>
-                                <div
-                                    key={item.value}
-                                    className={styles.info_container}
-                                >
-                                    <span className={styles.text}>
-                                        {item.text}:
-                                    </span>
-                                    <span className={styles.value}>
-                                        {item.value}
-                                    </span>
-                                </div>
-                            )}
-                            <div className={styles.dominance_container}>
-                                <span className={styles.text}>
-                                    {navDominanceData(global).text}
-                                </span>
-                                {navDominanceData(global).value.map(item =>
+                        {/* loading */}
+                        {other.loading ?
+                            <div style={{ padding: 15 }}>
+                                Loading...
+                            </div> :
+
+                            // nav
+                            <div className={styles.nav_content_container}>
+                                {navInfoData(global).map((item) =>
                                     <div
                                         key={item.value}
-                                        className={styles.dominance_value}
+                                        className={styles.info_container}
                                     >
-                                        <span>
-                                            {item.text}
+                                        <span className={styles.text}>
+                                            {item.text}:
                                         </span>
-                                        <span>
+                                        <span className={styles.value}>
                                             {item.value}
                                         </span>
                                     </div>
                                 )}
+                                <div className={styles.dominance_container}>
+                                    <span className={styles.text}>
+                                        {navDominanceData(global).text}
+                                    </span>
+                                    {navDominanceData(global).value.map(item =>
+                                        <div
+                                            key={item.value}
+                                            className={styles.dominance_value}
+                                        >
+                                            <span>
+                                                {item.text}
+                                            </span>
+                                            <span>
+                                                {item.value}
+                                            </span>
+                                        </div>
+                                    )}
+                                </div>
                             </div>
-                        </div>
-                        <div>
+                        }
+                        <div className={styles.darkMode_container}>
                             <SwitchDarkmode />
                         </div>
                     </div>
