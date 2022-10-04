@@ -19,6 +19,7 @@ import SwitchDarkmode from './SwitchDarkMode'
 
 const Nav = () => {
     const global = useSelector((state: State) => state.global.global);
+    const general = useSelector((state: State) => state.general);
     const other = useSelector((state: State) => state.global);
     const dispatch = useDispatch<any>();
 
@@ -26,69 +27,79 @@ const Nav = () => {
     const handleFetchData = () => {
         dispatch(globalFetchRequest())
     }
+    let color = () => {
+        if (general.darkMode) {
+            return {
+                color: "var(--color-light-neutral-3)"
+            }
+        }
+        else {
+            return {
+                color: "var(--color-light-neutral-6)"
+            }
+        }
+    }
 
     return (
         <nav className={styles.nav}>
+            <div style={color()} >
 
-            {
-                // error
-                other.error ?
-                    <div className={styles.error_container}>
-                        <div>
-                            {other.error}
-                            <button onClick={handleFetchData}>
-                                <BsArrowCounterclockwise />
-                            </button>
-                        </div>
+                {/* loading */}
+                {other.loading ?
+                    <div style={{ padding: 15 }}>
+                        Loading...
                     </div> :
-                    <div style={{ padding: 0 }}>
 
-                        {/* loading */}
-                        {other.loading ?
-                            <div style={{ padding: 15 }}>
-                                Loading...
-                            </div> :
+                    // error
+                    other.error ?
+                        <div className={styles.error_container}>
+                            <div>
+                                {other.error}
+                                <button onClick={handleFetchData}>
+                                    <BsArrowCounterclockwise />
+                                </button>
+                            </div>
+                        </div> :
 
-                            // nav
-                            <div className={styles.nav_content_container}>
-                                {navInfoData(global).map((item) =>
+                        // nav
+                        <div className={styles.nav_content_container}>
+                            {navInfoData(global).map((item) =>
+                                <div
+                                    key={item.value}
+                                    className={styles.info_container}
+                                >
+                                    <span className={styles.text}>
+                                        {item.text}:
+                                    </span>
+                                    <span className={styles.value}>
+                                        {item.value}
+                                    </span>
+                                </div>
+                            )}
+                            <div className={styles.dominance_container}>
+                                <span className={styles.text}>
+                                    {navDominanceData(global).text}
+                                </span>
+                                {navDominanceData(global).value.map(item =>
                                     <div
                                         key={item.value}
-                                        className={styles.info_container}
+                                        className={styles.dominance_value}
                                     >
-                                        <span className={styles.text}>
-                                            {item.text}:
+                                        <span>
+                                            {item.text}
                                         </span>
-                                        <span className={styles.value}>
+                                        <span>
                                             {item.value}
                                         </span>
                                     </div>
                                 )}
-                                <div className={styles.dominance_container}>
-                                    <span className={styles.text}>
-                                        {navDominanceData(global).text}
-                                    </span>
-                                    {navDominanceData(global).value.map(item =>
-                                        <div
-                                            key={item.value}
-                                            className={styles.dominance_value}
-                                        >
-                                            <span>
-                                                {item.text}
-                                            </span>
-                                            <span>
-                                                {item.value}
-                                            </span>
-                                        </div>
-                                    )}
-                                </div>
                             </div>
-                        }
-                        <div className={styles.darkMode_container}>
-                            <SwitchDarkmode />
                         </div>
-                    </div>
-            }
+                }
+                <div className={styles.darkMode_container}>
+                    <SwitchDarkmode />
+                </div>
+            </div>
         </nav >
     )
 }

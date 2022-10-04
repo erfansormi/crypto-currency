@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react'
 
+// react router dom
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
 // redux
 import coinsRequestFunc from './Redux/Coins/coinsActions'
 import globalFetchRequest from './Redux/Global/globalActions'
@@ -13,6 +16,7 @@ import { theme } from './Components/Mui/CustomizeColor'
 // components
 import Header from './Components/Header/Header'
 import CoinsTabale from './Components/Coins/CoinsTabale'
+import CoinDetail from './Components/Coins/Detail/CoinDetail'
 
 const App = () => {
   const dispatch = useDispatch<any>();
@@ -40,19 +44,22 @@ const App = () => {
       else {
         item.style.borderBottom = "1px solid var(--border-color)";
         item.style.backgroundColor = "#fff";
-        item.style.color = "var(--color-light-neutral-6)";
+        item.style.color = "var(--dark-bg-1)";
       }
     })
 
   }, [general.darkMode])
 
   return (
-    <>
+    <BrowserRouter>
       <ThemeProvider theme={theme} >
         <Header />
-        <CoinsTabale />
+        <Routes>
+          <Route path='/' element={<CoinsTabale />} />
+          <Route path="/coins/:coin_id" element={<CoinDetail />} />
+        </Routes>
       </ThemeProvider>
-    </>
+    </BrowserRouter>
   )
 }
 

@@ -1,0 +1,10 @@
+.name_section_container {}
+
+.name_section_container .header_name {
+    display: flex;
+    align-items: center;
+}
+
+.name_section_container .header_name>div{
+    margin-right: 6px;
+}

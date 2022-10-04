@@ -1,5 +1,8 @@
 import React from 'react';
 
+// react-router-dom
+import { Link } from 'react-router-dom';
+
 // mui
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -48,11 +51,14 @@ const CoinsTabale = () => {
 
     return (
         <>
+            {/* error */}
             {coins.error ?
                 <div className={styles.err_container}>
                     <span>{coins.error}</span>
                     <span onClick={() => window.document.location.reload()}><BsArrowCounterclockwise /></span>
                 </div> :
+
+                // crypto tabale
                 <TableContainer component={Paper} style={borderColor()} sx={{ borderRadius: 0 }}>
                     <Table sx={{ minWidth: 650 }} aria-label="simple table" className={styles.tabale}>
                         <TableHead>
@@ -72,35 +78,38 @@ const CoinsTabale = () => {
                         </TableHead>
                         <TableBody>
                             {
+                                // loading
                                 coins.loading ?
                                     <div style={{ minHeight: "70vh" }}>
                                         <Loading loading={coins.loading} />
                                     </div> :
+
+                                    // data
                                     coins.coins?.map((item) =>
-                                        <TableRow key={item.market_cap_rank + 20}>
-                                            {TabaleBody(item).map((i, index) =>
-                                                index == 0 ?
-                                                    <TableCell
-                                                        component="th"
-                                                        scope="row"
-                                                        key={index}
-                                                        sx={borderColor()}
-                                                    >
-                                                        {i.value}
-                                                    </TableCell>
-                                                    :
-                                                    <TableCell
-                                                        size='small'
-                                                        align={index == 1 ? "left" : "center"}
-                                                        key={index}
-                                                        sx={borderColor()}
-                                                    >
-                                                        <div>
+                                            <TableRow key={item.market_cap_rank + 20}>
+                                                {TabaleBody(item).map((i, index) =>
+                                                    index == 0 ?
+                                                        <TableCell
+                                                            component="th"
+                                                            scope="row"
+                                                            key={index}
+                                                            sx={borderColor()}
+                                                        >
                                                             {i.value}
-                                                        </div>
-                                                    </TableCell>
-                                            )}
-                                        </TableRow>
+                                                        </TableCell>
+                                                        :
+                                                        <TableCell
+                                                            size='small'
+                                                            align={index == 1 ? "left" : "center"}
+                                                            key={index}
+                                                            sx={borderColor()}
+                                                        >
+                                                            <div>
+                                                                {i.value}
+                                                            </div>
+                                                        </TableCell>
+                                                )}
+                                            </TableRow>
                                     )}
                         </TableBody>
                     </Table>
