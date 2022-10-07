@@ -4,6 +4,7 @@ import "./reset.css"
 import './index.css';
 
 // component
+import GlobalStyles from './Components/Emotion/GlobalStyles'
 import App from './App';
 
 // redux
@@ -16,6 +17,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <Provider store={store}>
+    <GlobalStyles />
     <App />
   </Provider>
 );

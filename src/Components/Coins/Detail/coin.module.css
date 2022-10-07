@@ -1,8 +1,12 @@
-.container {
-    background: var(--ice-bg-1);
-}
-
-.container>.layout_container {
+.layout_container {
     display: flex;
     flex-direction: column;
+}
+
+.layout_container span {
+    font-size: 0.73rem;
+}
+
+.container {
+    padding: 0 20px;
 }

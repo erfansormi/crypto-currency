@@ -58,63 +58,63 @@ const CoinsTabale = () => {
                     <span onClick={() => window.document.location.reload()}><BsArrowCounterclockwise /></span>
                 </div> :
 
-                // crypto tabale
-                <TableContainer component={Paper} style={borderColor()} sx={{ borderRadius: 0 }}>
-                    <Table sx={{ minWidth: 650 }} aria-label="simple table" className={styles.tabale}>
-                        <TableHead>
-                            <TableRow>
-                                {
-                                    TabaleHead.map((item, index) =>
-                                        <TableCell
-                                            sx={borderColor()}
-                                            className={styles.tabale_head}
-                                            align={index == 0 || index == 1 ? "inherit" : "center"}
-                                            key={item.title + index}
-                                        >
-                                            {item.title}
-                                        </TableCell>
-                                    )}
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {
-                                // loading
-                                coins.loading ?
-                                    <div style={{ minHeight: "70vh" }}>
-                                        <Loading loading={coins.loading} />
-                                    </div> :
+                // loading
+                coins.loading ?
+                    <div style={{ minHeight: "70vh" }}>
+                        <Loading loading={coins.loading} />
+                    </div> :
 
-                                    // data
-                                    coins.coins?.map((item) =>
-                                            <TableRow key={item.market_cap_rank + 20}>
-                                                {TabaleBody(item).map((i, index) =>
-                                                    index == 0 ?
-                                                        <TableCell
-                                                            component="th"
-                                                            scope="row"
-                                                            key={index}
-                                                            sx={borderColor()}
-                                                        >
+                    // crypto tabale
+                    <div className="root-nodes">
+                        <TableContainer component={Paper} style={borderColor()} sx={{ borderRadius: 0, backgroundColor: "inherit" }}>
+                            <Table sx={{ minWidth: 650 }} aria-label="simple table" className={styles.tabale}>
+                                <TableHead>
+                                    <TableRow>
+                                        {
+                                            TabaleHead.map((item, index) =>
+                                                <TableCell
+                                                    sx={borderColor()}
+                                                    className={styles.tabale_head}
+                                                    align={index == 0 || index == 1 ? "inherit" : "center"}
+                                                    key={item.title + index}
+                                                >
+                                                    {item.title}
+                                                </TableCell>
+                                            )}
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {coins.coins?.map((item) =>
+                                        <TableRow key={item.market_cap_rank + 20}>
+                                            {TabaleBody(item).map((i, index) =>
+                                                index == 0 ?
+                                                    <TableCell
+                                                        component="th"
+                                                        scope="row"
+                                                        key={index}
+                                                        sx={borderColor()}
+                                                    >
+                                                        {i.value}
+                                                    </TableCell>
+                                                    :
+                                                    <TableCell
+                                                        size='small'
+                                                        align={index == 1 ? "left" : "center"}
+                                                        key={index}
+                                                        sx={borderColor()}
+                                                    >
+                                                        <div>
                                                             {i.value}
-                                                        </TableCell>
-                                                        :
-                                                        <TableCell
-                                                            size='small'
-                                                            align={index == 1 ? "left" : "center"}
-                                                            key={index}
-                                                            sx={borderColor()}
-                                                        >
-                                                            <div>
-                                                                {i.value}
-                                                            </div>
-                                                        </TableCell>
-                                                )}
-                                            </TableRow>
+                                                        </div>
+                                                    </TableCell>
+                                            )}
+                                        </TableRow>
                                     )}
-                        </TableBody>
-                    </Table>
-                    <TabalePagination darkMode={darkMode} />
-                </TableContainer>
+                                </TableBody>
+                            </Table>
+                            <TabalePagination darkMode={darkMode} />
+                        </TableContainer>
+                    </div>
             }
         </>
     );

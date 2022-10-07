@@ -47,7 +47,7 @@ button {
   --theme-light-color: #cfd6e4;
   --theme-light-blue-color: #e6f0ff;
   --theme-light-blue: #f0f6ff;
-  --theme-light-blue-font: #3861fb;
+  --theme-light-blue-font: #3862fb;
   --text-color: #000;
   --info-icon-color: #a6b0c3;
   --text-color-sub: #58667e;
@@ -58,20 +58,22 @@ button {
   --up-color: #16c784;
   --down-color: #ea3943;
   --border-color: #edf0f3;
-  --border-color-dark: #363e4b;
+  --border-color-dark: #292f38;
   --bg-color: #fff;
   --color-primary-black: #000;
   --color-primary-white: #fff;
   --color-primary-blue: #3861fb;
-  --color-neutral-1: #f8fafd;
-  --color-neutral-2: #eff2f5;
-  --color-neutral-3: #cfd6e4;
-  --color-neutral-4: #a6b0c3;
-  --color-neutral-5: #808a9d;
-  --color-neutral-6: #58667e;
+  --color-neutral-1: #222531;
+  --color-neutral-2: #323546;
+  --color-neutral-3: #262628;
+  --color-neutral-4: #646b80;
+  --color-neutral-5: #858ca2;
+  --color-neutral-6: #a1a7bb;
+  --color-neutral-7: #646b80;
   --ice-bg-1: linear-gradient(rgb(248, 250, 253) 0%, rgba(248, 250, 253, 0) 413px);
+  --dark-ice-bg-1: linear-gradient(rgb(34, 37, 49) 0%, rgba(34, 37, 49, 0) 413px);
   --color-light-neutral-1: #f8fafd;
-  --color-light-neutral-2: #eff2f5;
+  --color-light-neutral-2: #eaecee;
   --color-light-neutral-3: #cfd6e4;
   --color-light-neutral-4: #a6b0c3;
   --color-light-neutral-5: #808a9d;
@@ -111,4 +113,46 @@ button {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+h1 {
+  font-size: 2.2rem;
+  color: inherit;
+  text-transform: capitalize;
+}
+
+h2 {
+  font-size: 2rem;
+  text-transform: capitalize;
+  color: inherit;
+}
+
+h3 {
+  font-size: 1.8rem;
+  text-transform: capitalize;
+  color: inherit;
+}
+
+h4 {
+  font-size: 1.6rem;
+  color: inherit;
+  text-transform: capitalize;
+}
+
+h5 {
+  text-transform: capitalize;
+  font-size: 1.4rem;
+  color: inherit;
+}
+
+h6 {
+  font-size: 1.2rem;
+  color: inherit;
+  text-transform: capitalize;
+}
+
+span {
+  font-size: inherit;
+  color: inherit;
+  text-transform: capitalize;
 }

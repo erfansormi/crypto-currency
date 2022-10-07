@@ -2,17 +2,16 @@ import React from 'react'
 
 // redux
 import { useDispatch, useSelector } from 'react-redux';
-import { State } from '../../../../Redux/store';
+import { State } from '../../../../../Redux/store';
 
 // data
 import { nameHeader, nameFooter } from './NameSectionData';
 
 // css
-import styles from "./topSummary.module.css"
+import styles from "../topSummary.module.css"
 
 const NameSection = () => {
-    const detail = useSelector((state: State) => state.coin_detail)
-    const dispatch = useDispatch<any>()
+    const detail = useSelector((state: State) => state.coin_detail);
 
     return (
         <div className={styles.name_section_container}>
@@ -23,8 +22,12 @@ const NameSection = () => {
                     </div>
                 )}
             </div>
-            <div>
-
+            <div className={styles.header_name}>
+                {nameFooter(detail.data)?.map((item, index) =>
+                    <div key={index * 6 + 21}>
+                        {item.value}
+                    </div>
+                )}
             </div>
         </div>
     )

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 
 // react router dom
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
@@ -23,10 +23,11 @@ const App = () => {
   const general = useSelector((state: State) => state.general);
   const global = useSelector((state: State) => state.global);
   const coins = useSelector((state: State) => state.coins);
+  const detail = useSelector((state: State) => state.coin_detail);
 
   useEffect(() => {
     dispatch(coinsRequestFunc(coins.page))
-  }, [coins.page])
+  }, [coins.page, global.global?.updated_at, window.location.pathname])
 
   useEffect(() => {
     dispatch(globalFetchRequest())
@@ -35,27 +36,17 @@ const App = () => {
   useEffect(() => {
     let root = document.getElementById("root") as HTMLDivElement
     root?.childNodes.forEach((item: any) => {
-
-      if (general.darkMode) {
-        item.style.borderBottom = "1px solid var(--border-color-dark)";
-        item.style.backgroundColor = "var(--dark-bg-1)";
-        item.style.color = "var(--color-light-neutral-3)";
-      }
-      else {
-        item.style.borderBottom = "1px solid var(--border-color)";
-        item.style.backgroundColor = "#fff";
-        item.style.color = "var(--dark-bg-1)";
-      }
+      item.classList.add("root-nodes");
     })
 
-  }, [general.darkMode])
+  }, [coins.coins, detail.data, window.location])
 
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme} >
         <Header />
         <Routes>
-          <Route path='/' element={<CoinsTabale />} />
+          <Route path={`/`} element={<CoinsTabale />} />
           <Route path="/coins/:coin_id" element={<CoinDetail />} />
         </Routes>
       </ThemeProvider>

@@ -15,11 +15,10 @@ import styles from "./nav.module.css"
 import { BsArrowCounterclockwise } from "react-icons/bs"
 
 // components
-import SwitchDarkmode from './SwitchDarkMode'
+import SwitchDarkmode from '../../Other/SwitchDarkMode'
 
 const Nav = () => {
     const global = useSelector((state: State) => state.global.global);
-    const general = useSelector((state: State) => state.general);
     const other = useSelector((state: State) => state.global);
     const dispatch = useDispatch<any>();
 
@@ -27,22 +26,10 @@ const Nav = () => {
     const handleFetchData = () => {
         dispatch(globalFetchRequest())
     }
-    let color = () => {
-        if (general.darkMode) {
-            return {
-                color: "var(--color-light-neutral-3)"
-            }
-        }
-        else {
-            return {
-                color: "var(--color-light-neutral-6)"
-            }
-        }
-    }
 
     return (
         <nav className={styles.nav}>
-            <div style={color()} >
+            <div className='light-color' >
 
                 {/* loading */}
                 {other.loading ?

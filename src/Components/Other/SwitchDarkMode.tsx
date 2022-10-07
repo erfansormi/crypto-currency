@@ -6,8 +6,8 @@ import { FormControl } from '@mui/material';
 
 // redux
 import { useSelector, useDispatch } from 'react-redux';
-import { State } from '../../../Redux/store';
-import { changeDarkMode } from '../../../Redux/General/generalActions';
+import { State } from '../../Redux/store';
+import { changeDarkMode } from '../../Redux/General/generalActions';
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     width: 58,

@@ -71,7 +71,7 @@ export const TabaleBody = (coins: iCoins) => {
             value:
                 <Link to={`coins/${coins.id}`}>
                     <div style={{ display: "flex", alignItems: "center" }}>
-                        <div>
+                        <div style={{ display: "flex" }}>
                             <img
                                 src={coins.image}
                                 alt={"coin image"}

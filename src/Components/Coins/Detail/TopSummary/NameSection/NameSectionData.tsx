@@ -1,4 +1,4 @@
-import { DataType } from "../../../../Redux/Coins/Detail/coinDetailTypes"
+import { DataType } from "../../../../../Redux/Coins/Detail/coinDetailTypes"
 
 export const nameHeader = (data: DataType) => {
     return [
@@ -9,7 +9,7 @@ export const nameHeader = (data: DataType) => {
             value: <h2>{data?.name}</h2>
         },
         {
-            value: <span>{data?.symbol.toUpperCase()}</span>
+            value: <span style={{ lineHeight: "25px" }} className={"pillName"}>{data?.symbol.toUpperCase()}</span>
         }
     ]
 }
@@ -17,10 +17,10 @@ export const nameHeader = (data: DataType) => {
 export const nameFooter = (data: DataType) => {
     return [
         {
-            value: <span>rank #{data?.market_cap_rank} </span>
+            value: <span className="pillName-primary pillName">rank #{data?.market_cap_rank} </span>
         },
         {
-            value: <span>coin</span>
+            value: <span className="pillName">coin</span>
         }
     ]
 }
