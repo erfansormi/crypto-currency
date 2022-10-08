@@ -15,7 +15,8 @@ import Loading from '../../Other/Loading';
 
 // components
 import TopSummary from './TopSummary/TopSummary';
-import CoinChart from './CoinChart/CoinChart';
+import CoinChart from './MiddleData/CoinChart/CoinChart';
+import SideInfo from './MiddleData/SideInfo/SideInfo';
 
 const CoinDetail = () => {
     let id = useParams();
@@ -46,9 +47,12 @@ const CoinDetail = () => {
                                 <div className={styles.top_summary_container}>
                                     <TopSummary />
                                 </div>
-                                <Grid container>
-                                    <Grid xs={7}>
+                                <Grid container spacing={2}>
+                                    <Grid xs={8}>
                                         <CoinChart data={detail.chart.chart?.prices} />
+                                    </Grid>
+                                    <Grid xs={4}>
+                                        <SideInfo />
                                     </Grid>
                                 </Grid>
                             </div>

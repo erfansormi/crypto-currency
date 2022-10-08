@@ -37,12 +37,9 @@ const options = {
 
 const CoinChart = ({ data }: iProps) => {
     const labels = data?.map((item, index) => {
-        if (index > 0 && new Date(item[0]).getDate() == new Date(data[index - 1][0]).getDate()) {
-            return `${new Date(item[0]).getHours()}:${new Date(item[0]).getMinutes()}`;
-        }
-        else {
-            return `${new Date(item[0]).getDate()}. ${new Date(item[0]).toDateString().split(/[0-9]/)[0].split(" ")[1]}`
-        }
+        return new Date(item[0]).getDate() + "." +
+            new Date(item[0]).toDateString().split(/[0-9]/)[0].split(" ")[1] + "  " +
+            new Date(item[0]).getHours() + ":" + new Date(item[0]).getMinutes()
     });
 
     const Data = {
@@ -54,7 +51,7 @@ const CoinChart = ({ data }: iProps) => {
                 data: data?.map(item => {
                     return item[1]
                 }),
-                label: "price",
+                label: "price(usd)",
                 borderColor: '#3861fb',
                 backgroundColor: '#3861fb10',
                 pointBorderWidth: 0,
@@ -64,6 +61,8 @@ const CoinChart = ({ data }: iProps) => {
     };
 
     ChartJS.defaults.datasets.line.cubicInterpolationMode = "monotone";
+    ChartJS.defaults.color = "#999";
+
     return (
         <div>
             <div style={{ marginBottom: 15 }}>

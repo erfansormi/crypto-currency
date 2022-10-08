@@ -12,7 +12,10 @@ export const StatesData = (data: Data) => {
                     </div>
                     <div>
                         <span>
-                            ${data.market_data.market_cap.usd.toLocaleString()}
+                            {data.market_data.market_cap.usd ?
+                                `$${data.market_data.market_cap.usd.toLocaleString()}` :
+                                "unregistered!"
+                            }
                         </span>
                     </div>
                     <div>
@@ -38,7 +41,10 @@ export const StatesData = (data: Data) => {
                     </div>
                     <div>
                         <span>
-                            ${data.market_data.fully_diluted_valuation.usd.toLocaleString()}
+                            {data.market_data.fully_diluted_valuation.usd ?
+                                `$${data.market_data.fully_diluted_valuation.usd.toLocaleString()}` :
+                                "unregistered!"
+                            }
                         </span>
                     </div>
                     <div>
@@ -66,7 +72,10 @@ export const StatesData = (data: Data) => {
                         </div>
                         <div>
                             <span>
-                                ${data.market_data.total_volume.usd.toLocaleString()}
+                                {data.market_data.total_volume.usd ?
+                                    `$${data.market_data.total_volume.usd.toLocaleString()}` :
+                                    "unregistered!"
+                                }
                             </span>
                         </div>
                     </div>
@@ -103,7 +112,7 @@ export const StatesData = (data: Data) => {
                             </div>
                             <div>
                                 <span>
-                                    {data.market_data.max_supply.toLocaleString()}
+                                    {data.market_data.max_supply ? data.market_data.max_supply.toLocaleString() : "unregistered!"}
                                     <span className="pillName" style={{ marginLeft: 5 }}>{data.symbol.toUpperCase()}</span>
                                 </span>
                             </div>
@@ -114,7 +123,7 @@ export const StatesData = (data: Data) => {
                             </div>
                             <div>
                                 <span>
-                                    {data.market_data.total_supply.toLocaleString()}
+                                    {data.market_data.total_supply ? data.market_data.total_supply.toLocaleString() : "unregistered!"}
                                     <span className="pillName" style={{ marginLeft: 5 }}>{data.symbol.toUpperCase()}</span>
                                 </span>
                             </div>

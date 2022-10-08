@@ -28,6 +28,14 @@ const GlobalStyles = () => {
             }
         }
 
+        .neutral-1{
+            ${darkMode ?
+                `background-color:var(--color-neutral-1);
+            color: var(--color-neutral-6);`:
+                `background-color:var(--color-light-neutral-1);
+            color: var(--color-light-neutral-6);`
+            }
+        }
 
         .ice-bg{
             background:${darkMode ? "var(--dark-ice-bg-1)" : "var(--ice-bg-1)"};
@@ -118,6 +126,17 @@ const GlobalStyles = () => {
                 `border:1px solid var(--border-color-dark)` :
                 `border:1px solid var(--border-color)`
             }
+        }
+
+        .border-b-color{
+            ${darkMode ?
+                `border-bottom:1px solid var(--border-color-dark)` :
+                `border-bottom:1px solid var(--border-color)`
+            }
+        }
+
+        .border-b-color:last-child{
+            border-bottom:0;
         }
         `} />
     )
