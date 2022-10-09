@@ -85,10 +85,9 @@ const CoinsTabale = () => {
                                 </TableHead>
                                 <TableBody>
                                     {coins.coins?.map((item) =>
-                                        <Link
+                                        <TableRow
                                             key={item.market_cap_rank + 20}
                                             className="tr-hover"
-                                            to={`coins/${item.id}`}
                                             style={{
                                                 display: 'table-row',
                                                 verticalAlign: 'middle',
@@ -110,12 +109,12 @@ const CoinsTabale = () => {
                                                         key={index}
                                                         sx={borderColor()}
                                                     >
-                                                        <div>
-                                                            {i.value}
-                                                        </div>
+                                                            <Link to={`coins/${item.id}`}>
+                                                                {i.value}
+                                                            </Link>
                                                     </TableCell>
                                             )}
-                                        </Link>
+                                        </TableRow>
                                     )}
                                 </TableBody>
                             </Table>

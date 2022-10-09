@@ -22,6 +22,7 @@
 
 .coin_img {
     width: 25px;
+    height: fit-content;
 }
 
 .symbol {

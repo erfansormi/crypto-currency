@@ -96,7 +96,7 @@ button {
   padding: 6px !important;
 }
 
-.MuiTableCell-root>div>canvas {
+.MuiTableCell-root>a canvas {
   width: 210px !important;
   height: 90px !important;
 }
@@ -165,4 +165,17 @@ span {
   font-size: inherit;
   color: inherit;
   text-transform: capitalize;
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.d-flex {
+  display: flex;
 }
