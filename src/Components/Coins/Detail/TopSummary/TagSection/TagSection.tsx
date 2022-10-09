@@ -14,11 +14,14 @@ const TagSection = () => {
           Tags:
         </span>
       </div>
-      <div>
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
         {detail.data?.categories.map((item, index) =>
-          <span key={index * 6 + 24} className="pillName" style={{ marginRight: 6 }}>
-            {item}
-          </span>
+          index <= 4 ?
+            <div style={{ marginRight: 6, display: "flex", alignItems: "center" }}>
+              <span key={index * 6 + 24} className="pillName">
+                {item}
+              </span>
+            </div> : null
         )}
       </div>
     </div>

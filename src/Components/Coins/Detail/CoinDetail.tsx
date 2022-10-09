@@ -43,19 +43,24 @@ const CoinDetail = () => {
                             </div> :
 
                             // detail data
-                            <div className={styles.container}>
-                                <div className={styles.top_summary_container}>
-                                    <TopSummary />
-                                </div>
-                                <Grid container spacing={2}>
-                                    <Grid xs={8}>
-                                        <CoinChart data={detail.chart.chart?.prices} />
+                            detail.data ?
+                                <div className={styles.container}>
+                                    <div className={styles.top_summary_container}>
+                                        <TopSummary />
+                                    </div>
+                                    <Grid container spacing={2}>
+                                        <Grid xs={8}>
+                                            {
+                                                detail.chart.chart ?
+                                                    <CoinChart data={detail.chart.chart.prices} /> :
+                                                    <h3>loading...</h3>
+                                            }
+                                        </Grid>
+                                        <Grid xs={4}>
+                                            <SideInfo />
+                                        </Grid>
                                     </Grid>
-                                    <Grid xs={4}>
-                                        <SideInfo />
-                                    </Grid>
-                                </Grid>
-                            </div>
+                                </div> : null
                     }
                 </article>
             </div>

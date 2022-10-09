@@ -53,6 +53,55 @@ export const SideInfoData = (data: Data) => {
                     </span>
                 </>
         },
-
+        {
+            text:
+                <>
+                    trading volume <span className="pillName">24h</span>
+                </>,
+            value:
+                <>
+                    ${data.market_data.total_volume.usd > 999 ?
+                        data.market_data.total_volume.usd.toLocaleString() :
+                        data.market_data.total_volume.usd}
+                </>
+        },
+        {
+            text:
+                <>
+                    volume / market Cap
+                </>,
+            value:
+                <>
+                    {Number(data.market_data.total_volume.usd / data.market_data.market_cap.usd).toFixed(5)}
+                </>
+        },
+        {
+            text:
+                <>
+                    market rank
+                </>,
+            value:
+                <>
+                    #{data.market_cap_rank}
+                </>
+        },
+        {
+            text:
+                <>
+                    market cap
+                </>,
+            value:
+                <>
+                    <span>${data.market_data.market_cap.usd > 999 ?
+                        data.market_data.market_cap.usd.toLocaleString() :
+                        data.market_data.market_cap.usd}
+                    </span>
+                    <span className={`${data.market_data.market_cap_change_percentage_24h > 0 ?
+                        "up-color" : data.market_data.market_cap_change_percentage_24h < 0 ?
+                            "down-color" : "neutral-color"}`}>
+                        {data.market_data.market_cap_change_percentage_24h.toFixed(2)}%
+                    </span>
+                </>
+        }
     ]
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 // chart js
 import {
@@ -14,7 +14,7 @@ import { Line } from 'react-chartjs-2';
 
 // ts
 interface iProps {
-    data: number[][] | undefined
+    data: number[][]
 }
 
 ChartJS.register(
@@ -36,11 +36,13 @@ const options = {
 };
 
 const CoinChart = ({ data }: iProps) => {
-    const labels = data?.map((item, index) => {
+    const [loading, setLoading] = useState(true);
+
+    const labels = data.map((item) => {
         return new Date(item[0]).getDate() + "." +
             new Date(item[0]).toDateString().split(/[0-9]/)[0].split(" ")[1] + "  " +
-            new Date(item[0]).getHours() + ":" + new Date(item[0]).getMinutes()
-    });
+            new Date(item[0]).getHours() + ":" + new Date(item[0]).getMinutes();
+    })
 
     const Data = {
         labels,
@@ -61,7 +63,13 @@ const CoinChart = ({ data }: iProps) => {
     };
 
     ChartJS.defaults.datasets.line.cubicInterpolationMode = "monotone";
-    ChartJS.defaults.color = "#999";
+    // ChartJS.defaults.color = "#999";
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false)
+        }, 1500)
+    }, [])
 
     return (
         <div>

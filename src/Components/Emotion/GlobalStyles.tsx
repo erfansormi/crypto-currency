@@ -13,6 +13,19 @@ const GlobalStyles = () => {
     return (
         <Global styles={css`
 
+        body{
+            ${darkMode ?
+                `
+                    background-color: var(--dark-bg-1) !important;
+                    color: #fff !important;
+                ` :
+                `
+                background-color: #fff !important;
+                color: var(--dark-bg-1) !important;
+                `
+            }
+        }
+
         .root-nodes{
             ${darkMode ?
                 `
@@ -26,6 +39,10 @@ const GlobalStyles = () => {
                 color: var(--dark-bg-1) !important;
                 `
             }
+        }
+
+        .root-nodes:last-child{
+            border-bottom:0 !important;
         }
 
         .neutral-1{
