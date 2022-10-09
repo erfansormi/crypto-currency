@@ -72,6 +72,7 @@ export const TabaleBody = (coins: iCoins) => {
                     <div style={{ display: "flex", alignItems: "center" }}>
                         <div style={{ display: "flex" }}>
                             <img
+                                loading={"lazy"}
                                 src={coins.image}
                                 alt={"coin image"}
                                 className={styles.coin_img}

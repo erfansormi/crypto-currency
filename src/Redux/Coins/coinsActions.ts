@@ -40,6 +40,7 @@ const coinsFetchRequest = (page: number) => {
             })
 
             .catch((error) => {
+                console.log(error)
                 dispatch(fetchRequestFailure(error.message))
             })
     }

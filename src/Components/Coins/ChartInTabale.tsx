@@ -34,10 +34,6 @@ const ChartInTabale = ({ data, percentage }: iProps) => {
                     bottom: 0
                 }
             },
-            tooltip: {
-                usePointStyle: false,
-                display: false,
-            },
             title: {
                 display: false,
 
@@ -69,7 +65,7 @@ const ChartInTabale = ({ data, percentage }: iProps) => {
             {
                 data: data,
                 drawActiveElementsOnTop: false,
-                borderColor: percentage > 0 ? "#16c784" : "#ea3943",
+                borderColor: data[0] < data[data.length - 1] ? "#16c784" : "#ea3943",
                 pointBorderWidth: 0,
                 pointRadius: 0,
                 borderWidth: 1.8,
