@@ -17,6 +17,7 @@ import { theme } from './Components/Mui/CustomizeColor'
 import Header from './Components/Header/Header'
 import CoinsTabale from './Components/Coins/CoinsTabale'
 import CoinDetail from './Components/Coins/Detail/CoinDetail'
+import PageNotFound from './Components/Errors/PageNotFound/PageNotFound'
 
 const App = () => {
   const dispatch = useDispatch<any>();
@@ -48,6 +49,7 @@ const App = () => {
         <Routes>
           <Route path={`/`} element={<CoinsTabale />} />
           <Route path="/coins/:coin_id" element={<CoinDetail />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </ThemeProvider>
     </BrowserRouter>
