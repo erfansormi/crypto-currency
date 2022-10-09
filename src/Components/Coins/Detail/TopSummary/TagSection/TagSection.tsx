@@ -17,7 +17,7 @@ const TagSection = () => {
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {detail.data?.categories.map((item, index) =>
           index <= 4 ?
-            <div style={{ marginRight: 6, display: "flex", alignItems: "center" }}>
+            <div style={{ marginRight: 6, display: "flex", alignItems: "center", marginBottom: 4 }}>
               <span key={index * 6 + 24} className="pillName">
                 {item}
               </span>

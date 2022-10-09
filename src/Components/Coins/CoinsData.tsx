@@ -69,7 +69,6 @@ export const TabaleBody = (coins: iCoins) => {
         },
         {
             value:
-                <Link to={`coins/${coins.id}`}>
                     <div style={{ display: "flex", alignItems: "center" }}>
                         <div style={{ display: "flex" }}>
                             <img
@@ -83,7 +82,6 @@ export const TabaleBody = (coins: iCoins) => {
                             <span className={styles.symbol}>{`${coins.symbol.toUpperCase()}`}</span>
                         </div>
                     </div>
-                </Link>
         },
         {
             value: `$${coins.current_price > 999 ? coins.current_price.toLocaleString() : +coins.current_price}`
@@ -117,11 +115,9 @@ export const TabaleBody = (coins: iCoins) => {
         },
         {
             value:
-                <Link to={`coins/${coins.id}`}>
                     <ChartInTabale data={coins.sparkline_in_7d.price}
                         percentage={coins.price_change_percentage_7d_in_currency}
                     />
-                </Link>
         }
     ]
 }

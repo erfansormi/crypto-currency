@@ -96,7 +96,7 @@ button {
   padding: 6px !important;
 }
 
-.MuiTableCell-root>div>a canvas {
+.MuiTableCell-root>div>canvas {
   width: 210px !important;
   height: 90px !important;
 }
@@ -108,6 +108,16 @@ button {
 
 .css-15t286k-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
   color: var(--color-light-neutral-2) !important;
+}
+
+.topSummary_grid_container__Fg9zm>div {
+  margin-bottom: 15px;
+}
+
+@media (max-width:569px) {
+  .css-11dxe26-MuiGrid2-root, .css-12uoggl-MuiGrid2-root, .css-w9npn5-MuiGrid2-root {
+    width: 100% !important;
+  }
 }
 
 a {

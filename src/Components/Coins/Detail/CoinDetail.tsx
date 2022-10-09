@@ -8,7 +8,7 @@ import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import styles from "./coin.module.css"
 
 // redux
-import { coinDetailDataFetchRequestFunc, coinChartFetchRequestFunc } from '../../../Redux/Coins/Detail/coinDetailActions';
+import { coinDetailDataFetchRequestFunc } from '../../../Redux/Coins/Detail/coinDetailActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { State } from '../../../Redux/store';
 import Loading from '../../Other/Loading';
@@ -25,7 +25,6 @@ const CoinDetail = () => {
 
     useEffect(() => {
         dispatch(coinDetailDataFetchRequestFunc(id.coin_id))
-        dispatch(coinChartFetchRequestFunc(id.coin_id))
     }, [])
 
     return (
@@ -49,14 +48,10 @@ const CoinDetail = () => {
                                         <TopSummary />
                                     </div>
                                     <Grid container spacing={2}>
-                                        <Grid xs={8}>
-                                            {
-                                                detail.chart.chart ?
-                                                    <CoinChart data={detail.chart.chart.prices} /> :
-                                                    <h3>loading...</h3>
-                                            }
+                                        <Grid xs={12} md={8}>
+                                            <CoinChart />
                                         </Grid>
-                                        <Grid xs={4}>
+                                        <Grid xs={12} md={4}>
                                             <SideInfo />
                                         </Grid>
                                     </Grid>

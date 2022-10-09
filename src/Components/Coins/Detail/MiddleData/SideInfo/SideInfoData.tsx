@@ -1,8 +1,6 @@
 import { Data } from "../../../../../Redux/Coins/Detail/coinDetailTypes"
 
 export const SideInfoData = (data: Data) => {
-    console.log(data.market_data.price_change_24h.toString().split("-"))
-
     return [
         {
             text: data.name + "price today",

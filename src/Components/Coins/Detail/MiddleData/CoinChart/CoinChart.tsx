@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 // chart js
 import {
@@ -9,13 +10,13 @@ import {
     LineElement,
     Tooltip,
     Filler,
-} from 'chart.js';
-import { Line } from 'react-chartjs-2';
+} from "chart.js";
+import { Line } from "react-chartjs-2";
 
-// ts
-interface iProps {
-    data: number[][]
-}
+// redux
+import { coinChartFetchRequestFunc } from "../../../../../Redux/Coins/Detail/coinDetailActions";
+import { useDispatch, useSelector } from "react-redux";
+import { State } from "../../../../../Redux/store";
 
 ChartJS.register(
     CategoryScale,
@@ -26,23 +27,35 @@ ChartJS.register(
     Filler
 );
 
-const options = {
-    responsive: true,
-    plugins: {
-        legend: {
-            position: 'top' as const,
+const CoinChart = () => {
+    let id = useParams();
+    const dispatch = useDispatch<any>();
+    const detail = useSelector((state: State) => state.coin_detail.chart);
+
+    useEffect(() => {
+        dispatch(coinChartFetchRequestFunc(id.coin_id));
+    }, []);
+
+    const labels = detail.chart?.prices.map((item) => {
+        return (
+            new Date(item[0]).getDate() +
+            "." +
+            new Date(item[0]).toDateString().split(/[0-9]/)[0].split(" ")[1] +
+            "  " +
+            new Date(item[0]).getHours() +
+            ":" +
+            new Date(item[0]).getMinutes()
+        );
+    });
+
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: "top" as const,
+            },
         },
-    },
-};
-
-const CoinChart = ({ data }: iProps) => {
-    const [loading, setLoading] = useState(true);
-
-    const labels = data.map((item) => {
-        return new Date(item[0]).getDate() + "." +
-            new Date(item[0]).toDateString().split(/[0-9]/)[0].split(" ")[1] + "  " +
-            new Date(item[0]).getHours() + ":" + new Date(item[0]).getMinutes();
-    })
+    };
 
     const Data = {
         labels,
@@ -50,37 +63,34 @@ const CoinChart = ({ data }: iProps) => {
             {
                 fill: true,
                 drawActiveElementsOnTop: false,
-                data: data?.map(item => {
-                    return item[1]
+                data: detail.chart?.prices.map((item) => {
+                    return item[1];
                 }),
                 label: "price(usd)",
-                borderColor: '#3861fb',
-                backgroundColor: '#3861fb10',
+                borderColor: "#3861fb",
+                backgroundColor: "#3861fb10",
                 pointBorderWidth: 0,
                 borderWidth: 2.5,
             },
         ],
     };
-
     ChartJS.defaults.datasets.line.cubicInterpolationMode = "monotone";
     // ChartJS.defaults.color = "#999";
-
-    useEffect(() => {
-        setTimeout(() => {
-            setLoading(false)
-        }, 1500)
-    }, [])
 
     return (
         <div>
             <div style={{ marginBottom: 15 }}>
-                <h3>
-                    Bitcoin Price Chart (7d)
-                </h3>
+                <h3>Bitcoin Price Chart (7d)</h3>
             </div>
-            <Line options={options} data={Data} />
+            {detail.loading ? (
+                <h3>Loading...</h3>
+            ) : detail.error ? (
+                <h3>{detail.error}</h3>
+            ) : (
+                <Line data={Data} />
+            )}
         </div>
-    )
-}
+    );
+};
 
-export default CoinChart
+export default CoinChart;

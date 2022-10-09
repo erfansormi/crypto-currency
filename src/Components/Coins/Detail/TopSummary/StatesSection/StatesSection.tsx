@@ -53,7 +53,7 @@ const StatesSection = () => {
                 detail.data == null ? null :
                     StatesData(detail.data).map((item, index) =>
                         <Grid
-                            sx={borderColor(index)} xs={3} key={index * 6 + 25}
+                            sx={borderColor(index)} xs={6} md={6} lg={3} key={index * 6 + 25}
                         >
                             <div className={`${styles.states_section_container}`}>
                                 {item.value}

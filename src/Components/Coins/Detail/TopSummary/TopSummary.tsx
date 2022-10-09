@@ -16,16 +16,16 @@ import StatesSection from './StatesSection/StatesSection';
 const TopSummary = () => {
     return (
         <Grid container className={styles.grid_container}>
-            <Grid xs={6} spacing={2}>
+            <Grid xs={12} md={6}>
                 <NameSection />
             </Grid>
-            <Grid xs={6} spacing={2}>
+            <Grid xs={12} md={6}>
                 <PriceSection />
             </Grid>
-            <Grid xs={6} spacing={2}>
+            <Grid xs={12} md={6}>
                 <LinkSection />
             </Grid>
-            <Grid xs={6} spacing={2}>
+            <Grid xs={12} md={6}>
                 <TagSection />
             </Grid>
             <Grid xs={12} spacing={2}>

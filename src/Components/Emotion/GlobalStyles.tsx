@@ -13,6 +13,17 @@ const GlobalStyles = () => {
     return (
         <Global styles={css`
 
+        .tr-hover:hover{
+            ${darkMode ?
+                `
+                    background-color: #1a1b22 !important;
+                ` :
+                `
+                background-color: var(--theme-light-blue) !important;
+                `
+            }
+        }
+
         body{
             ${darkMode ?
                 `
