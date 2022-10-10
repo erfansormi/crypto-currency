@@ -41,7 +41,7 @@ const PageNotFound = () => {
                 <div className={styles.message}>
                     Page not found
                     <Link to={"/"}>
-                        /click to back to home
+                        /click here
                     </Link>
                 </div>
             </div>

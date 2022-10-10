@@ -41,6 +41,9 @@
 
 .message {
     color: #16a085;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .message a {
@@ -72,7 +75,7 @@
     animation-duration: 2s;
     -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
-    margin: 0 50px;
+    margin: 0 30px;
 }
 
 @-webkit-keyframes opacity {

@@ -128,37 +128,37 @@ a {
 }
 
 h1 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: inherit;
   text-transform: capitalize;
 }
 
 h2 {
-  font-size: 2rem;
-  text-transform: capitalize;
-  color: inherit;
-}
-
-h3 {
   font-size: 1.8rem;
   text-transform: capitalize;
   color: inherit;
 }
 
-h4 {
+h3 {
   font-size: 1.6rem;
+  text-transform: capitalize;
+  color: inherit;
+}
+
+h4 {
+  font-size: 1.4rem;
   color: inherit;
   text-transform: capitalize;
 }
 
 h5 {
   text-transform: capitalize;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: inherit;
 }
 
 h6 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: inherit;
   text-transform: capitalize;
 }

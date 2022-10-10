@@ -1,0 +1,42 @@
+.container {
+    min-height: 80px;
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+}
+
+.layout_container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.layout_container .section_1 .logo_img {
+    width: 36px;
+    height: auto;
+    margin-right: 4px;
+}
+
+.layout_container .section_1 div a h2 {
+    font-size: 1.5rem;
+}
+
+.layout_container .input_container {
+    height: 40px;
+    width: 250px;
+    cursor: pointer;
+}
+
+.layout_container .input_container:hover {
+    
+}
+
+.layout_container .input_container>div {
+    display: flex;
+    align-items: center;
+}
+
+.layout_container .input_container>div:first-child {
+    margin-right: 8px;
+}
+

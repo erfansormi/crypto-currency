@@ -28,7 +28,7 @@ const Nav = () => {
     }
 
     return (
-        <nav className={styles.nav}>
+        <nav className={`border-b-color ${styles.nav}`}>
             <div className='light-color' >
 
                 {/* loading */}

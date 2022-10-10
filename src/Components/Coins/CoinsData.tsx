@@ -70,7 +70,7 @@ export const TabaleBody = (coins: iCoins) => {
         {
             value:
                 <div className="align-center">
-                    <div>
+                    <div className="align-center">
                         <img
                             loading={"lazy"}
                             src={coins.image}
