@@ -17,6 +17,7 @@ import Loading from '../../Other/Loading';
 import TopSummary from './TopSummary/TopSummary';
 import CoinChart from './MiddleData/CoinChart/CoinChart';
 import SideInfo from './MiddleData/SideInfo/SideInfo';
+import Error from '../../Errors/Error/Error';
 
 const CoinDetail = () => {
     let id = useParams();
@@ -37,9 +38,7 @@ const CoinDetail = () => {
 
                         detail.error ?
                             // error
-                            <div>
-                                {detail.error}
-                            </div> :
+                            <Error errorMessage={detail.error} /> :
 
                             // detail data
                             detail.data ?

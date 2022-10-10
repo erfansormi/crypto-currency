@@ -57,6 +57,8 @@ button {
   --var-text-small: 14px;
   --up-color: #16c784;
   --down-color: #ea3943;
+  --error-alert-bg: #ffdddd;
+  --error-dark-alert-bg: #2e2828;
   --border-color: #edf0f3;
   --border-color-dark: #292f38;
   --bg-color: #fff;

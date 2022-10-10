@@ -22,12 +22,10 @@ import { TabaleHead, TabaleBody } from "./CoinsData"
 // css
 import styles from "./coinsTabale.module.css"
 
-// icon
-import { BsArrowCounterclockwise } from "react-icons/bs"
-
 // components
 import TabalePagination from './TabalePagination';
 import Loading from '../Other/Loading';
+import Error from '../Errors/Error/Error';
 
 const CoinsTabale = () => {
     const dispatch = useDispatch<any>();
@@ -53,10 +51,10 @@ const CoinsTabale = () => {
         <>
             {/* error */}
             {coins.error ?
-                <div className={styles.err_container}>
-                    <span>{coins.error}</span>
-                    <span onClick={() => window.document.location.reload()}><BsArrowCounterclockwise /></span>
-                </div> :
+                <>
+                    <Error errorMessage={coins.error} />
+                </>
+                :
 
                 // loading
                 coins.loading ?
@@ -109,9 +107,9 @@ const CoinsTabale = () => {
                                                         key={index}
                                                         sx={borderColor()}
                                                     >
-                                                            <Link to={`coins/${item.id}`}>
-                                                                {i.value}
-                                                            </Link>
+                                                        <Link to={`coins/${item.id}`}>
+                                                            {i.value}
+                                                        </Link>
                                                     </TableCell>
                                             )}
                                         </TableRow>
