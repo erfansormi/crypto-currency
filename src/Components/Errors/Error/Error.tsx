@@ -23,6 +23,9 @@ interface iProps {
 const Error = ({ errorMessage }: iProps) => {
     const darkMode = useSelector((state: State) => state.general.darkMode)
 
+    // title
+    window.document.title = "404 error | Page not found"
+
     return (
         <div className={`md-shadow ${styles.container}`}>
             <Grid container spacing={4}>

@@ -24,6 +24,9 @@ const CoinDetail = () => {
     const dispatch = useDispatch<any>();
     const detail = useSelector((state: State) => state.coin_detail);
 
+    // title
+    window.document.title = `${id.coin_id} detail`
+
     useEffect(() => {
         dispatch(coinDetailDataFetchRequestFunc(id.coin_id))
     }, [])
