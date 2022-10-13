@@ -34,7 +34,9 @@ const CoinDetail = () => {
                 <article className={`ice-bg ${styles.layout_container}`}>
                     {detail.loading ?
                         // loading
-                        <Loading loading={detail.loading} /> :
+                        <div style={{ minHeight: "60vh" }}>
+                            <Loading loading={detail.loading} />
+                        </div> :
 
                         detail.error ?
                             // error
@@ -46,7 +48,7 @@ const CoinDetail = () => {
                                     <div className={styles.top_summary_container}>
                                         <TopSummary />
                                     </div>
-                                    <Grid container spacing={2}>
+                                    <Grid container sx={{ padding: "20px 0 50px" }} spacing={2}>
                                         <Grid xs={12} md={8}>
                                             <CoinChart />
                                         </Grid>

@@ -9,7 +9,7 @@ const TagSection = () => {
 
   return (
     <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
-      <div>
+      <div style={{ marginBottom: "6px" }}>
         <span className='light-color' style={{ marginRight: 6 }}>
           Tags:
         </span>

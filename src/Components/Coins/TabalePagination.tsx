@@ -31,7 +31,10 @@ export default function TabalePagination({ darkMode }: iProps) {
     }
 
     return (
-        <Box sx={{ display: "flex", justifyContent: "center", padding: "15px 0" }}>
+        <Box
+            sx={{ display: "flex", justifyContent: "center", padding: "25px 0" }}
+            // className="border-b-color"
+            >
             <Stack spacing={2}>
                 <Pagination
                     sx={color()}

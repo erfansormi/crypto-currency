@@ -18,6 +18,7 @@ import Header from './Components/Header/Header'
 import CoinDetail from './Components/Coins/Detail/CoinDetail'
 import PageNotFound from './Components/Errors/PageNotFound/PageNotFound'
 import Home from './Components/Home/Home'
+import Footer from './Components/Footer/Footer'
 
 const App = () => {
   const dispatch = useDispatch<any>();
@@ -51,6 +52,7 @@ const App = () => {
           <Route path="/coins/:coin_id" element={<CoinDetail />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
+        <Footer />
       </ThemeProvider>
     </BrowserRouter>
   )

@@ -14,9 +14,24 @@
     sans-serif !important;
 }
 
+html {
+  font-size: 15px;
+}
+
+@media (max-width:767px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media (max-width:565px) {
+  html {
+    font-size: 11px;
+  }
+}
+
 body {
   font-weight: 600;
-  font-size: 15px;
   margin: 0;
   font-family: SecularOne -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
