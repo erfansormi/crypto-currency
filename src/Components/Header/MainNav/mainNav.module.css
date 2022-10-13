@@ -111,8 +111,8 @@
         align-items: center;
     }
 
-    .layout_container .section_1 {
-        margin-bottom: 15px;
+    .layout_container>div {
+        margin-bottom: 20px;
     }
 
     .layout_container .input_container {

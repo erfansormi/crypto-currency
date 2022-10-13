@@ -15,18 +15,12 @@
 }
 
 html {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 @media (max-width:767px) {
   html {
-    font-size: 13px;
-  }
-}
-
-@media (max-width:565px) {
-  html {
-    font-size: 11px;
+    font-size: 14px;
   }
 }
 
@@ -118,28 +112,9 @@ button {
   height: 90px !important;
 }
 
-.MuiPaginationItem-root {
-  color: inherit !important;
-  font-weight: 600 !important;
-}
-
-.css-15t286k-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
-  color: var(--color-light-neutral-2) !important;
-}
-
 .topSummary_grid_container__Fg9zm>div {
   margin-bottom: 15px;
 }
-
-/* .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
-  width: 100%;
-  padding: 25px 25px 50px;
-  border-radius: 6px !important;
-  -webkit-border-radius: 6px !important;
-  -moz-border-radius: 6px !important;
-  -ms-border-radius: 6px !important;
-  -o-border-radius: 6px !important;
-} */
 
 @media (max-width:569px) {
   .css-11dxe26-MuiGrid2-root, .css-12uoggl-MuiGrid2-root, .css-w9npn5-MuiGrid2-root {

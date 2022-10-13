@@ -72,7 +72,7 @@ const CoinsTabale = () => {
                                             <TableCell
                                                 sx={borderColor()}
                                                 className={styles.tabale_head}
-                                                align={index == 0 || index == 1 ? "inherit" : "center"}
+                                                align={"center"}
                                                 key={item.title + index}
                                             >
                                                 {item.title}
@@ -94,6 +94,7 @@ const CoinsTabale = () => {
                                                 <TableCell
                                                     component="th"
                                                     scope="row"
+                                                    align='center'
                                                     key={index}
                                                     sx={borderColor()}
                                                 >
@@ -102,7 +103,7 @@ const CoinsTabale = () => {
                                                 :
                                                 <TableCell
                                                     size='small'
-                                                    align={index == 1 ? "left" : "center"}
+                                                    align={"center"}
                                                     key={index}
                                                     sx={borderColor()}
                                                 >

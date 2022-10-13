@@ -263,7 +263,19 @@ const GlobalStyles = () => {
         100% {
             box-shadow: none;
         }
-}
+    }
+
+    .invert-img{
+        filter: invert(1);
+    }
+
+    .MuiPaginationItem-root{
+        font-weight: 600 !important;
+        ${darkMode ?
+                `color:#fff !important;` :
+                null
+            }
+    }
         `} />
     )
 }

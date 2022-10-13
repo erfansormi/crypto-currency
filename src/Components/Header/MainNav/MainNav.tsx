@@ -25,7 +25,7 @@ const MainNav = () => {
                 <div className={styles.section_1}>
                     <div>
                         <Link to={"/"} className={`align-center`}>
-                            <img src={darkMode ? lightLogo : logo} alt="crypto logo" className={styles.logo_img} />
+                            <img src={logo} alt="crypto logo" className={`${styles.logo_img} ${darkMode ? "invert-img" : null}`} />
                             <h2>
                                 crypto currency
                             </h2>
@@ -35,8 +35,8 @@ const MainNav = () => {
                 <div className={styles.section_2}>
                     <div>
 
-                {/* modalSearch */}
-                <ModalSearch open={openModalSearch} setOpen={setOpenModalSearch} />
+                        {/* modalSearch */}
+                        <ModalSearch open={openModalSearch} setOpen={setOpenModalSearch} />
                     </div>
                 </div>
 
