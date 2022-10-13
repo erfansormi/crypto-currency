@@ -160,7 +160,7 @@ const GlobalStyles = () => {
             border-bottom:0;
         }
 
-        .border-b-color , .border-b-color:first-child{
+        .border-b-color , .border-b-color:first-of-type{
             ${darkMode ?
                 `border-bottom:1px solid var(--border-color-dark)` :
                 `border-bottom:1px solid var(--border-color)`
@@ -252,7 +252,7 @@ const GlobalStyles = () => {
 
         .header-input:hover{
         animation-name: input-box-shadow;
-        animation-duration: 0.5s;
+        animation-duration: 0.7s;
         }
 
         @keyframes input-box-shadow {

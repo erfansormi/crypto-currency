@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 // redux
@@ -12,11 +12,12 @@ import styles from "./mainNav.module.css"
 import logo from "../../../assets/images/logo.png"
 import lightLogo from "../../../assets/images/light-logo.png"
 
-// icon
-import { BiSearch } from "react-icons/bi"
+// components
+import ModalSearch from './ModalSearch'
 
 const MainNav = () => {
     const darkMode = useSelector((state: State) => state.general.darkMode);
+    const [openModalSearch, setOpenModalSearch] = useState(false);
 
     return (
         <nav className={styles.container}>
@@ -33,16 +34,12 @@ const MainNav = () => {
                 </div>
                 <div className={styles.section_2}>
                     <div>
-                        <div className={`${styles.input_container} header-input align-center`}>
-                            <div>
-                                <BiSearch />
-                            </div>
-                            <div>
-                                serach...
-                            </div>
-                        </div>
+
+                {/* modalSearch */}
+                <ModalSearch open={openModalSearch} setOpen={setOpenModalSearch} />
                     </div>
                 </div>
+
             </div>
         </nav>
     )
