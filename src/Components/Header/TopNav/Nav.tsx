@@ -50,9 +50,9 @@ const Nav = () => {
 
                         // nav
                         <div className={styles.nav_content_container}>
-                            {navInfoData(global).map((item) =>
+                            {navInfoData(global).map((item, index) =>
                                 <div
-                                    key={item.value}
+                                    key={index * 6 + 27}
                                     className={styles.info_container}
                                 >
                                     <span className={styles.text}>
@@ -67,9 +67,9 @@ const Nav = () => {
                                 <span className={styles.text}>
                                     {navDominanceData(global).text}
                                 </span>
-                                {navDominanceData(global).value.map(item =>
+                                {navDominanceData(global).value.map((item, index) =>
                                     <div
-                                        key={item.value}
+                                        key={index * 6 + 28}
                                         className={styles.dominance_value}
                                     >
                                         <span>

@@ -50,8 +50,7 @@ const ModalSearch = ({ open, setOpen }: iProps) => {
         helperText: ""
     });
 
-    console.log(state);
-
+    // functions
     const handleClickOpen = () => {
         setOpen(true);
     };
