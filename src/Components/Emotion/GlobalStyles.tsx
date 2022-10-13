@@ -252,7 +252,7 @@ const GlobalStyles = () => {
 
         .header-input:hover{
         animation-name: input-box-shadow;
-        animation-duration: 0.5s;
+        animation-duration: 0.7s;
         }
 
         @keyframes input-box-shadow {
