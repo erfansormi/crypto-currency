@@ -21,11 +21,11 @@ const chartFetchRequestFailure = (err: string) => {
     }
 }
 
-export const coinChartFetchRequestFunc = (id: string | undefined) => {
+export const coinChartFetchRequestFunc = (id: string | undefined, day: string) => {
     return (dispatch: any) => {
         dispatch(chartFetchRequest());
 
-        axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=7`)
+        axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=${day}`)
             .then(response => {
                 dispatch(chartFetchRequestSuccess(response.data));
             })

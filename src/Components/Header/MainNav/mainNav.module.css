@@ -39,6 +39,8 @@
 .searchBox_container {
     margin-top: 25px;
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .searchBox_container>.searchBox {

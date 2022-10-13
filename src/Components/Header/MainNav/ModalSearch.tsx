@@ -126,7 +126,7 @@ const ModalSearch = ({ open, setOpen }: iProps) => {
                 aria-describedby="alert-dialog-description"
                 maxWidth={"sm"}
             >
-                <DialogTitle id="alert-dialog-title" sx={{ padding: 0 }}>
+                <DialogTitle id="alert-dialog-title" sx={{ padding: 0, textAlign: "center" }}>
                     search box
                 </DialogTitle>
                 <div className={styles.searchBox_container}>
@@ -157,13 +157,16 @@ const ModalSearch = ({ open, setOpen }: iProps) => {
 
                         {/* loading */}
                         {state.loading ?
-                            <h6 className='light-color'>
+                            <h6 className='light-color' style={{ textAlign: "center" }}>
                                 loading...
                             </h6> :
 
                             // error
                             state.error ?
-                                <h6 className='down-color error-alert' style={{ backgroundColor: "var(--error-alert-bg)" }}>
+                                <h6
+                                    className='down-color error-alert'
+                                    style={{ backgroundColor: "var(--error-alert-bg)", textAlign: "center" }}
+                                >
                                     an error has been occurred {`(${state.error})`}
                                 </h6> :
 
