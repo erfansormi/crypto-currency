@@ -11,13 +11,13 @@ import styles from "./coin.module.css"
 import { coinDetailDataFetchRequestFunc } from '../../../Redux/Coins/Detail/coinDetailActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { State } from '../../../Redux/store';
-import Loading from '../../Other/Loading';
 
 // components
 import TopSummary from './TopSummary/TopSummary';
 import CoinChart from './MiddleData/CoinChart/CoinChart';
 import SideInfo from './MiddleData/SideInfo/SideInfo';
 import Error from '../../Errors/Error/Error';
+import Loading from '../../Other/Loading';
 
 const CoinDetail = () => {
     let id = useParams();
@@ -25,7 +25,7 @@ const CoinDetail = () => {
     const detail = useSelector((state: State) => state.coin_detail);
 
     // title
-    window.document.title = `${id.coin_id} detail`
+    window.document.title = `${detail.data?.name} Detail`
 
     useEffect(() => {
         dispatch(coinDetailDataFetchRequestFunc(id.coin_id))
@@ -37,7 +37,7 @@ const CoinDetail = () => {
                 <article className={`ice-bg ${styles.layout_container}`}>
                     {detail.loading ?
                         // loading
-                        <div style={{ minHeight: "60vh" }}>
+                        <div style={{ minHeight: "65vh" }}>
                             <Loading loading={detail.loading} />
                         </div> :
 

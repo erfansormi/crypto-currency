@@ -57,6 +57,14 @@ const ModalSearch = ({ open, setOpen }: iProps) => {
 
     const handleClose = () => {
         setOpen(false);
+        setState({
+            ...state,
+            data: null,
+            helperText: "",
+            searchedText: "",
+            error: "",
+            loading: false
+        })
     };
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -125,90 +133,93 @@ const ModalSearch = ({ open, setOpen }: iProps) => {
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
                 maxWidth={"sm"}
+                fullWidth
             >
-                <DialogTitle id="alert-dialog-title" sx={{ padding: 0, textAlign: "center" }}>
-                    search box
-                </DialogTitle>
-                <div className={styles.searchBox_container}>
-                    <form
-                        className={styles.searchBox}
-                        onSubmit={handleSubmit}
-                    >
-                        <TextField
-                            id="outlined-basic"
-                            label="Search Coins"
-                            variant="outlined"
-                            value={state.searchedText}
-                            onChange={handleChange}
-                            spellCheck={false}
-                            helperText={state.helperText ? state.helperText : false}
-                            error={state.helperText ? true : false}
-                        />
-                        <span
-                            className={styles.search_icon}
-                            onClick={handleSubmit}
+                <div style={{ padding: "25px 25px 50px" }}>
+                    <DialogTitle id="alert-dialog-title" sx={{ padding: 0, textAlign: "center" }}>
+                        search box
+                    </DialogTitle>
+                    <div className={styles.searchBox_container}>
+                        <form
+                            className={styles.searchBox}
+                            onSubmit={handleSubmit}
                         >
-                            <BiSearch />
-                        </span>
-                    </form>
-                </div>
-                <div className={styles.result_search_container}>
-                    <div>
+                            <TextField
+                                id="outlined-basic"
+                                label="Search Coins"
+                                variant="outlined"
+                                value={state.searchedText}
+                                onChange={handleChange}
+                                spellCheck={false}
+                                helperText={state.helperText ? state.helperText : false}
+                                error={state.helperText ? true : false}
+                            />
+                            <span
+                                className={styles.search_icon}
+                                onClick={handleSubmit}
+                            >
+                                <BiSearch />
+                            </span>
+                        </form>
+                    </div>
+                    <div className={styles.result_search_container}>
+                        <div>
 
-                        {/* loading */}
-                        {state.loading ?
-                            <h6 className='light-color' style={{ textAlign: "center" }}>
-                                loading...
-                            </h6> :
-
-                            // error
-                            state.error ?
-                                <h6
-                                    className='down-color error-alert'
-                                    style={{ backgroundColor: "var(--error-alert-bg)", textAlign: "center" }}
-                                >
-                                    an error has been occurred {`(${state.error})`}
+                            {/* loading */}
+                            {state.loading ?
+                                <h6 className='light-color' style={{ textAlign: "center" }}>
+                                    loading...
                                 </h6> :
 
-                                // data
-                                state.data?.coins.length == 0 ?
-                                    <div className='down-color error-alert' style={{ backgroundColor: "var(--error-alert-bg)" }}>
-                                        Nothings related was found!
-                                    </div> :
-                                    state.data?.coins.map((item, index) =>
-                                        <div
-                                            className={`${styles.coin_container} align-center`}
-                                            key={index * 6 + 26}
-                                            onClick={handleClick}
-                                        >
-                                            <Link to={`coins/${item.id}`}>
-                                                <div>
-                                                    <div>
-                                                        <img src={item.thumb} alt={`${item.name} symbol image`} />
-                                                    </div>
-                                                    <div>
-                                                        <span>
-                                                            {item.name}
-                                                        </span>
-                                                    </div>
-                                                    <div>
-                                                        <span className={`light-color`} style={{ fontSize: "0.8rem" }}>
-                                                            {item.symbol}
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div>
-                                                        <span className={`light-color`}>
-                                                            #{item.market_cap_rank}
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                        </div>
-                                    )
+                                // error
+                                state.error ?
+                                    <h6
+                                        className='down-color error-alert'
+                                        style={{ backgroundColor: "var(--error-alert-bg)", textAlign: "center" }}
+                                    >
+                                        an error has been occurred {`(${state.error})`}
+                                    </h6> :
 
-                        }
+                                    // data
+                                    state.data?.coins.length == 0 ?
+                                        <div className='down-color error-alert' style={{ backgroundColor: "var(--error-alert-bg)" }}>
+                                            Nothings related was found!
+                                        </div> :
+                                        state.data?.coins.map((item, index) =>
+                                            <div
+                                                className={`${styles.coin_container} align-center`}
+                                                key={index * 6 + 26}
+                                                onClick={handleClick}
+                                            >
+                                                <Link to={`coins/${item.id}`}>
+                                                    <div>
+                                                        <div>
+                                                            <img src={item.thumb} alt={`${item.name} symbol image`} />
+                                                        </div>
+                                                        <div>
+                                                            <span>
+                                                                {item.name}
+                                                            </span>
+                                                        </div>
+                                                        <div>
+                                                            <span className={`light-color`} style={{ fontSize: "0.8rem" }}>
+                                                                {item.symbol}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div>
+                                                            <span className={`light-color`}>
+                                                                #{item.market_cap_rank}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </Link>
+                                            </div>
+                                        )
+
+                            }
+                        </div>
                     </div>
                 </div>
             </Dialog>
