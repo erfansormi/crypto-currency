@@ -29,7 +29,7 @@ const CoinDetail = () => {
 
     useEffect(() => {
         dispatch(coinDetailDataFetchRequestFunc(id.coin_id))
-    }, [])
+    }, [id.coin_id])
 
     return (
         <>
