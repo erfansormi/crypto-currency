@@ -1,7 +1,8 @@
 import React from 'react';
 
-// react-router-dom
-import { Link } from 'react-router-dom';
+//next
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 // mui
 import Table from '@mui/material/Table';
@@ -24,102 +25,77 @@ import styles from "./coinsTabale.module.css"
 
 // components
 import TabalePagination from './TabalePagination';
-import Loading from '../Other/Loading';
-import Error from '../Errors/Error/Error';
 
 const CoinsTabale = () => {
-    const dispatch = useDispatch<any>();
-    const coins = useSelector((state: State) => state.coins);
-    const darkMode = useSelector((state: State) => state.general.darkMode);
+    const router = useRouter();
 
-    let borderColor = () => {
-        if (darkMode) {
-            return {
-                borderBottom: "1px solid var(--border-color-dark) !important",
-                color: "var(--color-light-neutral-3)"
-            }
-        }
-        else {
-            return {
-                borderBottom: "1px solid var(--border-color) !important",
-                color: "var(--dark-bg-1)"
-            }
-        }
-    }
+    // redux
+    const darkMode = useSelector((state: State) => state.general.darkMode);
+    const coins = useSelector((state: State) => state.coins.coins);
 
     return (
         <>
-            {/* error */}
-            {coins.error ?
-                <>
-                    <Error errorMessage={coins.error} />
-                </>
-                :
-
-                // loading
-                coins.loading ?
-                    <div style={{ minHeight: "70vh" }}>
-                        <Loading loading={coins.loading} />
-                    </div> :
-
-                    // crypto tabale
-                    <TableContainer component={Paper} className="root-nodes" sx={{ borderRadius: 0 }}>
-                        <Table sx={{ minWidth: 650 }} aria-label="simple table" className={styles.tabale}>
-                            <TableHead>
-                                <TableRow>
-                                    {
-                                        TabaleHead.map((item, index) =>
-                                            <TableCell
-                                                sx={borderColor()}
-                                                className={styles.tabale_head}
-                                                align={"center"}
-                                                key={item.title + index}
-                                            >
-                                                {item.title}
-                                            </TableCell>
-                                        )}
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {coins.coins?.map((item) =>
-                                    <TableRow
-                                        key={item.market_cap_rank + 20}
-                                        className="tr-hover"
-                                        style={{
-                                            display: 'table-row',
-                                            verticalAlign: 'middle',
-                                        }}>
-                                        {TabaleBody(item).map((i, index) =>
-                                            index == 0 ?
-                                                <TableCell
-                                                    component="th"
-                                                    scope="row"
-                                                    align='center'
-                                                    key={index}
-                                                    sx={borderColor()}
-                                                >
-                                                    {i.value}
-                                                </TableCell>
-                                                :
-                                                <TableCell
-                                                    size='small'
-                                                    align={"center"}
-                                                    key={index}
-                                                    sx={borderColor()}
-                                                >
-                                                    <Link to={`coins/${item.id}`}>
-                                                        {i.value}
-                                                    </Link>
-                                                </TableCell>
-                                        )}
-                                    </TableRow>
+            {/* crypto tabale */}
+            <TableContainer component={Paper} className="root-nodes" sx={{ borderRadius: 0 }}>
+                <Table sx={{ minWidth: 650 }} aria-label="simple table" className={styles.tabale}>
+                    <TableHead>
+                        <TableRow>
+                            {
+                                TabaleHead.map((item, index) =>
+                                    <TableCell
+                                        className={`border-b-color tr-color ${styles.tabale_head}`}
+                                        align={index <= 1 ? "left" : "center"}
+                                        key={item.title + index}
+                                    >
+                                        {item.title}
+                                    </TableCell>
                                 )}
-                            </TableBody>
-                        </Table>
-                        <TabalePagination darkMode={darkMode} />
-                    </TableContainer>
+                        </TableRow>
+                    </TableHead>
+                    {coins != null && coins.map((item) =>
+                        <TableBody key={item.market_cap_rank + 20}>
+                            <TableRow
+                                className="tr-hover"
+                                style={{
+                                    display: 'table-row',
+                                    verticalAlign: 'middle',
+                                }}>
+                                {TabaleBody(item).map((i, index) =>
+                                    index == 0 ?
+                                        <TableCell
+                                            component="th"
+                                            scope="row"
+                                            align='center'
+                                            key={index}
+                                            className="border-b-color tr-color"
+                                        >
+                                            {i.value}
+                                        </TableCell>
+                                        :
+                                        <TableCell
+                                            size='small'
+                                            sx={{ borderBottom: 0 }}
+                                            align={"center"}
+                                            key={index}
+                                            className="border-b-color tr-color"
+                                        >
+                                            <Link href={{
+                                                pathname: `coin/${item.id}`,
+                                                query: {
+                                                    chart_day: "1"
+                                                }
+                                            }}>
+                                                {i.value}
+                                            </Link>
+                                        </TableCell>
+                                )}
+                            </TableRow>
+                        </TableBody>
+                    )}
+                </Table>
+                <TabalePagination />
+            </TableContainer>
 
-            }
         </>
     );
 }

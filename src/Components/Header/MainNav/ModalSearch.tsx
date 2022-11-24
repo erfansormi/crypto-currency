@@ -3,8 +3,8 @@ import Dialog from '@mui/material/Dialog';
 import { TextField } from '@mui/material';
 import DialogTitle from '@mui/material/DialogTitle';
 
-// react router
-import { Link } from 'react-router-dom';
+// next
+import Link from 'next/link';
 
 // css
 import styles from "./mainNav.module.css"
@@ -68,20 +68,15 @@ const ModalSearch = ({ open, setOpen }: iProps) => {
     };
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        if (event.target.value.length == 1) {
-            setState({ ...state, helperText: "", searchedText: event.target.value })
-        }
-        else {
-            setState({ ...state, searchedText: event.target.value })
-        }
+        setState({ ...state, searchedText: event.target.value, helperText: "" })
     }
 
-    const handleSubmit = (e: React.MouseEvent<HTMLSpanElement, MouseEvent> | React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.MouseEvent<HTMLSpanElement, MouseEvent> | React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (state.searchedText.length >= 1) {
             setState({ ...state, loading: true })
-            axios.get(`https://api.coingecko.com/api/v3/search?query=${state.searchedText}`)
 
+            axios.get(`https://api.coingecko.com/api/v3/search?query=${state.searchedText}`)
                 .then(response => {
                     setState({
                         ...state,
@@ -191,7 +186,13 @@ const ModalSearch = ({ open, setOpen }: iProps) => {
                                                 key={index * 6 + 26}
                                                 onClick={handleClick}
                                             >
-                                                <Link to={`coins/${item.id}`}>
+                                                <Link
+                                                    href={{
+                                                        pathname: `${item.id}`,
+                                                        
+                                                    }}
+                                                    as={`/coin/${item.id}`}
+                                                >
                                                     <div>
                                                         <div>
                                                             <img src={item.thumb} alt={`${item.name} symbol image`} />
@@ -216,9 +217,7 @@ const ModalSearch = ({ open, setOpen }: iProps) => {
                                                     </div>
                                                 </Link>
                                             </div>
-                                        )
-
-                            }
+                                        )}
                         </div>
                     </div>
                 </div>

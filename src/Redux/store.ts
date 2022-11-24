@@ -1,9 +1,21 @@
-import { createStore, applyMiddleware } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension"
-import rootReducer from "./rootReducer";
-import thunk from "redux-thunk"
+import { configureStore } from "@reduxjs/toolkit";
 
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
+// reducers
+import coinsReducer from "./Coins/coinsSlice";
+import globalReducer from "./Global/globalSlice";
+import generalReducer from "./General/generalSlice";
+import coinDetailReducer from "./CoinDetail/coinDetailSlice";
+
+const store = configureStore({
+    reducer: {
+        coins: coinsReducer,
+        global: globalReducer,
+        general: generalReducer,
+        coin_detail: coinDetailReducer
+    }
+})
+
 export default store;
 
-export type State = ReturnType<typeof rootReducer>; 
+export type State = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch

@@ -38,42 +38,9 @@ export interface iCoins {
     price_change_percentage_7d_in_currency: number
 }
 
-type nullType = null;
-export type coinsType = iCoins[] | nullType;
+export type coinsType = iCoins[] | null;
 
 export interface iCoinsInitialValue {
     coins: coinsType,
-    loading: boolean,
-    error: string,
     page: number
 }
-
-// enum
-export enum coinsActions {
-    fetchRequest = "COINS_FETCH_REQUEST",
-    fetchRequestSuccess = "COINS_FETCH_REQUEST_SUCCESS",
-    fetchRequestFailure = "COINS_FETCH_REQUEST_FAILURE",
-    pageHandleChange = "PAGE_HANDLE_CHANGE"
-}
-
-// action types
-interface fetchRequest {
-    type: coinsActions.fetchRequest
-}
-
-interface fetchRequestSuccess {
-    type: coinsActions.fetchRequestSuccess,
-    payload: iCoins[]
-}
-
-interface fetchRequestFailure {
-    type: coinsActions.fetchRequestFailure,
-    payload: string
-}
-
-interface pageHandleChange {
-    type: coinsActions.pageHandleChange,
-    payload: number
-}
-
-export type coinsActionsTypes = fetchRequest | fetchRequestFailure | fetchRequestSuccess | pageHandleChange;

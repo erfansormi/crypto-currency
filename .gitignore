@@ -4,10 +4,10 @@
 /node_modules
 /.pnp
 .pnp.js
-/package.json
-/package-lock.json
-/tsconfig.json
-/.gitignore
+
+# next.js
+/.next/
+/out/
 
 # testing
 /coverage

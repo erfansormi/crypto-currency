@@ -8,6 +8,9 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
+// redux
+
+
 // ts
 interface iProps {
     data: number[]
@@ -82,7 +85,9 @@ const ChartInTabale = ({ data, percentage }: iProps) => {
     };
     ChartJS.defaults.color = "transparent";
     ChartJS.defaults.borderColor = "transparent";
-    return <Line options={options} data={chartData} />;
+    return (
+        <Line options={options} data={chartData} />
+    );
 }
 
 export default ChartInTabale;

@@ -1,8 +1,6 @@
 import ChartInTabale from "./ChartInTabale"
+import Image from "next/image"
 import { iCoins } from "../../Redux/Coins/coinsTypes"
-
-// react-router-dom
-import { Link } from 'react-router-dom';
 
 // css
 import styles from "./coinsTabale.module.css"
@@ -71,10 +69,11 @@ export const TabaleBody = (coins: iCoins) => {
             value:
                 <div className="align-center">
                     <div className="align-center">
-                        <img
-                            loading={"lazy"}
+                        <Image
+                            width={25}
+                            height={25}
                             src={coins.image}
-                            alt={"coin image"}
+                            alt={`${coins.name} logo`}
                             className={styles.coin_img}
                         />
                     </div>

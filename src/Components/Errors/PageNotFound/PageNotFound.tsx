@@ -1,5 +1,4 @@
-// react-roter
-import { Link } from "react-router-dom"
+import Link from "next/link"
 
 // css
 import styles from "./pageNotFound.module.css"
@@ -40,7 +39,7 @@ const PageNotFound = () => {
 
                 <div className={styles.message}>
                     Page not found
-                    <Link to={"/"}>
+                    <Link href={"/"}>
                         /click here
                     </Link>
                 </div>

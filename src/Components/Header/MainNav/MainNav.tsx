@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
+import Image from 'next/image'
 
 // redux
 import { useSelector } from 'react-redux'
@@ -8,12 +9,9 @@ import { State } from '../../../Redux/store'
 // css
 import styles from "./mainNav.module.css"
 
-// img
-import logo from "../../../assets/images/logo.png"
-import lightLogo from "../../../assets/images/light-logo.png"
-
 // components
 import ModalSearch from './ModalSearch'
+import ClientOnly from '../../Other/ClientOnly'
 
 const MainNav = () => {
     const darkMode = useSelector((state: State) => state.general.darkMode);
@@ -24,8 +22,16 @@ const MainNav = () => {
             <div className={styles.layout_container}>
                 <div className={styles.section_1}>
                     <div>
-                        <Link to={"/"} className={`align-center`}>
-                            <img src={logo} alt="crypto logo" className={`${styles.logo_img} ${darkMode ? "invert-img" : null}`} />
+                        <Link href={"/"} as={"/"} className={`align-center`}>
+                            <ClientOnly>
+                                <Image
+                                    src={"/images/logo.png"}
+                                    alt="crypto logo"
+                                    className={`${styles.logo_img} ${darkMode ? "invert-img" : null}`}
+                                    width={36}
+                                    height={34}
+                                />
+                            </ClientOnly>
                             <h2>
                                 crypto currency
                             </h2>

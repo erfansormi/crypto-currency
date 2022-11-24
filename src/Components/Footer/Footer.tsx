@@ -4,7 +4,6 @@ import React from 'react'
 import styles from "./footer.module.css"
 
 // icon
-import { AiOutlineLink } from "react-icons/ai"
 import { BsBoxArrowUpRight } from "react-icons/bs"
 
 //redux
@@ -25,8 +24,7 @@ const Footer = () => {
                     <a
                         href="https://erfansormi.netlify.app"
                         target={"_blank"}
-                        style={darkMode ? { color: "#fff" } : { color: "#111" }}
-                        className="align-center"
+                        className="align-center normal-color"
                     >
                         Erfan Sormi
                         <span>

@@ -1,0 +1,183 @@
+@font-face {
+  font-family: SecularOne;
+  src: url("../../public/fonts/SecularOne-Regular.ttf");
+}
+
+@font-face {
+  font-family: VarelaRound;
+  src: url("../../public/fonts/VarelaRound-Regular.ttf");
+}
+
+* {
+  font-family: VarelaRound, SecularOne, 'Courier New', Courier, monospace, SecularOne -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif !important;
+}
+
+html {
+  font-size: 16px;
+}
+
+@media (max-width:767px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+body {
+  font-weight: 600;
+  margin: 0;
+  font-family: SecularOne -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+button {
+  background-color: inherit;
+  border: 0;
+  cursor: pointer;
+}
+
+:root {
+  --control-border-color: #101113;
+  --control-background-color: #fff;
+  --control-caret-color: #000;
+  --control-transition-duration: 0.3s;
+  --control-transition-easing: ease;
+  --control-dropdown-background-color: #eff2f5;
+  --theme-color: #3861fb;
+  --theme-light-color: #cfd6e4;
+  --theme-light-blue-color: #e6f0ff;
+  --theme-light-blue: #f0f6ff;
+  --theme-light-blue-font: #3862fb;
+  --text-color: #000;
+  --info-icon-color: #a6b0c3;
+  --text-color-sub: #58667e;
+  --text-color-sub-1: #58667e;
+  --text-color-error: #ea3943;
+  --bt-light-blue: #f0f6ff;
+  --var-text-small: 14px;
+  --up-color: #16c784;
+  --down-color: #ea3943;
+  --error-alert-bg: #ffdddd;
+  --error-dark-alert-bg: #2e2828;
+  --border-color: #edf0f3;
+  --border-color-dark: #292f38;
+  --bg-color: #fff;
+  --color-primary-black: #000;
+  --color-primary-white: #fff;
+  --color-primary-blue: #3861fb;
+  --color-neutral-1: #222531;
+  --color-neutral-2: #323546;
+  --color-neutral-3: #262628;
+  --color-neutral-4: #646b80;
+  --color-neutral-5: #858ca2;
+  --color-neutral-6: #a1a7bb;
+  --color-neutral-7: #646b80;
+  --ice-bg-1: linear-gradient(rgb(248, 250, 253) 0%, rgba(248, 250, 253, 0) 413px);
+  --dark-ice-bg-1: linear-gradient(rgb(34, 37, 49) 0%, rgba(34, 37, 49, 0) 413px);
+  --color-light-neutral-1: #f8fafd;
+  --color-light-neutral-2: #eaecee;
+  --color-light-neutral-3: #cfd6e4;
+  --color-light-neutral-4: #a6b0c3;
+  --color-light-neutral-5: #808a9d;
+  --color-light-neutral-6: #58667e;
+  --color-light-neutral-7: #eff2f5;
+  --color-gradient-end: rgba(248, 250, 253, 0);
+  --button-border-color: #cfd6e4;
+  --button-bg-color: #222531;
+  --breakpoint-md: 768px;
+  --dark-bg-1: #1a2025;
+  --dark-bg-2: #2d3436;
+  --card-bg: #fff;
+  --box-shadow: 0px 0px 2px rgba(128, 138, 157, 0.12), 0px 0px 24px rgba(128, 138, 157, 0.14);
+  --tiny-box-shadow: 0px 4px 24px rgba(88, 102, 126, 0.08), 0px 1px 2px rgba(88, 102, 126, 0.12);
+  --input-shadow-color-focus: #e6f0ff;
+  --shadow-normal: 0px 1px 2px rgba(128, 138, 157, 0.12), 0px 8px 32px rgba(128, 138, 157, 0.24);
+}
+
+.MuiTableCell-root {
+  padding: 6px !important;
+}
+
+.MuiTableCell-root>a canvas {
+  width: 210px !important;
+  height: 90px !important;
+}
+
+.topSummary_grid_container__Fg9zm>div {
+  margin-bottom: 15px;
+}
+
+@media (max-width:569px) {
+  .css-11dxe26-MuiGrid2-root, .css-12uoggl-MuiGrid2-root, .css-w9npn5-MuiGrid2-root {
+    width: 100% !important;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1 {
+  font-size: 2rem;
+  color: inherit;
+  text-transform: capitalize;
+}
+
+h2 {
+  font-size: 1.8rem;
+  text-transform: capitalize;
+  color: inherit;
+}
+
+h3 {
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  color: inherit;
+}
+
+h4 {
+  font-size: 1.4rem;
+  color: inherit;
+  text-transform: capitalize;
+}
+
+h5 {
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  color: inherit;
+}
+
+h6 {
+  font-size: 1rem;
+  color: inherit;
+  text-transform: capitalize;
+}
+
+span {
+  font-size: inherit;
+  color: inherit;
+  text-transform: capitalize;
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.d-flex {
+  display: flex;
+}

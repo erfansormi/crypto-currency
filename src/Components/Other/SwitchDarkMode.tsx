@@ -2,12 +2,11 @@ import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
-import { FormControl } from '@mui/material';
 
 // redux
 import { useSelector, useDispatch } from 'react-redux';
 import { State } from '../../Redux/store';
-import { changeDarkMode } from '../../Redux/General/generalActions';
+import { changeDarkMode } from '../../Redux/General/generalSlice';
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     width: 58,
@@ -57,13 +56,13 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 }));
 
 const SwitchDarkmode = () => {
-    const general = useSelector((state: State) => state.general)
+    const darkMode = useSelector((state: State) => state.general.darkMode)
     const dispatch = useDispatch();
 
     return (
         <FormControlLabel
             control={<MaterialUISwitch
-                checked={general.darkMode}
+                checked={darkMode}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => dispatch(changeDarkMode(e.target.checked))}
             />}
             label=""

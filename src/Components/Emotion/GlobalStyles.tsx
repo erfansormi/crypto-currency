@@ -127,6 +127,10 @@ const GlobalStyles = () => {
             }
         }
 
+        .normal-color{
+            color:${darkMode ? "#fff" : "#111"}
+        }
+
         .progress-bar{
             width:100%;
             height: 7px;
@@ -149,6 +153,10 @@ const GlobalStyles = () => {
             max-width:100%;
         }
 
+        .last-b-b:last-child{
+            border-bottom:0 !important;
+        }
+        
         .border-color{
             ${darkMode ?
                 `border:1px solid var(--border-color-dark)` :
@@ -156,14 +164,17 @@ const GlobalStyles = () => {
             }
         }
 
-        .border-b-color:last-child{
-            border-bottom:0;
+        .border-b-color{
+            ${darkMode ?
+                `border-bottom:1px solid var(--border-color-dark) !important` :
+                `border-bottom:1px solid var(--border-color) !important`
+            }
         }
 
-        .border-b-color , .border-b-color:first-of-type{
+        .tr-color{
             ${darkMode ?
-                `border-bottom:1px solid var(--border-color-dark)` :
-                `border-bottom:1px solid var(--border-color)`
+                `color: var(--color-light-neutral-3) !important` :
+                `color: var(--dark-bg-1) !important`
             }
         }
 
@@ -280,4 +291,4 @@ const GlobalStyles = () => {
     )
 }
 
-export default GlobalStyles
+export { GlobalStyles };

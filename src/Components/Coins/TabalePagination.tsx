@@ -1,21 +1,13 @@
 import * as React from 'react';
+import { useRouter } from 'next/router';
+
+// mui
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import { Box } from '@mui/material';
 
-// redux
-import { useDispatch, useSelector } from 'react-redux';
-import { pageHandleChange } from "../../Redux/Coins/coinsActions"
-import { State } from "../../Redux/store"
-
-// ts
-interface iProps {
-    darkMode: boolean
-}
-
-export default function TabalePagination({ darkMode }: iProps) {
-    const coins = useSelector((state: State) => state.coins)
-    const dispatch = useDispatch<any>();
+export default function TabalePagination() {
+    const router = useRouter();
 
     return (
         <Box
@@ -24,9 +16,13 @@ export default function TabalePagination({ darkMode }: iProps) {
             <Stack spacing={2}>
                 <Pagination
                     count={Math.ceil(250 / 30)}
-                    page={coins.page}
+                    page={router.query.page ? Number(router.query.page) : 1}
                     color="primary"
-                    onChange={(e, value) => dispatch(pageHandleChange(value))}
+                    onChange={(e, value) => {
+                        router.push({
+                            query: { page: value.toString() },
+                        })
+                    }}
                 />
             </Stack>
         </Box>
