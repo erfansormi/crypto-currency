@@ -31,7 +31,6 @@ ChartJS.register(
 
 const CoinChart = () => {
     const router = useRouter();
-    console.log(router)
 
     // state
     const [chartDay, setChartDay] = useState({
