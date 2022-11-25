@@ -12,21 +12,19 @@ import { coinsFetchRequest } from '../Redux/Coins/coinsSlice'
 // components
 import CoinsTabale from '../Components/Coins/CoinsTabale';
 import Head from 'next/head'
+import Error from './_error';
 
 // ts
 import { iCoins } from '../Redux/Coins/coinsTypes';
-import Error from './_error';
 
 interface Props {
   coins: iCoins[],
-  error: any
+  error: string
 }
 
-const index = ({ coins, error }: Props) => {
+const Index = ({ coins, error }: Props) => {
   const router = useRouter();
   const dispatch = useDispatch()
-
-  console.log(coins, error)
 
   useEffect(() => {
     if (!router.query.page) {
@@ -57,12 +55,11 @@ const index = ({ coins, error }: Props) => {
   )
 }
 
-export default index;
+export default Index;
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const { page } = query;
   const { coins, error } = await fetchCoins(page ? page : "1")
-
 
   return {
     props: {

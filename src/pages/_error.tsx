@@ -42,6 +42,7 @@ const Error = ({ errorMessage }: iProps) => {
                                 src={darkMode ? "/images/dark-error.jpg" : "/images/error.jpg"}
                                 alt="error occurred"
                                 className={"err-dark-img lg-shadow"}
+                                priority
                             />
                         </div>
                     </Grid>

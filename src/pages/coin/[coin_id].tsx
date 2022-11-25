@@ -24,7 +24,7 @@ interface Props {
     chartErr: string
 }
 
-const coinDetail = ({ detail, detailErr, chart, chartErr }: Props) => {
+const CoinDetail = ({ detail, detailErr, chart, chartErr }: Props) => {
     const router = useRouter();
 
     // redux
@@ -58,7 +58,7 @@ const coinDetail = ({ detail, detailErr, chart, chartErr }: Props) => {
     )
 }
 
-export default coinDetail;
+export default CoinDetail;
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     const { coin_id, chart_day } = query;
