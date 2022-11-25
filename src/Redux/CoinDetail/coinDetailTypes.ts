@@ -396,8 +396,8 @@ export type ChartDetailType = nullType | Chart;
 
 // final interface
 export interface CoinDetailInitialValue {
-    chart: Chart,
-    detail: CoinDetail,
+    chart: ChartDetailType,
+    detail: CoinDetailType,
     chartErr: string,
     detailErr: string
 }

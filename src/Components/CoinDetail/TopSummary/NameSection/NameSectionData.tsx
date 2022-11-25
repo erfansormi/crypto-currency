@@ -1,6 +1,6 @@
-import { CoinDetail } from "../../../../Redux/CoinDetail/coinDetailTypes"
+import { CoinDetailType } from "../../../../Redux/CoinDetail/coinDetailTypes"
 
-export const nameHeader = (data: CoinDetail) => {
+export const nameHeader = (data: CoinDetailType) => {
     return [
         {
             value: <img src={data?.image.small} alt="coin image" />
@@ -14,7 +14,7 @@ export const nameHeader = (data: CoinDetail) => {
     ]
 }
 
-export const nameFooter = (data: CoinDetail) => {
+export const nameFooter = (data: CoinDetailType) => {
     return [
         {
             value: <span className="pillName-primary pillName">rank #{data?.market_cap_rank} </span>
