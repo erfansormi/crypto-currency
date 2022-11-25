@@ -1,4 +1,4 @@
-import { Data } from "../../../../Redux/CoinDetail/coinDetailTypes";
+import { CoinDetail } from "../../../../Redux/CoinDetail/coinDetailTypes";
 import { AiOutlineLink } from "react-icons/ai"
 import { BsBoxArrowUpRight } from "react-icons/bs"
 import { IoMdSearch } from "react-icons/io"
@@ -17,7 +17,7 @@ const arrowSize = "1rem";
 const boxArrowSize = "0.8rem";
 
 
-export const LinkData = (data: Data) => {
+export const LinkData = (data: CoinDetail) => {
     let communityLinks: () => string[] = () => {
         let arr = [];
         data.links.official_forum_url.forEach(item => {

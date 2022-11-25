@@ -1,4 +1,4 @@
-import { Data } from "../../../../Redux/CoinDetail/coinDetailTypes";
+import { CoinDetail } from "../../../../Redux/CoinDetail/coinDetailTypes";
 let handleProgressValue = (low: number, nowPrice: number, high: number) => {
     const result: number = 100 * (nowPrice - low) / (high - low);
 
@@ -7,7 +7,7 @@ let handleProgressValue = (low: number, nowPrice: number, high: number) => {
     }
 }
 
-export const priceData = (data: Data) => {
+export const priceData = (data: CoinDetail) => {
     return [
         {
             value:
