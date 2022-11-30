@@ -22,7 +22,7 @@ const Footer = () => {
                 <div className="align-center">
                     Created By
                     <a
-                        href="https://erfansormi.netlify.app"
+                        href="https://erfansormi.vercel.app"
                         target={"_blank"}
                         className="align-center normal-color"
                     >
