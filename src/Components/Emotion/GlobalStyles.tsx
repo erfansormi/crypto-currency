@@ -101,6 +101,13 @@ const GlobalStyles = () => {
             color:#fff !important;
         }
 
+        .warning-bg{
+            padding:4px 6px;
+            border-radius:6px;
+            background-color:var(--warning-color);
+            color:#fff !important;
+        }
+        
         .neutral-bg{
             padding:4px 6px;
             border-radius:6px;

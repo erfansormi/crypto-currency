@@ -1,4 +1,4 @@
-import ChartInTabale from "./ChartInTabale"
+import LineChart from "../Charts/LineChart"
 import Image from "next/image"
 import { iCoins } from "../../Redux/Coins/coinsTypes"
 
@@ -114,10 +114,7 @@ export const TabaleBody = (coins: iCoins) => {
             value: `${coins.circulating_supply.toLocaleString()} ${coins.symbol.toUpperCase()}`
         },
         {
-            value:
-                <ChartInTabale data={coins.sparkline_in_7d.price}
-                    percentage={coins.price_change_percentage_7d_in_currency}
-                />
+            value: <LineChart data={coins.sparkline_in_7d.price} />
         }
     ]
 }

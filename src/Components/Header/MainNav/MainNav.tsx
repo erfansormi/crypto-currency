@@ -20,23 +20,28 @@ const MainNav = () => {
     return (
         <nav className={styles.container}>
             <div className={styles.layout_container}>
-                <div className={styles.section_1}>
-                    <div>
-                        <Link href={"/"} as={"/"} className={`align-center`}>
-                            <ClientOnly>
-                                <Image
-                                    src={"/images/logo.png"}
-                                    alt="crypto logo"
-                                    className={`${styles.logo_img} ${darkMode ? "invert-img" : null}`}
-                                    width={36}
-                                    height={34}
-                                />
-                            </ClientOnly>
-                            <h2>
-                                crypto currency
-                            </h2>
-                        </Link>
-                    </div>
+                <div className={`${styles.section_1} align-center`}>
+                    <Link href={"/"} as={"/"} className={`align-center`}>
+                        <ClientOnly>
+                            <Image
+                                src={"/images/logo.png"}
+                                alt="crypto logo"
+                                className={`${styles.logo_img} ${darkMode ? "invert-img" : null}`}
+                                width={30}
+                                height={28}
+                            />
+                        </ClientOnly>
+                        <h3>
+                            crypto currency
+                        </h3>
+                    </Link>
+                    <Link
+                        href={"/exchanges"}
+                    >
+                        <h3>
+                            exchanges
+                        </h3>
+                    </Link>
                 </div>
                 <div className={styles.section_2}>
                     <div>
