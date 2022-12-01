@@ -14,7 +14,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 // redux
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { State } from '../../Redux/store'
 
 // data
@@ -27,10 +27,8 @@ import styles from "./coinsTabale.module.css"
 import TabalePagination from './TabalePagination';
 
 const CoinsTabale = () => {
-    const router = useRouter();
 
     // redux
-    const darkMode = useSelector((state: State) => state.general.darkMode);
     const coins = useSelector((state: State) => state.coins.coins);
 
     return (

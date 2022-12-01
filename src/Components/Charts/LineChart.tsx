@@ -8,16 +8,12 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
-// redux
-
-
 // ts
 interface iProps {
     data: number[]
-    percentage: number
 }
 
-const ChartInTabale = ({ data, percentage }: iProps) => {
+const LineChart = ({ data }: iProps) => {
 
     ChartJS.register(
         CategoryScale,
@@ -90,4 +86,4 @@ const ChartInTabale = ({ data, percentage }: iProps) => {
     );
 }
 
-export default ChartInTabale;
+export default LineChart;

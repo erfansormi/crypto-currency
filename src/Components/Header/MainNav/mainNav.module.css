@@ -12,13 +12,16 @@
 }
 
 .layout_container .section_1 .logo_img {
-    width: 36px;
     height: auto;
     margin-right: 4px;
 }
 
-.layout_container .section_1 div a h2 {
-    font-size: 1.5rem;
+.layout_container .section_1 a {
+    margin-right: 25px;
+}
+
+.layout_container .section_1 a h3 {
+    font-size: 1.2rem;
 }
 
 .layout_container .input_container {
