@@ -17,7 +17,7 @@ import { iExchanges } from '../../Redux/Exchanges/exchangesSlice'
 
 interface Props {
     error: string,
-    exchanges: iExchanges
+    exchanges: iExchanges[]
 }
 
 const Exchanges = ({ error, exchanges }: Props) => {
