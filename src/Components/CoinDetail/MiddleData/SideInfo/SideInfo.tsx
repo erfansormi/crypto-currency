@@ -14,17 +14,19 @@ const SideInfo = () => {
   const detail = useSelector((state: State) => state.coin_detail.detail);
 
   return (
-    <div className={`neutral-1 ${styles.container}`}>
-      <div className={styles.layout_container}>
-        <div className={styles.title_container}>
+    <div className={`neutral-1 radius-5 ${styles.container}`}>
+      <div className={"p-8 flex-column"}>
+        <div className={"mb-8"}>
           <h4 className="normal-color">
             {detail?.symbol.toUpperCase()} price statistics
           </h4>
         </div>
-        <div className={styles.info_container}>
+        <div className={"flex-column"}>
           {detail != null &&
             SideInfoData(detail).map((item, index) =>
-              <div key={index * 6 + 26} className="border-b-color last-b-b">
+              <div
+                key={index * 6 + 26}
+                className="border-b-color last-b-b align-center justify-between mb-3 py-5">
                 <div>
                   <span>
                     {item.text}

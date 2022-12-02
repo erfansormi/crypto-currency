@@ -67,7 +67,7 @@ export const StatesData = (data: CoinDetail) => {
                         <div className="light-color">
                             <span>
                                 volume
-                                <span className="pillName" style={{ marginLeft: 5 }}>24h</span>
+                                <span className="pillName ml-2">24h</span>
                             </span>
                         </div>
                         <div>
@@ -101,30 +101,30 @@ export const StatesData = (data: CoinDetail) => {
                         <div>
                             <span>
                                 {data.market_data.circulating_supply}
-                                <span className="pillName" style={{ marginLeft: 5 }}>{data.symbol.toUpperCase()}</span>
+                                <span className="pillName ml-2">{data.symbol.toUpperCase()}</span>
                             </span>
                         </div>
                     </div>
                     <div>
-                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                        <div className="align-center justify-between">
                             <div className="light-color">
                                 <span>max supply</span>
                             </div>
                             <div>
                                 <span>
                                     {data.market_data.max_supply ? data.market_data.max_supply.toLocaleString() : "unregistered!"}
-                                    <span className="pillName" style={{ marginLeft: 5 }}>{data.symbol.toUpperCase()}</span>
+                                    <span className="pillName ml-2">{data.symbol.toUpperCase()}</span>
                                 </span>
                             </div>
                         </div>
-                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                        <div className="align-center justify-between">
                             <div className="light-color">
                                 <span>total supply</span>
                             </div>
                             <div>
                                 <span>
                                     {data.market_data.total_supply ? data.market_data.total_supply.toLocaleString() : "unregistered!"}
-                                    <span className="pillName" style={{ marginLeft: 5 }}>{data.symbol.toUpperCase()}</span>
+                                    <span className="pillName ml-2">{data.symbol.toUpperCase()}</span>
                                 </span>
                             </div>
                         </div>

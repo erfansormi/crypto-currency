@@ -13,7 +13,6 @@ const removeBeginURL = (url: string) => {
     return result;
 }
 
-const arrowSize = "1rem";
 const boxArrowSize = "0.8rem";
 
 

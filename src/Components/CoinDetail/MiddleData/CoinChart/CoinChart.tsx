@@ -100,8 +100,8 @@ const CoinChart = () => {
 
     return (
         <div>
-            <div style={{ marginBottom: 35 }}>
-                <div style={{ marginBottom: 15 }}>
+            <div className="mb-12">
+                <div className="mb-5">
                     <h3>Bitcoin Price Chart ({chartDay.text})</h3>
                 </div>
                 <div>
@@ -126,8 +126,8 @@ const CoinChart = () => {
                         an error occurred
                     </div> :
                     chart?.prices ?
-                        <Line data={Data} />
-                        : null
+                        <Line data={Data} /> :
+                        null
             }
         </div>
     );

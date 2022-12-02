@@ -1,0 +1,157 @@
+h1 {
+  font-size: 2rem;
+  color: inherit;
+  text-transform: capitalize;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: inherit;
+  text-transform: capitalize;
+}
+
+h3 {
+  font-size: 1.6rem;
+  color: inherit;
+  text-transform: capitalize;
+}
+
+h4 {
+  font-size: 1.4rem;
+  color: inherit;
+  text-transform: capitalize;
+}
+
+h5 {
+  font-size: 1.2rem;
+  color: inherit;
+  text-transform: capitalize;
+}
+
+h6 {
+  font-size: 1rem;
+  color: inherit;
+  text-transform: capitalize;
+}
+
+.fs-1 {
+  font-size: 0.7rem;
+}
+
+.fs-2 {
+  font-size: 0.8rem;
+}
+
+.fs-3 {
+  font-size: 0.9rem;
+}
+
+.fs-4 {
+  font-size: 1rem;
+}
+
+.fs-5 {
+  font-size: 1.1rem;
+}
+
+.fs-6 {
+  font-size: 1.2rem;
+}
+
+.fs-7 {
+  font-size: 1.5rem;
+}
+
+.fs-8 {
+  font-size: 1.75rem;
+}
+
+.fs-9 {
+  font-size: 2rem;
+}
+
+.fs-10 {
+  font-size: 2.25rem;
+}
+
+.fs-11 {
+  font-size: 2.5rem;
+}
+
+.fs-12 {
+  font-size: 2.75rem;
+}
+
+.fw-light {
+  font-weight: 400;
+}
+
+.fw-md {
+  font-weight: 500;
+}
+
+.fw-bold {
+  font-weight: 600;
+}
+
+.fw-bolder {
+  font-weight: 900;
+}
+
+.radius-1 {
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+}
+
+.radius-2 {
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+.radius-3 {
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+.radius-4 {
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+.radius-5 {
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.radius-6 {
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+}
+
+.circle {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+/*# sourceMappingURL=sizes.css.map */

@@ -9,16 +9,16 @@ const TagSection = () => {
 
   return (
     <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
-      <div style={{ marginBottom: "6px" }}>
-        <span className='light-color' style={{ marginRight: 6 }}>
+      <div className='mb-2'>
+        <span className='light-color mr-2'>
           Tags:
         </span>
       </div>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {detail?.categories.map((item, index) =>
           index <= 4 ?
-            <div style={{ marginRight: 6, display: "flex", alignItems: "center", marginBottom: 4 }}>
-              <span key={index * 6 + 24} className="pillName">
+            <div key={index * 6 + 24} className="align-center mr-2 mb-2">
+              <span className="pillName">
                 {item}
               </span>
             </div> : null

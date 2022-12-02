@@ -22,6 +22,7 @@ interface iProps {
 const HiddenLinks = ({ icon1, icon2, linksIcon, links, text }: iProps) => {
     const darkMode = useSelector((state: State) => state.general.darkMode);
 
+    // bottom function, removing extra url like https://, www., .../example
     const removeBeginURL = (url: string) => {
         let splited = url.split(/https?:\/\//).toString().split(/www./).toString().split(/\/.*/).toString().split(",");
         let result = splited.join("").toString();
@@ -116,7 +117,7 @@ const HiddenLinks = ({ icon1, icon2, linksIcon, links, text }: iProps) => {
                 height: 25px;
                 background-color: #aaa;
                 z-index: -1;
-                box-shadow:var(--box-shadow);
+                box-shadow: ${styles.box_shadow};
     
                 ${darkMode ?
                     `background-color: ${styles.color_neutral_2};` :
@@ -150,6 +151,7 @@ const HiddenLinks = ({ icon1, icon2, linksIcon, links, text }: iProps) => {
             }
             `}
             />
+            
             {isLinksWork() ?
                 <>
                     <li className="link-bg">

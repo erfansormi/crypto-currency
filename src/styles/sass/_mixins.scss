@@ -10,3 +10,9 @@
     background-color: $bg-color;
     color: #fff !important;
 }
+
+@mixin flex($justify, $align) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}

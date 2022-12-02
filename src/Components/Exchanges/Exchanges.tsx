@@ -18,7 +18,7 @@ const ExchangesTable = () => {
     const exchanges = useSelector((state: State) => state.exchanges.data)
 
     return (
-        <TableContainer component={Paper} className='root-nodes' sx={{ borderRadius: 0, textTransform: "capitalize" }}>
+        <TableContainer component={Paper} className='root-nodes capitalize' sx={{ borderRadius: 0 }}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
                     <TableRow className='tr-hover'>
@@ -39,8 +39,8 @@ const ExchangesTable = () => {
                 <TableBody>
                     {
                         exchanges == null ? null :
-                            exchanges.map((item) =>
-                                <TableRow className='tr-hover' sx={{ height: 55 }}>
+                            exchanges.map((item, index) =>
+                                <TableRow className='tr-hover' sx={{ height: 55 }} key={index * 54}>
                                     {
                                         exchangesRows(item).map((i, index) =>
                                             index == 0 ?
@@ -48,12 +48,14 @@ const ExchangesTable = () => {
                                                     component="th"
                                                     scope="row"
                                                     className="border-b-color tr-color"
+                                                    key={index * 58}
                                                 >
                                                     {i.value}
                                                 </TableCell> :
                                                 <TableCell
                                                     align="left"
                                                     className="border-b-color tr-color"
+                                                    key={index * 61}
                                                 >
                                                     {i.value}
                                                 </TableCell>

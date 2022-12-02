@@ -3,6 +3,10 @@ $size: 3px;
 @for $i from 1 to 19 {
 
     // margins
+    .m-#{$i} {
+        margin: $size * $i;
+    }
+    
     .mt-#{$i} {
         margin-top: $size * $i;
     }
@@ -30,6 +34,10 @@ $size: 3px;
     }
 
     // paddings
+    .p-#{$i} {
+        padding: $size * $i;
+    }
+    
     .pt-#{$i} {
         padding-top: $size * $i;
     }

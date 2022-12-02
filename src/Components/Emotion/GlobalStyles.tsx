@@ -15,60 +15,6 @@ const GlobalStyles = () => {
 
     return (
         <Global styles={css`
-        body{
-            ${darkMode ?
-                `
-                    background-color: ${styles.dark_bg_1} !important;
-                    color: #fff !important;
-                ` :
-                `
-                background-color: #fff !important;
-                color: ${styles.dark_bg_1} !important;
-                `
-            }
-        }
-
-        .root-nodes{
-            ${darkMode ?
-                `
-                    border-bottom: 1px solid ${styles.border_color_dark} !important;
-                    background-color: ${styles.dark_bg_1} !important;
-                    color: #fff !important;
-                ` :
-                `
-                border-bottom: 1px solid ${styles.border_color} !important;
-                background-color: #fff !important;
-                color: ${styles.dark_bg_1} !important;
-                `
-            }
-        }
-
-        .root-nodes:last-child{
-            border-bottom:0 !important;
-        }
-
-        .progress-bar{
-            width:100%;
-            height: 7px;
-            display: block;
-            border-radius:4px;
-            ${darkMode ?
-                `background-color:${styles.color_light_neutral_6};` :
-                `background-color:${styles.color_neutral_6};`
-            }
-        }
-
-        .progress-value{
-            ${darkMode ?
-                `background-color:rgb(189 206 221);` :
-                `background: rgb(6, 44, 76);`
-            }
-            height: 100%;
-            display: block;
-            border-radius:4px;
-            max-width:100%;
-        }
-
         .last-b-b:last-child{
             border-bottom:0 !important;
         }

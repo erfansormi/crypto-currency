@@ -89,7 +89,7 @@ export const priceData = (data: CoinDetail) => {
             value:
                 <>
                     <div>
-                        <span style={{ marginRight: 3 }} className="light-color">
+                        <span className="light-color mr-2">
                             Low:
                         </span>
                         <span>
@@ -99,7 +99,7 @@ export const priceData = (data: CoinDetail) => {
                             }
                         </span>
                     </div>
-                    <div style={{ width: 170, height: 20, display: "flex", alignItems: "center" }}>
+                    <div className="align-center" style={{ width: 170, height: 20 }}>
                         <span className="progress-bar">
                             <span
                                 className="progress-value"
@@ -109,7 +109,7 @@ export const priceData = (data: CoinDetail) => {
                         </span>
                     </div>
                     <div>
-                        <span style={{ marginRight: 3 }} className="light-color">
+                        <span className="light-color mr-1">
                             High:
                         </span>
                         <span>

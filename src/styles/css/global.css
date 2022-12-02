@@ -10,6 +10,10 @@
   font-family: VarelaRound, SecularOne, "Courier New", Courier, monospace, SecularOne -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif !important;
 }
 
+#js-licensing {
+  display: none !important;
+}
+
 html {
   font-size: 16px;
 }
@@ -47,68 +51,35 @@ span {
   text-transform: capitalize;
 }
 
-h1 {
-  font-size: 2rem;
-  color: inherit;
-  text-transform: capitalize;
-}
-
-h2 {
-  font-size: 1.8rem;
-  color: inherit;
-  text-transform: capitalize;
-}
-
-h3 {
-  font-size: 1.6rem;
-  color: inherit;
-  text-transform: capitalize;
-}
-
-h4 {
-  font-size: 1.4rem;
-  color: inherit;
-  text-transform: capitalize;
-}
-
-h5 {
-  font-size: 1.2rem;
-  color: inherit;
-  text-transform: capitalize;
-}
-
-h6 {
-  font-size: 1rem;
-  color: inherit;
-  text-transform: capitalize;
-}
-
 .topSummary_grid_container__Fg9zm > div {
   margin-bottom: 15px;
 }
 
-.align-center {
-  display: -webkit-box;
-  display: -ms-flexbox;
+.d-flex {
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.align-center {
+  display: flex;
+  justify-content: normal;
   align-items: center;
 }
 
 .justify-center {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
+  align-items: normal;
 }
 
-.d-flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
+.justify-between {
   display: flex;
+  justify-content: space-between;
+  align-items: normal;
 }
 
 .h-100 {
@@ -125,14 +96,10 @@ h6 {
 }
 
 .fit-content {
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
   min-width: fit-content;
 }
 
 .max-content {
-  min-width: -webkit-max-content;
-  min-width: -moz-max-content;
   min-width: max-content;
 }
 
@@ -147,7 +114,5 @@ h6 {
 .lowercase {
   text-transform: lowercase;
 }
-
-/*# sourceMappingURL=global.css.map */
 
 /*# sourceMappingURL=global.css.map */

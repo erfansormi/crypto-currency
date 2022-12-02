@@ -8,6 +8,7 @@ import "../styles/css/mui_styles.css"
 import '../styles/css/global.css';
 import '../styles/css/colors.css';
 import '../styles/css/spaces.css';
+import '../styles/css/sizes.css';
 
 // style
 import GlobalStyles from '../Components/Emotion/GlobalStyles';

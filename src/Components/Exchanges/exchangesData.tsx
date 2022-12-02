@@ -39,7 +39,8 @@ export const exchangesRows = (data: iExchanges) => {
                         alt={data.name}
                         width={30}
                         height={30}
-                        className={styles.image}
+                        className={"mr-3 circle"}
+                        style={{ height: "auto" }}
                         quality={95}
                     />
                     <span>
