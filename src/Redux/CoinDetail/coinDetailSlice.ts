@@ -19,9 +19,6 @@ const coinDetailSlice = createSlice({
             state.detail = action.payload;
             state.detailErr = "";
         },
-        handleDetailErr: (state, action: PayloadAction<string>) => {
-            state.detailErr = action.payload;
-        },
         fetchCoinChart: (state, action: PayloadAction<ChartDetailType>) => {
             state.chart = action.payload;
             state.chartErr = "";
@@ -32,5 +29,5 @@ const coinDetailSlice = createSlice({
     }
 })
 
-export const { fetchCoinChart, fetchCoinDetail, handleChartErr, handleDetailErr } = coinDetailSlice.actions;
+export const { fetchCoinChart, fetchCoinDetail, handleChartErr } = coinDetailSlice.actions;
 export default coinDetailSlice.reducer;

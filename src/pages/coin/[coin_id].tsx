@@ -3,10 +3,12 @@ import React, { useEffect } from 'react'
 // next
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 // redux
-import { fetchCoinChart, fetchCoinDetail, handleChartErr, handleDetailErr } from '../../Redux/CoinDetail/coinDetailSlice';
+import { fetchCoinChart, fetchCoinDetail, handleChartErr } from '../../Redux/CoinDetail/coinDetailSlice';
 import { useDispatch } from 'react-redux';
+import { CoinDetail, Chart } from '../../Redux/CoinDetail/coinDetailTypes';
 
 // getApi
 import { fetchApiCoinDetail } from '../../Components/CoinDetail/fetchCoinDetail';
@@ -14,7 +16,6 @@ import { fetchApiCoinChart } from '../../Components/CoinDetail/fetchCoinChart';
 
 // components
 import CoinDetailComponent from '../../Components/CoinDetail/CoinDetail';
-import { CoinDetail, Chart } from '../../Redux/CoinDetail/coinDetailTypes';
 import Error from '../_error';
 
 interface Props {
@@ -40,9 +41,6 @@ const CoinDetail = ({ detail, detailErr, chart, chartErr }: Props) => {
             })
         }
 
-        if (detailErr) {
-            dispatch(handleDetailErr(detailErr))
-        }
         if (chartErr) {
             dispatch(handleChartErr(chartErr))
         }
@@ -54,7 +52,14 @@ const CoinDetail = ({ detail, detailErr, chart, chartErr }: Props) => {
     return (
         detailErr ?
             <Error errorMessage={detailErr} /> :
-            <CoinDetailComponent />
+            <>
+                <Head>
+                    <title>
+                        {detail?.name} Detail
+                    </title>
+                </Head>
+                <CoinDetailComponent />
+            </>
     )
 }
 

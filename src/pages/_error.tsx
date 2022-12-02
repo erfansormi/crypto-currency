@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 // mui
 import Grid from '@mui/material/Unstable_Grid2/Grid2'
@@ -14,7 +15,6 @@ import { BsArrowCounterclockwise } from "react-icons/bs"
 // redux
 import { useSelector } from 'react-redux';
 import { State } from "../Redux/store"
-import Head from 'next/head';
 
 // ts
 interface iProps {
@@ -29,7 +29,7 @@ const Error = ({ errorMessage }: iProps) => {
         <>
             <Head>
                 <title>
-                    404 error | Page not found
+                    An error occurred | {errorMessage}
                 </title>
             </Head>
             <div className={`md-shadow ${styles.container}`}>

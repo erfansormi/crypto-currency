@@ -1,8 +1,16 @@
+import Head from 'next/head';
 import PageNotFound from '../Components/Errors/PageNotFound/PageNotFound';
 
 const pageNotFound = () => {
     return (
-        <PageNotFound />
+        <>
+            <Head>
+                <title>
+                    404 error | Page not found
+                </title>
+            </Head>
+            <PageNotFound />
+        </>
     )
 }
 

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import type { AppProps } from 'next/app'
+import Head from 'next/head';
 
 // css
 import '../styles/css/reset.css';
@@ -45,6 +46,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                     <ColorsStyles />
                 </ClientOnly>
                 <ThemeProvider theme={theme} >
+                    <Head>
+                        <meta charSet="UTF-8" />
+                        <meta name="description" content="Digital currencies along with their details and exchanges lists and more..." />
+                        <meta name="keywords" content="Crypto Currency, Coins, Bitcoin, Crypto Tabale, Digital Currency, Crypto" />
+                        <meta name="author" content="Erfan Sormi" />
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                    </Head>
                     <Header />
                     <Component {...pageProps} />
                     <Footer />

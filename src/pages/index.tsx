@@ -41,15 +41,17 @@ const Index = ({ coins, error }: Props) => {
 
   return (
     <>
-      <Head>
-        <title>
-          Crypto Currency | Home
-        </title>
-      </Head>
       {
         error ?
           <Error errorMessage={error} /> :
-          <CoinsTabale />
+          <>
+            <Head>
+              <title>
+                Crypto Currency | Home
+              </title>
+            </Head>
+            <CoinsTabale />
+          </>
       }
     </>
   )

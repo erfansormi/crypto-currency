@@ -1,19 +1,20 @@
-import React, { useEffect } from 'react'
-import { GetStaticProps } from 'next'
+import React, { useEffect } from 'react';
+import { GetStaticProps } from 'next';
+import Head from 'next/head';
 
 // get api
 import { fetchExchanges } from '../../Components/Exchanges/fetchExchanges'
 
 // components
 import Error from '../_error'
-import ExchangesTable from '../../Components/Exchanges/Exchanges'
+import ExchangesTable from '../../Components/Exchanges/Exchanges';
 
 // redux
-import { getExchanges } from '../../Redux/Exchanges/exchangesSlice'
+import { getExchanges } from '../../Redux/Exchanges/exchangesSlice';
 import { useDispatch } from 'react-redux'
 
 // ts type
-import { iExchanges } from '../../Redux/Exchanges/exchangesSlice'
+import { iExchanges } from '../../Redux/Exchanges/exchangesSlice';
 
 interface Props {
     error: string,
@@ -32,7 +33,14 @@ const Exchanges = ({ error, exchanges }: Props) => {
             {
                 error ?
                     <Error errorMessage={error} /> :
-                    <ExchangesTable />
+                    <>
+                        <Head>
+                            <title>
+                                Exchanges List
+                            </title>
+                        </Head>
+                        <ExchangesTable />
+                    </>
             }
         </>
     )

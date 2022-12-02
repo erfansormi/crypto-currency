@@ -1,6 +1,4 @@
-import { useEffect } from 'react'
 import { useRouter } from 'next/router';
-import Head from 'next/head';
 
 // mui
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
@@ -9,7 +7,7 @@ import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import styles from "./coin.module.css"
 
 // redux
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { State } from '../../Redux/store';
 
 // components
@@ -18,16 +16,10 @@ import CoinChart from './MiddleData/CoinChart/CoinChart';
 import SideInfo from './MiddleData/SideInfo/SideInfo';
 
 const CoinDetail = () => {
-    const router = useRouter();
     const detail = useSelector((state: State) => state.coin_detail);
 
     return (
         <>
-            <Head>
-                <title>
-                    {detail.detail?.name} Detail
-                </title>
-            </Head>
             <div className="root-nodes">
                 <article className={`ice-bg ${styles.layout_container}`}>
                     {detail.detail ?
