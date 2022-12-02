@@ -3,6 +3,9 @@ import { ReactJSXElement } from '@emotion/react/types/jsx-namespace'
 // emotion
 import { Global, css } from '@emotion/react'
 
+// sass variables
+import styles from "../../styles/sass/_variables.module.scss"
+
 // redux
 import { useSelector } from 'react-redux';
 import { State } from '../../Redux/store';
@@ -52,16 +55,16 @@ const HiddenLinks = ({ icon1, icon2, linksIcon, links, text }: iProps) => {
                 border-radius: 6px;
                 padding: 4px 6px;
                 ${darkMode ?
-                    `background-color:var(--color-neutral-2);
+                    `background-color: ${styles.color_neutral_2};
                 color: #fff;`:
-                    `background-color:var(--color-light-neutral-2);
+                    `background-color:${styles.color_light_neutral_2};
                 color: #000;`
                 }
                 font-size:0.82rem !important;
             }
     
             .link-bg:hover{
-                background-color: var(--color-light-neutral-5) !important;
+                background-color: ${styles.color_light_neutral_5} !important;
                 color: rgb(255, 255, 255) !important;
             }
     
@@ -88,12 +91,12 @@ const HiddenLinks = ({ icon1, icon2, linksIcon, links, text }: iProps) => {
                 flex-direction:column;
                 padding:5px 0 0 0;
                 ${darkMode ?
-                    `background-color:var(--color-neutral-2);
+                    `background-color:${styles.color_neutral_2};
                     color:#fff;`:
                     `background-color:#fff;
                     color:#000;`
                 }
-                box-shadow:var(--box-shadow);
+                box-shadow: ${styles.box_shadow};
                 font-size:0.82rem !important;
                 margin-top:13px;
             } 
@@ -116,7 +119,7 @@ const HiddenLinks = ({ icon1, icon2, linksIcon, links, text }: iProps) => {
                 box-shadow:var(--box-shadow);
     
                 ${darkMode ?
-                    `background-color:var(--color-neutral-2);` :
+                    `background-color: ${styles.color_neutral_2};` :
                     `background-color:#fff;
                         border: 1px solid #f9f9f9;`
                 }
@@ -136,8 +139,8 @@ const HiddenLinks = ({ icon1, icon2, linksIcon, links, text }: iProps) => {
     
             .hidden-links>a:hover{
                 ${darkMode ?
-                    `background-color:var(--color-neutral-1);` :
-                    `background-color:var(--color-light-neutral-2);`
+                    `background-color: ${styles.color_neutral_4};` :
+                    `background-color: ${styles.color_light_neutral_2};`
                 }
             }
     

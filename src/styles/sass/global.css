@@ -1,0 +1,153 @@
+@font-face {
+  font-family: SecularOne;
+  src: url("../../../public/fonts/SecularOne-Regular.ttf");
+}
+
+@font-face {
+  font-family: VarelaRound;
+  src: url("../../../public/fonts/VarelaRound-Regular.ttf");
+}
+
+* {
+  font-family: VarelaRound, SecularOne, 'Courier New', Courier, monospace, SecularOne -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+}
+
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 767px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+body {
+  font-weight: 600;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+button {
+  background-color: inherit;
+  border: 0;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+span {
+  font-size: inherit;
+  color: inherit;
+  text-transform: capitalize;
+}
+
+h1 {
+  font-size: 2rem;
+  color: inherit;
+  text-transform: capitalize;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: inherit;
+  text-transform: capitalize;
+}
+
+h3 {
+  font-size: 1.6rem;
+  color: inherit;
+  text-transform: capitalize;
+}
+
+h4 {
+  font-size: 1.4rem;
+  color: inherit;
+  text-transform: capitalize;
+}
+
+h5 {
+  font-size: 1.2rem;
+  color: inherit;
+  text-transform: capitalize;
+}
+
+h6 {
+  font-size: 1rem;
+  color: inherit;
+  text-transform: capitalize;
+}
+
+.topSummary_grid_container__Fg9zm > div {
+  margin-bottom: 15px;
+}
+
+.align-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.justify-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.full {
+  height: 100%;
+  width: 100%;
+}
+
+.fit-content {
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+
+.max-content {
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+/*# sourceMappingURL=global.css.map */

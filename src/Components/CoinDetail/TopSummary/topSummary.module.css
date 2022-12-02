@@ -1,26 +1,12 @@
-.grid_container {
-  padding: 25px 0;
-}
-
-.name_section_container {
-  margin-top: 26px;
-}
-
-.name_section_container .header_name {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.header_name {
   margin-bottom: 12px;
 }
 
-.name_section_container .header_name > div {
+.header_name > div {
   margin-right: 8px;
 }
 
-.name_section_container .header_name > div img {
+.header_name > div img {
   width: 35px;
 }
 

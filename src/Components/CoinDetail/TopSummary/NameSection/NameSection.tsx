@@ -14,15 +14,15 @@ const NameSection = () => {
     const detail = useSelector((state: State) => state.coin_detail.detail);
 
     return (
-        <div className={styles.name_section_container}>
-            <div className={styles.header_name} >
+        <div className={"mt-9"}>
+            <div className={`align-center ${styles.header_name}`} >
                 {nameHeader(detail)?.map((item, index) =>
                     <div key={index * 6 + 20}>
                         {item.value}
                     </div>
                 )}
             </div>
-            <div className={styles.header_name}>
+            <div className={`align-center ${styles.header_name}`}>
                 {nameFooter(detail)?.map((item, index) =>
                     <div key={index * 6 + 21}>
                         {item.value}

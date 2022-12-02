@@ -45,19 +45,13 @@ export const TabaleHead: iTabaleHead[] = [
 export const TabaleBody = (coins: iCoins) => {
     let color = (price: number) => {
         if (price > 0) {
-            return {
-                color: "var(--up-color)"
-            }
+            return "up-color"
         }
         else if (price < 0) {
-            return {
-                color: "var(--down-color)"
-            }
+            return "down-color"
         }
         else {
-            return {
-                color: "var(--text-color-sub-1)"
-            }
+            return "neutral-color"
         }
     }
 
@@ -88,19 +82,19 @@ export const TabaleBody = (coins: iCoins) => {
         },
         {
             value:
-                <span style={color(coins.price_change_percentage_1h_in_currency)}>
+                <span className={color(+coins.price_change_percentage_1h_in_currency.toFixed(2))}>
                     {`${coins.price_change_percentage_1h_in_currency.toFixed(2)}%`}
                 </span>
         },
         {
             value:
-                <span style={color(coins.price_change_percentage_24h_in_currency)}>
+                <span className={color(+coins.price_change_percentage_24h_in_currency.toFixed(2))}>
                     {`${coins.price_change_percentage_24h_in_currency.toFixed(2)}%`}
                 </span>
         },
         {
             value:
-                <span style={color(coins.price_change_percentage_7d_in_currency)}>
+                <span className={color(+coins.price_change_percentage_7d_in_currency.toFixed(2))}>
                     {`${coins.price_change_percentage_7d_in_currency.toFixed(2)}%`}
                 </span>
         },

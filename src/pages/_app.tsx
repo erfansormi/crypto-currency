@@ -2,11 +2,16 @@ import { useEffect } from 'react';
 import type { AppProps } from 'next/app'
 
 // css
-import '../styles/reset.css';
-import '../styles/global.css';
+import '../styles/css/reset.css';
+import "../styles/css/mui_styles.css"
+import '../styles/css/global.css';
+import '../styles/css/colors.css';
+import '../styles/css/spaces.css';
 
 // style
-import { GlobalStyles } from '../Components/Emotion/GlobalStyles';
+import GlobalStyles from '../Components/Emotion/GlobalStyles';
+import TabaleStyles from '../Components/Emotion/TabaleStyles';
+import ColorsStyles from '../Components/Emotion/ColorsStyles';
 
 // mui
 import { ThemeProvider } from '@mui/material/styles';
@@ -36,6 +41,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             <Provider store={store}>
                 <ClientOnly>
                     <GlobalStyles />
+                    <TabaleStyles />
+                    <ColorsStyles />
                 </ClientOnly>
                 <ThemeProvider theme={theme} >
                     <Header />

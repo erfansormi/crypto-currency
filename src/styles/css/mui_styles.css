@@ -1,0 +1,17 @@
+.MuiTableCell-root {
+  padding: 6px !important;
+}
+
+.MuiTableCell-root > a canvas {
+  width: 210px !important;
+  height: 90px !important;
+}
+
+@media (max-width: 569px) {
+  .css-11dxe26-MuiGrid2-root,
+  .css-12uoggl-MuiGrid2-root,
+  .css-w9npn5-MuiGrid2-root {
+    width: 100% !important;
+  }
+}
+/*# sourceMappingURL=mui_Styles.css.map */

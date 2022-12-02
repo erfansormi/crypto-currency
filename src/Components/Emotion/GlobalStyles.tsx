@@ -3,6 +3,9 @@ import React from 'react'
 // emotion
 import { Global, css } from '@emotion/react'
 
+// sass variables
+import styles from "../../styles/sass/_variables.module.scss";
+
 // redux
 import { useSelector } from 'react-redux';
 import { State } from '../../Redux/store';
@@ -12,27 +15,15 @@ const GlobalStyles = () => {
 
     return (
         <Global styles={css`
-
-        .tr-hover:hover{
-            ${darkMode ?
-                `
-                    background-color: #1a1b22 !important;
-                ` :
-                `
-                background-color: var(--theme-light-blue) !important;
-                `
-            }
-        }
-
         body{
             ${darkMode ?
                 `
-                    background-color: var(--dark-bg-1) !important;
+                    background-color: ${styles.dark_bg_1} !important;
                     color: #fff !important;
                 ` :
                 `
                 background-color: #fff !important;
-                color: var(--dark-bg-1) !important;
+                color: ${styles.dark_bg_1} !important;
                 `
             }
         }
@@ -40,14 +31,14 @@ const GlobalStyles = () => {
         .root-nodes{
             ${darkMode ?
                 `
-                    border-bottom: 1px solid var(--border-color-dark) !important;
-                    background-color: var(--dark-bg-1) !important;
+                    border-bottom: 1px solid ${styles.border_color_dark} !important;
+                    background-color: ${styles.dark_bg_1} !important;
                     color: #fff !important;
                 ` :
                 `
-                border-bottom: 1px solid var(--border-color) !important;
+                border-bottom: 1px solid ${styles.border_color} !important;
                 background-color: #fff !important;
-                color: var(--dark-bg-1) !important;
+                color: ${styles.dark_bg_1} !important;
                 `
             }
         }
@@ -56,96 +47,14 @@ const GlobalStyles = () => {
             border-bottom:0 !important;
         }
 
-        .neutral-1{
-            ${darkMode ?
-                `background-color:var(--color-neutral-1);
-            color: var(--color-neutral-6);`:
-                `background-color:var(--color-light-neutral-1);
-            color: var(--color-light-neutral-6);`
-            }
-        }
-
-        .ice-bg{
-            background:${darkMode ? "var(--dark-ice-bg-1)" : "var(--ice-bg-1)"};
-        }
-
-        .pillName{
-            line-height: 18px;
-            font-weight: 600;
-            border-radius: 4px;
-            padding: 4px 6px;
-            ${darkMode ?
-                `background-color:var(--color-neutral-2);
-            color: var(--color-neutral-6);`:
-                `background-color:var(--color-light-neutral-2);
-            color: var(--color-light-neutral-6);`
-            }
-        }
-
-        .pillName-primary {
-            background-color: var(--color-light-neutral-5) !important;
-            color: rgb(255, 255, 255) !important;
-        }
-
-        .down-bg{
-            padding:4px 6px;
-            border-radius:6px;
-            background-color:var(--down-color);
-            color:#fff !important;
-        }
-
-        .up-bg{
-            padding:4px 6px;
-            border-radius:6px;
-            background-color:var(--up-color);
-            color:#fff !important;
-        }
-
-        .warning-bg{
-            padding:4px 6px;
-            border-radius:6px;
-            background-color:var(--warning-color);
-            color:#fff !important;
-        }
-        
-        .neutral-bg{
-            padding:4px 6px;
-            border-radius:6px;
-            background-color:var(--color-neutral-5);
-            color:#fff !important;
-        }
-
-        .down-color{
-            color:var(--down-color) !important;
-        }
-
-        .up-color{
-            color:var(--up-color) !important;
-        }
-
-        .neutral-color{
-            color:var(--color-neutral-2) !important;
-        } 
-
-        .light-color{
-            ${darkMode ?
-                `color:var(--color-neutral-6);` :
-                `color:var(--color-light-neutral-6);`
-            }
-        }
-
-        .normal-color{
-            color:${darkMode ? "#fff" : "#111"}
-        }
-
         .progress-bar{
             width:100%;
             height: 7px;
             display: block;
             border-radius:4px;
             ${darkMode ?
-                `background-color:var(--color-light-neutral-6);` :
-                `background-color:var(--color-neutral-6)`
+                `background-color:${styles.color_light_neutral_6};` :
+                `background-color:${styles.color_neutral_6};`
             }
         }
 
@@ -166,39 +75,16 @@ const GlobalStyles = () => {
         
         .border-color{
             ${darkMode ?
-                `border:1px solid var(--border-color-dark)` :
-                `border:1px solid var(--border-color)`
+                `border:1px solid ${styles.border_color_dark};` :
+                `border:1px solid ${styles.border_color};`
             }
         }
 
         .border-b-color{
             ${darkMode ?
-                `border-bottom:1px solid var(--border-color-dark) !important` :
-                `border-bottom:1px solid var(--border-color) !important`
+                `border-bottom:1px solid ${styles.border_color_dark} !important;` :
+                `border-bottom:1px solid ${styles.border_color} !important;`
             }
-        }
-
-        .tr-color{
-            ${darkMode ?
-                `color: var(--color-light-neutral-3) !important` :
-                `color: var(--dark-bg-1) !important`
-            }
-        }
-
-        .error-alert{
-            ${darkMode ? `background-color:var(--error-dark-alert-bg);` :
-                `background-color:var(--error-alert-bg);`
-            }
-            padding:10px 15px;
-            border-radius:6px;
-        }
-
-        .neutral-alert{
-            ${darkMode ? `background-color:var(--color-neutral-2);` :
-                `background-color:var(--color-light-neutral-2);`
-            }
-            padding:10px 15px;
-            border-radius:6px;
         }
 
         .err-dark-img{
@@ -275,7 +161,7 @@ const GlobalStyles = () => {
 
         @keyframes input-box-shadow {
         50% {
-            box-shadow: 0 0 7px 4px ${darkMode ? `var(--color-neutral-2)` : `#ccc`};
+            box-shadow: 0 0 7px 4px ${darkMode ? `${styles.color_neutral_2}` : `#ccc`};
         }
 
         100% {
@@ -298,4 +184,4 @@ const GlobalStyles = () => {
     )
 }
 
-export { GlobalStyles };
+export default GlobalStyles;

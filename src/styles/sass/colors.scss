@@ -1,0 +1,38 @@
+@import "mixins";
+@import "variable";
+
+.down-bg {
+    @include chip($down-color);
+}
+
+.up-bg {
+    @include chip($up-color);
+}
+
+.warning-bg {
+    @include chip($warning-color);
+}
+
+.neutral-bg {
+    @include chip($color-neutral-5);
+}
+
+.down-color {
+    color: $down-color !important;
+}
+
+.up-color {
+    color: $up-color !important;
+}
+
+.neutral-color {
+    color: $color-neutral-5 !important;
+}
+
+.warning-color {
+    color: $warning-color !important;
+}
+
+.primary-color {
+    color: $color-primary !important;
+}

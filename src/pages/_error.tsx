@@ -1,11 +1,12 @@
 import React from 'react'
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 // mui
 import Grid from '@mui/material/Unstable_Grid2/Grid2'
 
 // css
-import styles from "../styles/error.module.css"
+import styles from "../styles/css/error.module.css"
 
 // icon
 import { BsArrowCounterclockwise } from "react-icons/bs"
@@ -14,7 +15,6 @@ import { BsArrowCounterclockwise } from "react-icons/bs"
 import { useSelector } from 'react-redux';
 import { State } from "../Redux/store"
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 
 // ts
 interface iProps {
@@ -66,12 +66,10 @@ const Error = ({ errorMessage }: iProps) => {
                             <div className={styles.text_container}>
                                 <p
                                     className='light-color neutral-alert'
-                                    onClick={() => window.location.reload()}
+                                    onClick={() => router.reload()}
                                 >
                                     click here to reload page!
-                                    <span onClick={() => router.push({
-                                        pathname: "/"
-                                    })}><BsArrowCounterclockwise /></span>
+                                    <span><BsArrowCounterclockwise /></span>
                                 </p>
                             </div>
                         </div>

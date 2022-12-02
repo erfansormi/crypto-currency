@@ -1,0 +1,12 @@
+@mixin text($size, $color, $transform) {
+    font-size: $size;
+    color: $color;
+    text-transform: $transform;
+}
+
+@mixin chip($bg-color) {
+    padding: 4px 6px;
+    border-radius: 6px;
+    background-color: $bg-color;
+    color: #fff !important;
+}

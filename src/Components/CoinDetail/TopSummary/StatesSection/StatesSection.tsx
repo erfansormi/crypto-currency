@@ -10,6 +10,9 @@ import { State } from '../../../../Redux/store';
 // data
 import { StatesData } from './StatesData';
 
+// sass variables
+import variable from "../../../../styles/sass/_variables.module.scss"
+
 // css
 import styles from "../topSummary.module.css"
 
@@ -22,27 +25,27 @@ const StatesSection = () => {
         if (index == 0 && darkMode) {
             return {
                 borderLeft: "0 !important",
-                border: "1px solid var(--border-color-dark)"
+                border: `1px solid ${variable.border_color_dark}`
             }
         }
         else if (index == 3 && darkMode) {
             return {
                 borderRight: "0 !important",
-                border: "1px solid var(--border-color-dark)"
+                border: `1px solid ${variable.border_color_dark}`
             }
         }
         else if (darkMode) {
-            return { border: "1px solid var(--border-color-dark)" }
+            return { border: `1px solid ${variable.border_color_dark}` }
         }
         else if (!darkMode && index == 0) {
-            return { borderLeft: "0 !important", border: "1px solid var(--border-color)" }
+            return { borderLeft: "0 !important", border: `1px solid ${variable.border_color}` }
         }
         else if (!darkMode && index == 3) {
-            return { borderRight: "0 !important", border: "1px solid var(--border-color)" }
+            return { borderRight: "0 !important", border: `1px solid ${variable.border_color}` }
         }
         else {
             return {
-                border: "1px solid var(--border-color)"
+                border: `1px solid ${variable.border_color}`
             }
         }
     }

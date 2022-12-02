@@ -3,9 +3,6 @@ import React from 'react'
 // mui
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 
-// css
-import styles from "./topSummary.module.css"
-
 // components
 import NameSection from './NameSection/NameSection';
 import PriceSection from './PriceSection/PriceSection';
@@ -15,7 +12,7 @@ import StatesSection from './StatesSection/StatesSection';
 
 const TopSummary = () => {
     return (
-        <Grid container className={styles.grid_container}>
+        <Grid container className={"py-8"}>
             <Grid xs={12} md={6}>
                 <NameSection />
             </Grid>

@@ -1,0 +1,61 @@
+$control-border-color: #101113;
+$control-background-color: #fff;
+$control-caret-color: #000;
+$control-transition-duration: 0.3s;
+$control-transition-easing: ease;
+$control-dropdown-background-color: #eff2f5;
+
+// different colors
+$theme-light-color: #cfd6e4;
+$theme-light-blue-color: #e6f0ff;
+$theme-light-blue: #f0f6ff;
+$text-color: #000;
+$info-icon-color: #a6b0c3;
+$text-color-sub: #58667e;
+$text-color-sub-1: #58667e;
+$bt-light-blue: #f0f6ff;
+$up-color: #16c784;
+$down-color: #ea3943;
+$warning-color: #eaac39;
+$error-alert-bg: #ffdddd;
+$error-dark-alert-bg: #2e2828;
+$bg-color: #fff;
+$color-primary: #3861fb;
+
+// gradiants
+$ice-bg-1: linear-gradient(rgb(248, 250, 253) 0%, rgba(248, 250, 253, 0) 413px);
+$dark-ice-bg-1: linear-gradient(rgb(34, 37, 49) 0%, rgba(34, 37, 49, 0) 413px);
+$color-gradient-end: rgba(248, 250, 253, 0);
+
+// neutral colors
+$color-neutral-1: #222531;
+$color-neutral-2: #323546;
+$color-neutral-3: #262628;
+$color-neutral-4: #646b80;
+$color-neutral-5: #858ca2;
+$color-neutral-6: #a1a7bb;
+$color-neutral-7: #646b80;
+$color-light-neutral-1: #f8fafd;
+$color-light-neutral-2: #eaecee;
+$color-light-neutral-3: #cfd6e4;
+$color-light-neutral-4: #a6b0c3;
+$color-light-neutral-5: #808a9d;
+$color-light-neutral-6: #58667e;
+$color-light-neutral-7: #eff2f5;
+$button-border-color: #cfd6e4;
+$button-bg-color: #222531;
+$dark-bg-1: #1a2025;
+$dark-bg-2: #2d3436;
+$card-bg: #fff;
+
+// sizes
+$var-text-small: 14px;
+$breakpoint-md: 768px;
+
+// other styles
+$box-shadow: 0px 0px 2px rgba(128, 138, 157, 0.12), 0px 0px 24px rgba(128, 138, 157, 0.14);
+$tiny-box-shadow: 0px 4px 24px rgba(88, 102, 126, 0.08), 0px 1px 2px rgba(88, 102, 126, 0.12);
+$input-shadow-color-focus: #e6f0ff;
+$shadow-normal: 0px 1px 2px rgba(128, 138, 157, 0.12), 0px 8px 32px rgba(128, 138, 157, 0.24);
+$border-color: #edf0f3;
+$border-color-dark: #292f38;

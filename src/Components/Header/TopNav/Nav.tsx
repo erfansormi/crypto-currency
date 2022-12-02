@@ -24,10 +24,10 @@ const Nav = () => {
     const dispatch = useDispatch();
     const global = useSelector((state: State) => state.global);
 
-    const handleFetchData = () => {
+    const handleFetchData = async () => {
         dispatch(globalLoading());
 
-        axios.get("https://api.coingecko.com/api/v3/global")
+        await axios.get("https://api.coingecko.com/api/v3/global")
             .then((res) => {
                 dispatch(globalFetchRequestSuccess(res.data.data))
             })
@@ -37,19 +37,11 @@ const Nav = () => {
     }
 
     useEffect(() => {
-        dispatch(globalLoading());
-        
-        axios.get("https://api.coingecko.com/api/v3/global")
-            .then((res) => {
-                dispatch(globalFetchRequestSuccess(res.data.data))
-            })
-            .catch((err) => {
-                dispatch(globalFetchRequestFailure(err.message))
-            })
+        handleFetchData();
     }, [])
 
     return (
-        <nav className={`border-b-color ${styles.nav}`}>
+        <nav className={`align-center ${styles.nav}`}>
             <div className='light-color' >
 
                 {/* loading */}
@@ -60,38 +52,38 @@ const Nav = () => {
 
                     // error
                     global.error ?
-                        <div className={styles.error_container}>
-                            <div>
+                        <div className={"down-color"}>
+                            <div className='h-100 align-center'>
                                 {global.error}
-                                <button onClick={handleFetchData}>
+                                <button onClick={handleFetchData} className="down-color d-flex">
                                     <BsArrowCounterclockwise />
                                 </button>
                             </div>
                         </div> :
 
                         // nav
-                        <div className={styles.nav_content_container}>
+                        <div className={`align-center full mr-3 ${styles.nav_content}`}>
                             {navInfoData(global.data).map((item, index) =>
                                 <div
                                     key={index * 6 + 27}
-                                    className={styles.info_container}
+                                    className={"align-center"}
                                 >
-                                    <span className={styles.text}>
+                                    <span className={"capitalize max-content"}>
                                         {item.text}:
                                     </span>
-                                    <span className={styles.value}>
+                                    <span className={"primary-color mr-4 ml-2 max-content"}>
                                         {item.value}
                                     </span>
                                 </div>
                             )}
-                            <div className={styles.dominance_container}>
-                                <span className={styles.text}>
+                            <div className={"d-flex"}>
+                                <span className={"mr-2 capitalize"}>
                                     {navDominanceData(global.data).text}
                                 </span>
                                 {navDominanceData(global.data).value.map((item, index) =>
                                     <div
                                         key={index * 6 + 28}
-                                        className={styles.dominance_value}
+                                        className={"primary-color d-flex mr-2"}
                                     >
                                         <span>
                                             {item.text}
@@ -110,7 +102,7 @@ const Nav = () => {
                     </div>
                 </ClientOnly>
             </div>
-        </nav >
+        </nav>
     )
 }
 

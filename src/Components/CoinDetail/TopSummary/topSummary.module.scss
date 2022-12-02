@@ -1,30 +1,15 @@
-// :root {
-//     --sections-mb: 12px;
-//     --sections-mx: 8px;
-// }
-
 $sections-mb: 12px;
 $sections-mx: 8px;
 
-.grid_container {
-    padding: 25px 0;
-}
-
-.name_section_container {
-    margin-top: 26px;
-}
-
-.name_section_container .header_name {
-    display: flex;
-    align-items: center;
+.header_name {
     margin-bottom: $sections-mb;
 }
 
-.name_section_container .header_name>div {
+.header_name>div {
     margin-right: $sections-mx;
 }
 
-.name_section_container .header_name>div img {
+.header_name>div img {
     width: 35px;
 }
 
@@ -57,7 +42,7 @@ $sections-mx: 8px;
 }
 
 .link_section_container>div {
-    margin-right: 8px;
+    margin-right: $sections-mx;
     margin-bottom: 4px;
 }
 
