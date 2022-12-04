@@ -59,7 +59,6 @@ const ModalSearch = ({ open, setOpen }: iProps) => {
         setOpen(false);
         setState({
             ...state,
-            data: null,
             helperText: "",
             searchedText: "",
             error: "",
@@ -96,17 +95,6 @@ const ModalSearch = ({ open, setOpen }: iProps) => {
         else {
             setState({ ...state, helperText: "you must enter a character!" })
         }
-    }
-
-    const handleClick = () => {
-        handleClose();
-        setState({
-            ...state,
-            helperText: "",
-            searchedText: "",
-            error: "",
-            loading: false
-        })
     }
 
     return (
@@ -184,12 +172,14 @@ const ModalSearch = ({ open, setOpen }: iProps) => {
                                             <div
                                                 className={`${styles.coin_container} align-center`}
                                                 key={index * 6 + 26}
-                                                onClick={handleClick}
+                                                onClick={handleClose}
                                             >
                                                 <Link
                                                     href={{
                                                         pathname: `${item.id}`,
-                                                        
+                                                        query: {
+                                                            chart_day: "1"
+                                                        }
                                                     }}
                                                     as={`/coin/${item.id}`}
                                                 >

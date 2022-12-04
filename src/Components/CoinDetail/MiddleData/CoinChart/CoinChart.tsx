@@ -1,136 +1,118 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-// data
-import { days } from "./chartData";
-
-// chart js
+// syncfusion
 import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
+    ChartComponent,
+    SeriesCollectionDirective,
+    SeriesDirective,
+    Inject,
+    Category,
     Tooltip,
-    Filler,
-} from "chart.js";
-import { Line } from "react-chartjs-2";
+    DataLabel,
+    Zoom,
+    Crosshair,
+    AreaSeries,
+    DateTime,
+    Logarithmic,
+} from '@syncfusion/ej2-react-charts';
+
 
 // redux
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { State } from "../../../../Redux/store";
-import { useRouter } from "next/router";
 
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Tooltip,
-    Filler
-);
+// sass variables
+import styles from "../../../../styles/sass/_variables.module.scss"
+
+// chart options
+import { primaryxAxis, primaryyAxis, tooltip, chartArea, zoomSetting, crosshair, marker, border, tooltipRender } from "./chartData";
+
+// components
+import TopButtons from "./TopButtons";
 
 const CoinChart = () => {
-    const router = useRouter();
-
-    // state
-    const [chartDay, setChartDay] = useState({
-        value: "1",
-        text: "1d"
-    })
+    const [loading, setLoading] = useState(true)
 
     // redux
     const chart = useSelector((state: State) => state.coin_detail.chart);
-    const detail = useSelector((state: State) => state.coin_detail.detail);
-    const error = useSelector((state: State) => state.coin_detail.chartErr);
+    const darkMode = useSelector((state: State) => state.general.darkMode);
 
+    // minimum and maximum coin price
+    const prices = chart?.prices.map(item => item[1])
+    let minPrice = prices ? prices.sort((a, b) => a - b)[0] : 1000;
+    let maxPrice = prices ? prices.sort((a, b) => b - a)[0] : 1000;
 
-    // chart config
-    const labels = chart?.prices.map((item) => {
-        if (chartDay.value == "max") {
-            return (
-                new Date(item[0]).toLocaleDateString()
-            )
+    const data = chart?.prices.map(item => {
+        return {
+            date: item[0],
+            price: item[1]
         }
-        else {
-            return (
-                new Date(item[0]).getDate() +
-                "." +
-                new Date(item[0]).toDateString().split(/[0-9]/)[0].split(" ")[1] +
-                "  " +
-                new Date(item[0]).getHours() +
-                ":" +
-                new Date(item[0]).getMinutes()
-            );
-        }
-    });
+    })
 
-    const Data = {
-        labels,
-        datasets: [
-            {
-                fill: true,
-                drawActiveElementsOnTop: false,
-                data: chart?.prices.map((item) => {
-                    return item[1];
-                }),
-                label: "price(usd)",
-                borderColor: "#3861fb",
-                backgroundColor: "#3861fb10",
-                pointBorderWidth: 0,
-                borderWidth: 2.5,
-            },
-        ],
-    };
-    ChartJS.defaults.datasets.line.cubicInterpolationMode = "monotone";
-
-    // func
-    const handleClick = (e: any) => {
-        router.push({
-            query: {
-                chart_day: e.target.value,
-                coin_id: detail?.id
-            }
-        })
-
-        setChartDay({
-            value: e.target.value,
-            text: e.target.textContent
-        })
-    }
+    useEffect(() => {
+        setLoading(false)
+    }, [])
 
     return (
-        <div>
-            <div className="mb-12">
-                <div className="mb-5">
-                    <h3>Bitcoin Price Chart ({chartDay.text})</h3>
-                </div>
-                <div>
-                    <div className="align-center">
-                        {days.map((item, index) =>
-                            <button
-                                key={index * 6 + 29}
-                                value={item.value}
-                                onClick={handleClick}
-                                style={{ marginRight: 5, cursor: "pointer" }}
-                                className={`${router.query.chart_day == item.value ? "pillName-primary pillName" : "pillName"}`}
-                            >
-                                {item.text}
-                            </button>
-                        )}
-                    </div>
-                </div>
-            </div>
+        <>
             {
-                error ?
-                    <div>
-                        an error occurred
-                    </div> :
-                    chart?.prices ?
-                        <Line data={Data} /> :
-                        null
+                loading ?
+                    <h4>
+                        Loading...
+                    </h4> :
+                    <>
+                        <TopButtons />
+
+                        {/* chart */}
+                        <ChartComponent id='detail-chart'
+                            primaryXAxis={primaryxAxis(darkMode)}
+                            primaryYAxis={primaryyAxis(darkMode, minPrice, maxPrice)}
+                            tooltip={tooltip(darkMode)}
+                            chartArea={chartArea}
+                            zoomSettings={zoomSetting}
+                            tooltipRender={tooltipRender}
+                            crosshair={crosshair(darkMode)}
+                        >
+                            <Inject services={[AreaSeries, Tooltip, DataLabel, Category, DateTime, Logarithmic, Zoom, Crosshair]} />
+                            <SeriesCollectionDirective>
+                                <SeriesDirective
+                                    border={border}
+                                    dataSource={data}
+                                    marker={marker}
+                                    xName='date'
+                                    yName='price'
+                                    fill='url(#gradient-chart)'
+                                    type={"Area"}
+                                >
+                                </SeriesDirective>
+                            </SeriesCollectionDirective>
+                        </ChartComponent>
+
+                        {/* chart bg gradient styles */}
+                        <style> {`
+                 #gradient-chart stop { 
+                     stop-color: ${styles.color_primary}; 
+                 } 
+                 #gradient-chart stop[offset="0"]{ 
+                     stop-opacity: 0.20; 
+                 } 
+                 #gradient-chart stop[offset="1"]{ 
+                     stop-opacity: 0; 
+                 } 
+             `}
+                        </style>
+                        <svg style={{ height: 0 }}>
+                            <defs>
+                                <linearGradient id="gradient-chart" style={{ opacity: 0.75 }} x1="0" x2="0" y1="0" y2="1">
+                                    <stop offset="0"></stop>
+                                    <stop offset="1"></stop>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </>
             }
-        </div>
-    );
-};
+        </>
+    )
+}
 
 export default CoinChart;

@@ -21,8 +21,8 @@ const GlobalStyles = () => {
         
         .border-color{
             ${darkMode ?
-                `border:1px solid ${styles.border_color_dark};` :
-                `border:1px solid ${styles.border_color};`
+                `border: 1px solid ${styles.border_color_dark};` :
+                `border: 1px solid ${styles.border_color};`
             }
         }
 

@@ -26,8 +26,8 @@ interface Props {
 }
 
 const CoinDetail = ({ detail, detailErr, chart, chartErr }: Props) => {
-    const router = useRouter();
-
+    const router = useRouter();    
+    
     // redux
     const dispatch = useDispatch();
 
