@@ -1,13 +1,13 @@
 import React from 'react'
+import TopNav from './TopNav/TopNav'
 import MainNav from './MainNav/MainNav'
-import Nav from './TopNav/Nav'
 import HeaderLayout from './HeaderLayout'
 
 const Header = () => {
     return (
         <header>
             <HeaderLayout>
-                <Nav />
+                <TopNav />
             </HeaderLayout>
             <HeaderLayout border_none>
                 <MainNav />
