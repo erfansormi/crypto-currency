@@ -1,12 +1,15 @@
+@import "mixins";
+
+// variables
 $size: 3px;
 
-@for $i from 1 to 19 {
+@for $i from 0 to 19 {
 
     // margins
     .m-#{$i} {
         margin: $size * $i;
     }
-    
+
     .mt-#{$i} {
         margin-top: $size * $i;
     }
@@ -37,7 +40,7 @@ $size: 3px;
     .p-#{$i} {
         padding: $size * $i;
     }
-    
+
     .pt-#{$i} {
         padding-top: $size * $i;
     }
@@ -62,5 +65,30 @@ $size: 3px;
     .py-#{$i} {
         padding-top: $size * $i;
         padding-bottom: $size * $i;
+    }
+}
+
+// media qury
+@for $i from 0 to 19 {
+    @include media-query(sm) {
+        .m-sm-#{$i} {
+            margin: $size * $i;
+        }
+
+        .mb-sm-#{$i} {
+            margin-bottom: $size * $i;
+        }
+
+        .mt-sm-#{$i} {
+            margin-top: $size * $i;
+        }
+
+        .mr-sm-#{$i} {
+            margin-right: $size * $i;
+        }
+
+        .ml-sm-#{$i} {
+            margin-left: $size * $i;
+        }
     }
 }

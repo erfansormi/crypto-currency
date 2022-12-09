@@ -61,6 +61,13 @@ span {
     flex-direction: column;
 }
 
+.flex-sm-row {
+    @include media-query(sm) {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
 .align-center {
     align-items: center;
 }

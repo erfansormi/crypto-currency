@@ -1,3 +1,8 @@
+#detail-chart,
+#charts {
+    touch-action: pan-y;
+}
+
 #charts_tooltip_path,
 #detail-chart_tooltip_path {
     filter: none !important;

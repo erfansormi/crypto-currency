@@ -49,8 +49,8 @@ const TopButtons = ({ handle }: Props) => {
                 <div className="mb-5">
                     <h3>{detail?.name} Price Chart ({router.query.chart_day != "max" ? `${router.query.chart_day}d` : router.query.chart_day})</h3>
                 </div>
-                <div className="d-flex justify-between">
-                    <div className="d-flex align-center">
+                <div className="flex-column flex-sm-row justify-between">
+                    <div className="d-flex align-center mb-5 mb-sm-0">
                         {days.map((item, index) =>
                             <button
                                 key={index * 6 + 29}
