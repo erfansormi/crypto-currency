@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 
 // redux
-import { fetchCoinChart, fetchCoinDetail, handleChartErr } from '../../Redux/CoinDetail/coinDetailSlice';
+import { fetchCoinChart, fetchCoinDetail, handleChartErr, fetchCoinCandle } from '../../Redux/CoinDetail/coinDetailSlice';
 import { useDispatch } from 'react-redux';
 import { CoinDetail, Chart } from '../../Redux/CoinDetail/coinDetailTypes';
 
@@ -22,12 +22,13 @@ interface Props {
     detail: CoinDetail,
     chart: Chart,
     detailErr: string,
-    chartErr: string
+    chartErr: string,
+    candleChart: number[][]
 }
 
-const CoinDetail = ({ detail, detailErr, chart, chartErr }: Props) => {
-    const router = useRouter();    
-    
+const CoinDetail = ({ detail, detailErr, chart, chartErr, candleChart }: Props) => {
+    const router = useRouter();
+
     // redux
     const dispatch = useDispatch();
 
@@ -47,6 +48,7 @@ const CoinDetail = ({ detail, detailErr, chart, chartErr }: Props) => {
 
         dispatch(fetchCoinChart(chart))
         dispatch(fetchCoinDetail(detail))
+        dispatch(fetchCoinCandle(candleChart))
     }, [router.query.coin_id, router.query.chart_day])
 
     return (
@@ -55,7 +57,7 @@ const CoinDetail = ({ detail, detailErr, chart, chartErr }: Props) => {
             <>
                 <Head>
                     <title>
-                        {detail?.name} Detail
+                        {detail.name ? detail.name : "Coin"} Detail
                     </title>
                 </Head>
                 <CoinDetailComponent />
@@ -69,7 +71,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     const { coin_id, chart_day } = query;
 
     const { detail, detailErr } = await fetchApiCoinDetail(coin_id);
-    const { chart, chartErr } = await fetchApiCoinChart(coin_id, chart_day ? chart_day : "1");
+    const { chart, chartErr, candleChart } = await fetchApiCoinChart(coin_id, chart_day ? chart_day : "1");
 
     return {
         props: {
@@ -77,6 +79,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
             detailErr,
             chart,
             chartErr,
+            candleChart
         }
     }
 }

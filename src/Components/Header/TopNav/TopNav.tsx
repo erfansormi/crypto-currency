@@ -18,7 +18,7 @@ import useGlobal from './useGlobal';
 
 
 const TopNav = () => {
-    const { error, global, loading } = useGlobal()
+    const { error, global, loading } = useGlobal();
 
     return (
         <nav className={`align-center ${styles.nav}`}>
@@ -35,7 +35,7 @@ const TopNav = () => {
                         error ?
                             <div className={"down-color"}>
                                 <div className='h-100 align-center'>
-                                    {/* {global.error} */}
+                                    failed to load
                                     <button className="down-color d-flex">
                                         <BsArrowCounterclockwise />
                                     </button>

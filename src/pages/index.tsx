@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { GetServerSideProps } from 'next'
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from "next/router"
 
 // getApi
@@ -67,6 +67,6 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     props: {
       coins,
       error
-    }
+    },
   }
 }

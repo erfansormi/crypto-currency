@@ -8,6 +8,10 @@ export const days = [
         value: "7"
     },
     {
+        text: "14d",
+        value: "14"
+    },
+    {
         text: "1m",
         value: "30"
     },
@@ -21,7 +25,7 @@ export const days = [
     },
     {
         text: "1y",
-        value: "366"
+        value: "365"
     },
     {
         text: "max",

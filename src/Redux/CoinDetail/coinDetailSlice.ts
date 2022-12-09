@@ -2,13 +2,15 @@ import { createSlice, PayloadActionCreator } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 // types
-import { CoinDetailInitialValue, CoinDetailType, ChartDetailType } from "./coinDetailTypes"
+import { CoinDetailInitialValue, CoinDetailType, ChartDetailType, CandleDetailType } from "./coinDetailTypes"
 
 const initialState: CoinDetailInitialValue = {
     chart: null,
     detail: null,
+    candle: null,
     chartErr: "",
-    detailErr: ""
+    detailErr: "",
+    chartType: "line"
 }
 
 const coinDetailSlice = createSlice({
@@ -23,11 +25,18 @@ const coinDetailSlice = createSlice({
             state.chart = action.payload;
             state.chartErr = "";
         },
+        fetchCoinCandle: (state, action: PayloadAction<CandleDetailType>) => {
+            state.candle = action.payload;
+            state.chartErr = "";
+        },
         handleChartErr: (state, action: PayloadAction<string>) => {
             state.chartErr = action.payload;
+        },
+        changeChartType: (state, action: PayloadAction<"line" | "candle">) => {
+            state.chartType = action.payload;
         }
     }
 })
 
-export const { fetchCoinChart, fetchCoinDetail, handleChartErr } = coinDetailSlice.actions;
+export const { fetchCoinChart, fetchCoinDetail, handleChartErr, fetchCoinCandle, changeChartType } = coinDetailSlice.actions;
 export default coinDetailSlice.reducer;

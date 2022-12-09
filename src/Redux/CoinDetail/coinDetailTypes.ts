@@ -389,15 +389,20 @@ export interface Chart {
     total_volumes: number[][];
 }
 
+export type CandleChart = number[][];
+
 // types
 type nullType = null;
 export type CoinDetailType = nullType | CoinDetail;
 export type ChartDetailType = nullType | Chart;
+export type CandleDetailType = nullType | CandleChart;
 
 // final interface
 export interface CoinDetailInitialValue {
     chart: ChartDetailType,
+    candle: CandleDetailType,
     detail: CoinDetailType,
     chartErr: string,
-    detailErr: string
+    detailErr: string,
+    chartType: "line" | "candle"
 }

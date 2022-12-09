@@ -35,51 +35,51 @@ h6 {
 }
 
 .fs-1 {
-  font-size: 0.7rem;
+  font-size: 0.7rem !important;
 }
 
 .fs-2 {
-  font-size: 0.8rem;
+  font-size: 0.8rem !important;
 }
 
 .fs-3 {
-  font-size: 0.9rem;
+  font-size: 0.9rem !important;
 }
 
 .fs-4 {
-  font-size: 1rem;
+  font-size: 1rem !important;
 }
 
 .fs-5 {
-  font-size: 1.1rem;
+  font-size: 1.1rem !important;
 }
 
 .fs-6 {
-  font-size: 1.2rem;
+  font-size: 1.2rem !important;
 }
 
 .fs-7 {
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 }
 
 .fs-8 {
-  font-size: 1.75rem;
+  font-size: 1.75rem !important;
 }
 
 .fs-9 {
-  font-size: 2rem;
+  font-size: 2rem !important;
 }
 
 .fs-10 {
-  font-size: 2.25rem;
+  font-size: 2.25rem !important;
 }
 
 .fs-11 {
-  font-size: 2.5rem;
+  font-size: 2.5rem !important;
 }
 
 .fs-12 {
-  font-size: 2.75rem;
+  font-size: 2.75rem !important;
 }
 
 .fw-light {

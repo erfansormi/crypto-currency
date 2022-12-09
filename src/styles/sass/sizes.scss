@@ -10,13 +10,13 @@
 //font sizes 
 @for $i from 1 to 7 {
     .fs-#{$i} {
-        font-size: 0.6rem + ($i * 0.1);
+        font-size: 0.6rem + ($i * 0.1) !important;
     }
 }
 
 @for $i from 7 to 13 {
     .fs-#{$i} {
-        font-size: $i * 0.25rem - 0.25rem;
+        font-size: $i * 0.25rem - 0.25rem !important;
     }
 }
 

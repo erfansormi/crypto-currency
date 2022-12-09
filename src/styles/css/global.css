@@ -115,4 +115,8 @@ span {
   text-transform: lowercase;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=global.css.map */

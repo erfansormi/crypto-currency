@@ -19,7 +19,8 @@ export const primaryxAxis = (darkMode: boolean) => {
         labelStyle: {
             color: darkMode ? styles.color_light_neutral_1 : styles.color_neutral_1,
             fontWeight: "600"
-        }
+        },
+        intervalType: "Auto"
     };
     return axisModel;
 }
