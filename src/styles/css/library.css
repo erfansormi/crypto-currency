@@ -1,6 +1,7 @@
 #detail-chart,
 #charts {
-    touch-action: pan-y;
+    touch-action: auto !important;
+    overflow: auto !important;
 }
 
 #charts_tooltip_path,
