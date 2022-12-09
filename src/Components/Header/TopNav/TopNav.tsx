@@ -21,7 +21,7 @@ const TopNav = () => {
     const { error, global, loading } = useGlobal();
 
     return (
-        <nav className={`align-center ${styles.nav}`}>
+        <nav className={`d-flex align-center ${styles.nav}`}>
             <div className='light-color' >
 
                 {/* loading */}
@@ -34,7 +34,7 @@ const TopNav = () => {
                         // error
                         error ?
                             <div className={"down-color"}>
-                                <div className='h-100 align-center'>
+                                <div className='h-100 d-flex align-center'>
                                     failed to load
                                     <button className="down-color d-flex">
                                         <BsArrowCounterclockwise />
@@ -43,11 +43,11 @@ const TopNav = () => {
                             </div> :
 
                             // nav
-                            <div className={`align-center full mr-3 ${styles.nav_content}`}>
+                            <div className={`d-flex align-center full mr-3 ${styles.nav_content}`}>
                                 {navInfoData(global.data).map((item, index) =>
                                     <div
                                         key={index * 6 + 27}
-                                        className={"align-center"}
+                                        className={"d-flex align-center"}
                                     >
                                         <span className={"capitalize max-content"}>
                                             {item.text}:

@@ -62,15 +62,15 @@ span {
 }
 
 .align-center {
-    @include flex(normal, center);
+    align-items: center;
 }
 
 .justify-center {
-    @include flex(center, normal);
+    justify-content: center;
 }
 
 .justify-between {
-    @include flex(space-between, normal);
+    justify-content: space-between;
 }
 
 .h-100 {

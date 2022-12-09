@@ -7,7 +7,7 @@ interface Props {
 
 const HeaderLayout = ({ children, border_none }: Props) => {
     return (
-        <div style={{ padding: "0 15px" }} className={`${border_none ? "" : "border-b-color"}`}>
+        <div className={`px-5 ${border_none ? "" : "border-b-color"}`}>
             {children}
         </div>
     )

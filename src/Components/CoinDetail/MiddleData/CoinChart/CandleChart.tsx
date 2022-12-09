@@ -10,11 +10,12 @@ import {
     from '@syncfusion/ej2-react-charts';
 
 // syncfusion option data
-import { primaryxAxis, primaryyAxis, crosshair,chartArea } from './chartData';
+import { primaryxAxis, primaryyAxis, crosshair, chartArea, tooltip } from './chartData';
 
 // redux
 import { useSelector } from 'react-redux';
 import { State } from '../../../../Redux/store';
+import ChartSpinner from './ChartSpinner';
 
 const CandleChart = () => {
     const [loading, setLoading] = useState(true);
@@ -42,7 +43,6 @@ const CandleChart = () => {
     })
 
     const animation = { enable: true };
-    const tooltip: TooltipSettingsModel = { enable: true, shared: true };
     const lines = { width: 0 };
 
     useEffect(() => {
@@ -53,7 +53,7 @@ const CandleChart = () => {
         <>
             {
                 loading ?
-                    <span className='pillName fs-7 p-4 radius-4'>Loading...</span> :
+                    <ChartSpinner /> :
                     <ChartComponent id='charts'
                         primaryXAxis={primaryxAxis(darkMode)}
                         primaryYAxis={primaryyAxis(darkMode, minPrice, maxPrice)}

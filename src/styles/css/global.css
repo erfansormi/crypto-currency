@@ -65,21 +65,15 @@ span {
 }
 
 .align-center {
-  display: flex;
-  justify-content: normal;
   align-items: center;
 }
 
 .justify-center {
-  display: flex;
   justify-content: center;
-  align-items: normal;
 }
 
 .justify-between {
-  display: flex;
   justify-content: space-between;
-  align-items: normal;
 }
 
 .h-100 {

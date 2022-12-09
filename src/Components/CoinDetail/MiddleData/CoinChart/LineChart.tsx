@@ -16,7 +16,6 @@ import {
     Logarithmic,
 } from '@syncfusion/ej2-react-charts';
 
-
 // redux
 import { useSelector } from "react-redux";
 import { State } from "../../../../Redux/store";
@@ -26,6 +25,7 @@ import styles from "../../../../styles/sass/_variables.module.scss"
 
 // chart options
 import { primaryxAxis, primaryyAxis, tooltip, chartArea, zoomSetting, crosshair, marker, border, tooltipRender } from "./chartData";
+import ChartSpinner from './ChartSpinner';
 
 
 const LineChart = () => {
@@ -56,11 +56,11 @@ const LineChart = () => {
         <>
             {
                 loading ?
-                    <span className='pillName fs-7 p-4 radius-4'>Loading...</span> :
+                    <ChartSpinner /> :
                     <ChartComponent id='detail-chart'
                         primaryXAxis={primaryxAxis(darkMode)}
                         primaryYAxis={primaryyAxis(darkMode, minPrice, maxPrice)}
-                        tooltip={tooltip(darkMode)}
+                        tooltip={tooltip}
                         chartArea={chartArea}
                         zoomSettings={zoomSetting}
                         tooltipRender={tooltipRender}

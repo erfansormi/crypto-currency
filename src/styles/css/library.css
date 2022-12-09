@@ -1,4 +1,5 @@
-#charts_tooltip_path {
-    filter: none;
-    -webkit-filter: none;
+#charts_tooltip_path,
+#detail-chart_tooltip_path {
+    filter: none !important;
+    -webkit-filter: none !important;
 }

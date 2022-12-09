@@ -100,7 +100,7 @@ const ModalSearch = ({ open, setOpen }: iProps) => {
     return (
         <div>
             <div
-                className={`${styles.input_container} header-input align-center`}
+                className={`${styles.input_container} header-input d-flex align-center`}
                 onClick={handleClickOpen}
             >
                 <div>
@@ -170,7 +170,7 @@ const ModalSearch = ({ open, setOpen }: iProps) => {
                                         </div> :
                                         state.data?.coins.map((item, index) =>
                                             <div
-                                                className={`${styles.coin_container} align-center`}
+                                                className={`${styles.coin_container} d-flex align-center`}
                                                 key={index * 6 + 26}
                                                 onClick={handleClose}
                                             >

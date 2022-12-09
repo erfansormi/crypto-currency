@@ -20,8 +20,8 @@ const MainNav = () => {
     return (
         <nav className={styles.container}>
             <div className={styles.layout_container}>
-                <div className={`${styles.section_1} align-center`}>
-                    <Link href={"/"} as={"/"} className={`align-center`}>
+                <div className={`${styles.section_1} d-flex align-center`}>
+                    <Link href={"/"} as={"/"} className={`d-flex align-center`}>
                         <ClientOnly>
                             <Image
                                 src={"/images/logo.png"}
@@ -45,7 +45,6 @@ const MainNav = () => {
                 </div>
                 <div className={styles.section_2}>
                     <div>
-
                         {/* modalSearch */}
                         <ModalSearch open={openModalSearch} setOpen={setOpenModalSearch} />
                     </div>

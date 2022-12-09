@@ -15,14 +15,14 @@ const NameSection = () => {
 
     return (
         <div className={"mt-9"}>
-            <div className={`align-center ${styles.header_name}`} >
+            <div className={`d-flex align-center ${styles.header_name}`} >
                 {nameHeader(detail)?.map((item, index) =>
                     <div key={index * 6 + 20}>
                         {item.value}
                     </div>
                 )}
             </div>
-            <div className={`align-center ${styles.header_name}`}>
+            <div className={`d-flex align-center ${styles.header_name}`}>
                 {nameFooter(detail)?.map((item, index) =>
                     <div key={index * 6 + 21}>
                         {item.value}

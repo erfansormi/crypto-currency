@@ -51,18 +51,12 @@ export const primaryyAxis = (darkMode: boolean, minPrice: number, maxPrice: numb
     return axisModel;
 }
 
-export const tooltip = (darkMode: boolean) => {
-    const tooltip: TooltipModel = {
-        enable: true,
-        fill: darkMode ? styles.color_neutral_2 : "#fff",
-        textStyle: {
-            color: darkMode ? styles.color_light_neutral_1 : styles.color_neutral_1,
-            fontWeight: "600"
-        },
-        opacity: 1
-    }
-
-    return tooltip;
+export const tooltip: TooltipModel = {
+    enable: true,
+    textStyle: {
+        fontWeight: "600"
+    },
+    shared: false,
 }
 
 export const chartArea: ChartAreaModel = {
