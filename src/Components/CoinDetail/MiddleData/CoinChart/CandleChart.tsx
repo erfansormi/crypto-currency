@@ -67,7 +67,7 @@ const CandleChart = ({ isfullScActive }: Props) => {
                         chartArea={chartArea}
                         height={isfullScActive ? `${height}px` : "100%"}
                         width={isfullScActive ? `${width}px` : "100%"}
-                        style={{ minHeight: 450 }}
+                        style={{ minHeight: 450, maxHeight: isfullScActive ? "100vh" : 454 }}
                     >
                         <Inject services={[CandleSeries, Category, Tooltip, StripLine, DateTime, Logarithmic, Crosshair, LineSeries, AccumulationDistributionIndicator]} />
                         <AxesDirective>
