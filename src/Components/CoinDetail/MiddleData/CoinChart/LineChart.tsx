@@ -71,6 +71,7 @@ const LineChart = ({ isfullScActive }: Props) => {
                         crosshair={crosshair(darkMode)}
                         height={isfullScActive ? `${height}px` : "100%"}
                         width={isfullScActive ? `${width}px` : "100%"}
+                        style={{ minHeight: 450 }}
                     >
                         <Inject services={[AreaSeries, Tooltip, DataLabel, Category, DateTime, Logarithmic, Zoom, Crosshair]} />
                         <SeriesCollectionDirective>
