@@ -2,15 +2,14 @@ import React, { useState, useEffect } from 'react'
 
 // suncfusion
 import {
-    AxisModel, ChartComponent, SeriesCollectionDirective, AxesDirective, AxisDirective, RowDirective, RowsDirective, SeriesDirective, Inject,
-    CandleSeries, Category, Tooltip, ILoadedEventArgs, DateTime, Zoom, Logarithmic, StripLineDirective, ChartAreaModel, CrosshairSettingsModel,
-    Crosshair, LineSeries, AccumulationDistributionIndicator, IAxisLabelRenderEventArgs, TooltipSettingsModel,
-    StripLine, ChartTheme, IndicatorsDirective, IndicatorDirective, StripLinesDirective
+    ChartComponent, SeriesCollectionDirective, AxesDirective, AxisDirective, SeriesDirective, Inject,
+    CandleSeries, Category, Tooltip, DateTime, Zoom, Logarithmic,
+    Crosshair, LineSeries, AccumulationDistributionIndicator, StripLine
 }
     from '@syncfusion/ej2-react-charts';
 
 // syncfusion option data
-import { primaryxAxis, primaryyAxis, crosshair, chartArea, tooltip } from './chartData';
+import { primaryxAxis, primaryyAxis, crosshair, chartArea, tooltip, zoomSetting } from './chartData';
 
 // redux
 import { useSelector } from 'react-redux';
@@ -66,10 +65,11 @@ const CandleChart = ({ isfullScActive }: Props) => {
                         crosshair={crosshair(darkMode)}
                         chartArea={chartArea}
                         height={isfullScActive ? `${height}px` : "100%"}
+                        zoomSettings={zoomSetting}
                         width={isfullScActive ? `${width}px` : "100%"}
                         style={{ minHeight: 450, maxHeight: isfullScActive ? "100vh" : 454 }}
                     >
-                        <Inject services={[CandleSeries, Category, Tooltip, StripLine, DateTime, Logarithmic, Crosshair, LineSeries, AccumulationDistributionIndicator]} />
+                        <Inject services={[CandleSeries, Category, Tooltip, StripLine, DateTime, Logarithmic, Crosshair, LineSeries, AccumulationDistributionIndicator, Zoom]} />
                         <AxesDirective>
                             <AxisDirective rowIndex={0} name='secondary' opposedPosition={true}
                                 majorGridLines={lines} majorTickLines={lines} lineStyle={lines}>
