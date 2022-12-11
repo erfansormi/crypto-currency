@@ -17,12 +17,17 @@ import { useSelector } from 'react-redux';
 import { State } from '../../../../Redux/store';
 import ChartSpinner from './ChartSpinner';
 
-const CandleChart = () => {
+// ts
+interface Props {
+    isfullScActive: boolean;
+}
+
+const CandleChart = ({ isfullScActive }: Props) => {
     const [loading, setLoading] = useState(true);
 
     // redux
     const candleChart = useSelector((state: State) => state.coin_detail.candle);
-    const darkMode = useSelector((state: State) => state.general.darkMode);
+    const { darkMode, height, width } = useSelector((state: State) => state.general);
     const chart = useSelector((state: State) => state.coin_detail.chart);
     const detail = useSelector((state: State) => state.coin_detail.detail);
 
@@ -54,13 +59,14 @@ const CandleChart = () => {
             {
                 loading ?
                     <ChartSpinner /> :
-                    <ChartComponent id='charts'
+                    <ChartComponent id='detail-chart'
                         primaryXAxis={primaryxAxis(darkMode)}
                         primaryYAxis={primaryyAxis(darkMode, minPrice, maxPrice)}
                         tooltip={tooltip}
                         crosshair={crosshair(darkMode)}
                         chartArea={chartArea}
-                        width={'100%'}
+                        height={isfullScActive ? `${height}px` : "100%"}
+                        width={isfullScActive ? `${width}px` : "100%"}
                     >
                         <Inject services={[CandleSeries, Category, Tooltip, StripLine, DateTime, Logarithmic, Crosshair, LineSeries, AccumulationDistributionIndicator]} />
                         <AxesDirective>

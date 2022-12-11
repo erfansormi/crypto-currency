@@ -27,13 +27,17 @@ import styles from "../../../../styles/sass/_variables.module.scss"
 import { primaryxAxis, primaryyAxis, tooltip, chartArea, zoomSetting, crosshair, marker, border, tooltipRender } from "./chartData";
 import ChartSpinner from './ChartSpinner';
 
+// ts
+interface Props {
+    isfullScActive: boolean;
+}
 
-const LineChart = () => {
+const LineChart = ({ isfullScActive }: Props) => {
     const [loading, setLoading] = useState(true);
 
     // redux
     const chart = useSelector((state: State) => state.coin_detail.chart);
-    const darkMode = useSelector((state: State) => state.general.darkMode);
+    const { darkMode, height, width } = useSelector((state: State) => state.general);
 
     // minimum and maximum coin price
     const prices = chart?.prices.map(item => item[1])
@@ -65,6 +69,8 @@ const LineChart = () => {
                         zoomSettings={zoomSetting}
                         tooltipRender={tooltipRender}
                         crosshair={crosshair(darkMode)}
+                        height={isfullScActive ? `${height}px` : "100%"}
+                        width={isfullScActive ? `${width}px` : "100%"}
                     >
                         <Inject services={[AreaSeries, Tooltip, DataLabel, Category, DateTime, Logarithmic, Zoom, Crosshair]} />
                         <SeriesCollectionDirective>

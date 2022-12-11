@@ -30,14 +30,16 @@ import Footer from '../Components/Footer/Footer'
 import ClientOnly from '../Components/Other/ClientOnly';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
+
     useEffect(() => {
+        
+        // add root-nodes class to children element
         let root = document.getElementById("__next") as HTMLDivElement
 
         root?.childNodes.forEach((item: any) => {
             item.classList.add("root-nodes");
         })
     }, [])
-
 
     return (
         <>

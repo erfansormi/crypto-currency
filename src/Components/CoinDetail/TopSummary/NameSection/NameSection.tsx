@@ -1,7 +1,7 @@
 import React from 'react'
 
 // redux
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { State } from '../../../../Redux/store';
 
 // data

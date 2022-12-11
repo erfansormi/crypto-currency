@@ -50,13 +50,13 @@ const TopButtons = ({ handle }: Props) => {
                     <h3>{detail?.name} Price Chart ({router.query.chart_day != "max" ? `${router.query.chart_day}d` : router.query.chart_day})</h3>
                 </div>
                 <div className="flex-column flex-sm-row justify-between">
-                    <div className="d-flex align-center mb-5 mb-sm-0">
+                    <div className="d-flex align-center mb-3 mb-sm-0 flex-wrap">
                         {days.map((item, index) =>
                             <button
                                 key={index * 6 + 29}
                                 value={item.value}
                                 onClick={handleClick}
-                                className={`mr-2 fs-5 p-2 ${router.query.chart_day == item.value ? "pillName-primary pillName" : "pillName"}`}
+                                className={`mr-2 fs-5 mb-2 p-2 ${router.query.chart_day == item.value ? "pillName-primary pillName" : "pillName"}`}
                             >
                                 {item.text}
                             </button>

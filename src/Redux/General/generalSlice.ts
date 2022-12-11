@@ -2,12 +2,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 // types
 import { iGeneralInitialValue } from "./generalTypes"
+type DarkMode = (key: string) => boolean;
 
 let darkModeKey = 'dark-mode';
-let DarkMode: (key: string) => boolean = (key) => {
+let DarkMode: DarkMode = (key) => {
     if (typeof window !== 'undefined') {
         const darkMode = localStorage.getItem(key);
-        
+
         if (typeof darkMode == "string") {
             return JSON.parse(darkMode)
         }
@@ -21,7 +22,9 @@ let DarkMode: (key: string) => boolean = (key) => {
 }
 
 const initialState: iGeneralInitialValue = {
-    darkMode: DarkMode(darkModeKey)
+    darkMode: DarkMode(darkModeKey),
+    width: 1200,
+    height: 980
 }
 
 const generalSlice = createSlice({
@@ -31,9 +34,17 @@ const generalSlice = createSlice({
         changeDarkMode: (state, action: PayloadAction<boolean>) => {
             localStorage.setItem(darkModeKey, JSON.stringify(action.payload));
             state.darkMode = action.payload;
+        },
+
+        updateWidth: (state, action: PayloadAction<number>) => {
+            state.width = action.payload;
+        },
+
+        updateHeight: (state, action: PayloadAction<number>) => {
+            state.height = action.payload;
         }
     }
 })
 
-export const { changeDarkMode } = generalSlice.actions;
+export const { changeDarkMode, updateHeight, updateWidth } = generalSlice.actions;
 export default generalSlice.reducer;

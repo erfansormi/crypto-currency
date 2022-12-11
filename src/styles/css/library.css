@@ -1,10 +1,8 @@
-#detail-chart,
-#charts {
+#detail-chart {
     touch-action: auto !important;
     overflow: auto !important;
 }
 
-#charts_tooltip_path,
 #detail-chart_tooltip_path {
     filter: none !important;
     -webkit-filter: none !important;

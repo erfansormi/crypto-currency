@@ -14,7 +14,7 @@ const LinkSection = () => {
     const detail = useSelector((state: State) => state.coin_detail);
 
     return (
-        <div className={styles.link_section_container}>
+        <div className={`my-3 my-sm-0 ${styles.link_section_container}`}>
             {detail.detail != null ?
                 LinkData(detail.detail).map((item, index) =>
                     <div key={index * 6 + 22} className="link-container">

@@ -90,5 +90,15 @@ $size: 3px;
         .ml-sm-#{$i} {
             margin-left: $size * $i;
         }
+
+        .my-sm-#{$i} {
+            margin-top: $size * $i;
+            margin-bottom: $size * $i;
+        }
+
+        .mx-sm-#{$i} {
+            margin-left: $size * $i;
+            margin-right: $size * $i;
+        }
     }
 }
