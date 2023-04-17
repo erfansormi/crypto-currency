@@ -17,8 +17,11 @@ import { MdFullscreen } from 'react-icons/md';
 
 // redux
 import { useSelector, useDispatch } from "react-redux";
-import { changeChartType } from '../../../../Redux/CoinDetail/coinDetailSlice';
+import { changeChartType, changeChartDay } from '../../../../Redux/CoinDetail/coinDetailSlice';
 import { State } from "../../../../Redux/store";
+
+// context
+import { useCoinDetailContext } from '../../../../pages/coin/[coin_id]';
 
 // ts
 interface Props {
@@ -26,28 +29,22 @@ interface Props {
 }
 
 const TopButtons = ({ handle }: Props) => {
-    const router = useRouter();
+    const { detail } = useCoinDetailContext();
 
     // redux
     const dispatch = useDispatch();
-    const detail = useSelector((state: State) => state.coin_detail.detail);
-    const chartType = useSelector((state: State) => state.coin_detail.chartType);
+    const { chartType, chartDay } = useSelector((state: State) => state.coin_detail);
 
     // handle selected day for show chart
     const handleClick = (e: any) => {
-        router.push({
-            query: {
-                chart_day: e.target.value,
-                coin_id: detail?.id
-            }
-        })
+        dispatch(changeChartDay(e.target.value));
     }
 
     return (
         <div>
             <div className="mb-12">
                 <div className="mb-5">
-                    <h3>{detail?.name} Price Chart ({router.query.chart_day != "max" ? `${router.query.chart_day}d` : router.query.chart_day})</h3>
+                    <h3>{detail?.name} Price Chart ({chartDay != "max" ? `${chartDay}d` : chartDay})</h3>
                 </div>
                 <div className="flex-column flex-sm-row justify-between">
                     <div className="d-flex align-center mb-3 mb-sm-0 flex-wrap">
@@ -56,7 +53,7 @@ const TopButtons = ({ handle }: Props) => {
                                 key={index * 6 + 29}
                                 value={item.value}
                                 onClick={handleClick}
-                                className={`mr-2 fs-5 mb-2 p-2 ${router.query.chart_day == item.value ? "pillName-primary pillName" : "pillName"}`}
+                                className={`mr-2 fs-5 mb-2 p-2 ${chartDay == item.value ? "pillName-primary pillName" : "pillName"}`}
                             >
                                 {item.text}
                             </button>
