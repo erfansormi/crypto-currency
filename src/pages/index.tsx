@@ -1,46 +1,30 @@
-import { useEffect } from 'react';
-import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next'
-import { useRouter } from "next/router"
+import { createContext, useContext } from 'react';
+import { GetStaticProps } from 'next';
 
 // getApi
 import { fetchCoins } from '../Components/Coins/fetchCoins'
 
-// redux
-import { useDispatch } from 'react-redux';
-import { coinsFetchRequest } from '../Redux/Coins/coinsSlice'
-
 // components
-import CoinsTabale from '../Components/Coins/CoinsTabale';
+import CoinsTable from '../Components/Coins/CoinsTable';
 import Head from 'next/head'
 import Error from './_error';
 
 // ts
-import { iCoins } from '../Redux/Coins/coinsTypes';
+import { iCoins } from '../../types/Coins/coinsTypes';
+import { iCoinsInitialValue } from '../../types/Coins/coinsTypes';
 
 interface Props {
   coins: iCoins[],
   error: string
 }
 
+// context
+const CoinsContext = createContext({} as iCoinsInitialValue);
+export const useCoinsContext = () => useContext(CoinsContext);
+
 const Index = ({ coins, error }: Props) => {
-  const router = useRouter();
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    if (!router.query.page) {
-      router.push({
-        query: {
-          page: "1"
-        }
-      })
-    }
-    if (coins) {
-      dispatch(coinsFetchRequest(coins))
-    }
-  }, [router.query.page])
-
   return (
-    <>
+    <CoinsContext.Provider value={{ coins }}>
       {
         error ?
           <Error errorMessage={error} /> :
@@ -50,23 +34,23 @@ const Index = ({ coins, error }: Props) => {
                 Crypto Currency | Home
               </title>
             </Head>
-            <CoinsTabale />
+            <CoinsTable />
           </>
       }
-    </>
+    </CoinsContext.Provider>
   )
 }
 
 export default Index;
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  const { page } = query;
-  const { coins, error } = await fetchCoins(page ? page : "1")
+export const getStaticProps: GetStaticProps = async () => {
+  const { coins, error } = await fetchCoins();
 
   return {
     props: {
       coins,
       error
     },
+    revalidate: 10 * 60 // 10 minute
   }
 }
