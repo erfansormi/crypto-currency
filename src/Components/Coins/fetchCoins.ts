@@ -1,7 +1,7 @@
 import { iCoins } from "../../../types/Coins/coinsTypes";
 
 export const fetchCoins = async () => {
-    let coinsUrl = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&sparkline=true&price_change_percentage=1h%2C24h%2C7d`;
+    let coinsUrl = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&sparkline=true&price_change_percentage=1h%2C24h%2C7d`;
     let coins: null | iCoins[] = null;
     let error = "";
 
