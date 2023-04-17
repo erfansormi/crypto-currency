@@ -1,4 +1,4 @@
-import { CoinDetail } from "../../../../Redux/CoinDetail/coinDetailTypes";
+import { CoinDetail } from "../../../../../types/Coins/coinDetail";
 import { AiOutlineLink } from "react-icons/ai"
 import { BsBoxArrowUpRight } from "react-icons/bs"
 import { IoMdSearch } from "react-icons/io"

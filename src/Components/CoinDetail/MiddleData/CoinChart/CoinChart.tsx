@@ -31,7 +31,6 @@ const CoinChart = () => {
 
         handleSizes();
         addEventListener("resize", handleSizes);
-
     }, [])
 
 

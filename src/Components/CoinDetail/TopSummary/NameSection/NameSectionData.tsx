@@ -1,4 +1,4 @@
-import { CoinDetailType } from "../../../../Redux/CoinDetail/coinDetailTypes"
+import { CoinDetailType } from "../../../../../types/Coins/coinDetail";
 
 export const nameHeader = (data: CoinDetailType) => {
     return [

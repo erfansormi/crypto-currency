@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react';
+import { useRouter } from 'next/router';
 
 // syncfusion
 import {
@@ -20,12 +21,17 @@ import {
 import { useSelector } from "react-redux";
 import { State } from "../../../../Redux/store";
 
+// react query hooks
+import * as api from "../../hooks";
+
 // sass variables
 import styles from "../../../../styles/sass/_variables.module.scss"
 
 // chart options
 import { primaryxAxis, primaryyAxis, tooltip, chartArea, zoomSetting, crosshair, marker, border, tooltipRender } from "./chartData";
+import Error from '../../../../pages/_error';
 import ChartSpinner from './ChartSpinner';
+import { useCoinDetailContext } from '../../../../pages/coin/[coin_id]';
 
 // ts
 interface Props {
@@ -33,61 +39,66 @@ interface Props {
 }
 
 const LineChart = ({ isfullScActive }: Props) => {
-    const [loading, setLoading] = useState(true);
+    // context
+    const { detail } = useCoinDetailContext();
 
     // redux
-    const chart = useSelector((state: State) => state.coin_detail.chart);
     const { darkMode, height, width } = useSelector((state: State) => state.general);
+    const { chartDay } = useSelector((state: State) => state.coin_detail);
+
+    // react query
+    const { data, isLoading, error } = api.useCoinLineChart(detail.id, chartDay);
 
     // minimum and maximum coin price
-    const prices = chart?.prices.map(item => item[1])
+    const prices = data?.prices.map(item => item[1])
     let minPrice = prices ? prices.sort((a, b) => a - b)[0] : 1000;
     let maxPrice = prices ? prices.sort((a, b) => b - a)[0] : 1000;
 
-    const data = chart?.prices.map(item => {
+    const handleData = data?.prices.map(item => {
         return {
             date: item[0],
             price: item[1]
         }
     })
 
+    // loading
+    if (isLoading) {
+        return <ChartSpinner />
+    }
 
-    useEffect(() => {
-        setLoading(false)
-    }, [])
+    // error
+    if (error) {
+        return <Error errorMessage={error.message} />
+    }
 
     return (
         <>
-            {
-                loading ?
-                    <ChartSpinner /> :
-                    <ChartComponent id='detail-chart'
-                        primaryXAxis={primaryxAxis(darkMode)}
-                        primaryYAxis={primaryyAxis(darkMode, minPrice, maxPrice)}
-                        tooltip={tooltip}
-                        chartArea={chartArea}
-                        zoomSettings={zoomSetting}
-                        tooltipRender={tooltipRender}
-                        crosshair={crosshair(darkMode)}
-                        height={isfullScActive ? `${height}px` : "100%"}
-                        width={isfullScActive ? `${width}px` : "100%"}
-                        style={{ minHeight: 450, maxHeight: isfullScActive ? "100vh" : 454 }}
+            <ChartComponent id='detail-chart'
+                primaryXAxis={primaryxAxis(darkMode)}
+                primaryYAxis={primaryyAxis(darkMode, minPrice, maxPrice)}
+                tooltip={tooltip}
+                chartArea={chartArea}
+                zoomSettings={zoomSetting}
+                tooltipRender={tooltipRender}
+                crosshair={crosshair(darkMode)}
+                height={isfullScActive ? `${height}px` : "100%"}
+                width={isfullScActive ? `${width}px` : "100%"}
+                style={{ minHeight: 450, maxHeight: isfullScActive ? "100vh" : 454 }}
+            >
+                <Inject services={[AreaSeries, Tooltip, DataLabel, Category, DateTime, Logarithmic, Zoom, Crosshair]} />
+                <SeriesCollectionDirective>
+                    <SeriesDirective
+                        border={border}
+                        dataSource={handleData}
+                        marker={marker}
+                        xName='date'
+                        yName='price'
+                        fill='url(#gradient-chart)'
+                        type={"Area"}
                     >
-                        <Inject services={[AreaSeries, Tooltip, DataLabel, Category, DateTime, Logarithmic, Zoom, Crosshair]} />
-                        <SeriesCollectionDirective>
-                            <SeriesDirective
-                                border={border}
-                                dataSource={data}
-                                marker={marker}
-                                xName='date'
-                                yName='price'
-                                fill='url(#gradient-chart)'
-                                type={"Area"}
-                            >
-                            </SeriesDirective>
-                        </SeriesCollectionDirective>
-                    </ChartComponent>
-            }
+                    </SeriesDirective>
+                </SeriesCollectionDirective>
+            </ChartComponent>
             {/* chart bg gradient styles */}
             <style> {`
                  #gradient-chart stop { 

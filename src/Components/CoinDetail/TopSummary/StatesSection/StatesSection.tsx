@@ -7,17 +7,20 @@ import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import { useSelector } from 'react-redux';
 import { State } from '../../../../Redux/store';
 
+// context
+import { useCoinDetailContext } from '../../../../pages/coin/[coin_id]';
+
 // data
 import { StatesData } from './StatesData';
 
 // sass variables
-import variable from "../../../../styles/sass/_variables.module.scss"
+import variable from "../../../../styles/sass/_variables.module.scss";
 
 // css
-import styles from "../topSummary.module.css"
+import styles from "../topSummary.module.css";
 
 const StatesSection = () => {
-    const detail = useSelector((state: State) => state.coin_detail.detail);
+    const { detail } = useCoinDetailContext();
     const darkMode = useSelector((state: State) => state.general.darkMode);
 
     const borderColor = (index: number) => {
@@ -53,19 +56,18 @@ const StatesSection = () => {
     return (
         <Grid container>
             {
-                detail == null ? null :
-                    StatesData(detail).map((item, index) =>
-                        <Grid
-                            sx={borderColor(index)} xs={6} md={6} lg={3} key={index * 6 + 25}
-                        >
-                            <div className={`${styles.states_section_container}`}>
-                                {item.value}
-                            </div>
-                        </Grid>
-                    )
+                StatesData(detail).map((item, index) =>
+                    <Grid
+                        sx={borderColor(index)} xs={6} md={6} lg={3} key={index * 6 + 25}
+                    >
+                        <div className={`${styles.states_section_container}`}>
+                            {item.value}
+                        </div>
+                    </Grid>
+                )
             }
         </Grid >
     )
 }
 
-export default StatesSection
+export default StatesSection;

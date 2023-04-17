@@ -1,11 +1,10 @@
 import React from 'react'
 
-// redux
-import { useSelector } from 'react-redux';
-import { State } from '../../../../Redux/store';
+// context
+import { useCoinDetailContext } from '../../../../pages/coin/[coin_id]';
 
 const TagSection = () => {
-  const detail = useSelector((state: State) => state.coin_detail.detail);
+  const { detail } = useCoinDetailContext();
 
   return (
     <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
@@ -15,14 +14,16 @@ const TagSection = () => {
         </span>
       </div>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {detail?.categories.map((item, index) =>
-          index <= 4 ?
-            <div key={index * 6 + 24} className="align-center mr-2 mb-2">
-              <span className="pillName">
-                {item}
-              </span>
-            </div> : null
-        )}
+        {
+          detail.categories.map((item, index) =>
+            index <= 4 ?
+              <div key={index * 6 + 24} className="align-center mr-2 mb-2">
+                <span className="pillName">
+                  {item}
+                </span>
+              </div> : null
+          )
+        }
       </div>
     </div>
   )

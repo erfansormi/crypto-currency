@@ -1,4 +1,4 @@
-import { CoinDetail } from "../../../../Redux/CoinDetail/coinDetailTypes"
+import { CoinDetail } from "../../../../../types/Coins/coinDetail";
 
 export const SideInfoData = (data: CoinDetail) => {
     return [
