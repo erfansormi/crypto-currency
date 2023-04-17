@@ -1,6 +1,6 @@
 import LineChart from "../Charts/LineChart"
 import Image from "next/image"
-import { iCoins } from "../../Redux/Coins/coinsTypes"
+import { iCoins } from "../../../types/Coins/coinsTypes";
 
 // css
 import styles from "./coinsTabale.module.css"

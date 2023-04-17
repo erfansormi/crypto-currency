@@ -1,4 +1,4 @@
-import { CoinDetail } from "../../../../Redux/CoinDetail/coinDetailTypes";
+import { CoinDetail } from "../../../../../types/Coins/coinDetail";
 let handleProgressValue = (low: number, nowPrice: number, high: number) => {
     const result: number = 100 * (nowPrice - low) / (high - low);
 
@@ -99,7 +99,7 @@ export const priceData = (data: CoinDetail) => {
                             }
                         </span>
                     </div>
-                    <div className="align-center" style={{ width: 170, height: 20 }}>
+                    <div className="align-center d-flex" style={{ width: 170, height: 20 }}>
                         <span className="progress-bar">
                             <span
                                 className="progress-value"
