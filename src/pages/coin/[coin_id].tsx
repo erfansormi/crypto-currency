@@ -1,18 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { createContext, useContext } from 'react'
 
 // next
 import { GetServerSideProps } from 'next';
-import { useRouter } from 'next/router';
 import Head from 'next/head';
 
 // redux
-import { fetchCoinChart, fetchCoinDetail, handleChartErr, fetchCoinCandle } from '../../Redux/CoinDetail/coinDetailSlice';
-import { useDispatch } from 'react-redux';
-import { CoinDetail, Chart } from '../../Redux/CoinDetail/coinDetailTypes';
+import { CoinDetail } from '../../../types/Coins/coinDetail';
 
 // getApi
 import { fetchApiCoinDetail } from '../../Components/CoinDetail/fetchCoinDetail';
-import { fetchApiCoinChart } from '../../Components/CoinDetail/fetchCoinChart';
 
 // components
 import CoinDetailComponent from '../../Components/CoinDetail/CoinDetail';
@@ -20,66 +16,43 @@ import Error from '../_error';
 
 interface Props {
     detail: CoinDetail,
-    chart: Chart,
     detailErr: string,
-    chartErr: string,
-    candleChart: number[][]
 }
 
-const CoinDetail = ({ detail, detailErr, chart, chartErr, candleChart }: Props) => {
-    const router = useRouter();
+interface ContextType {
+    detail: CoinDetail,
+}
 
-    // redux
-    const dispatch = useDispatch();
+// context
+const CoinDetailContext = createContext({} as ContextType);
+export const useCoinDetailContext = () => useContext(CoinDetailContext);
 
-    useEffect(() => {
-        if (!router.query.chart_day) {
-            router.push({
-                query: {
-                    chart_day: "1",
-                    coin_id: detail.id
-                }
-            })
-        }
-
-        if (chartErr) {
-            dispatch(handleChartErr(chartErr))
-        }
-
-        dispatch(fetchCoinChart(chart))
-        dispatch(fetchCoinDetail(detail))
-        dispatch(fetchCoinCandle(candleChart))
-    }, [router.query.coin_id, router.query.chart_day])
-
+const CoinDetail = ({ detail, detailErr }: Props) => {
     return (
         detailErr ?
             <Error errorMessage={detailErr} /> :
-            <>
+            <CoinDetailContext.Provider value={{ detail }}>
                 <Head>
                     <title>
-                        {detail.name ? detail.name : "Coin"} Detail
+                        {detail.name} Detail
                     </title>
                 </Head>
                 <CoinDetailComponent />
-            </>
+            </CoinDetailContext.Provider>
     )
 }
 
 export default CoinDetail;
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-    const { coin_id, chart_day } = query;
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+    const id = params?.coin_id;
 
-    const { detail, detailErr } = await fetchApiCoinDetail(coin_id);
-    const { chart, chartErr, candleChart } = await fetchApiCoinChart(coin_id, chart_day ? chart_day : "1");
+    const { detail, detailErr } = await fetchApiCoinDetail(id);
 
     return {
         props: {
             detail,
             detailErr,
-            chart,
-            chartErr,
-            candleChart
         }
     }
 }
