@@ -1,8 +1,5 @@
 import React from 'react';
-
-//next
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 // mui
 import Table from '@mui/material/Table';
@@ -13,9 +10,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-// redux
-import { useSelector } from 'react-redux'
-import { State } from '../../Redux/store'
+// context
+import { useCoinsContext } from '../../pages';
 
 // data
 import { TabaleHead, TabaleBody } from "./CoinsData"
@@ -23,17 +19,12 @@ import { TabaleHead, TabaleBody } from "./CoinsData"
 // css
 import styles from "./coinsTabale.module.css"
 
-// components
-import TabalePagination from './TabalePagination';
-
-const CoinsTabale = () => {
-
-    // redux
-    const coins = useSelector((state: State) => state.coins.coins);
+const CoinsTable = () => {
+    const { coins } = useCoinsContext();
 
     return (
         <>
-            {/* crypto tabale */}
+            {/* crypto table */}
             <TableContainer component={Paper} className="root-nodes" sx={{ borderRadius: 0 }}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table" className={styles.tabale}>
                     <TableHead>
@@ -50,7 +41,7 @@ const CoinsTabale = () => {
                                 )}
                         </TableRow>
                     </TableHead>
-                    {coins != null && coins.map((item) =>
+                    {coins.map((item) =>
                         <TableBody key={item.market_cap_rank + 20}>
                             <TableRow
                                 className="tr-hover"
@@ -77,12 +68,7 @@ const CoinsTabale = () => {
                                             key={index}
                                             className="border-b-color tr-color"
                                         >
-                                            <Link href={{
-                                                pathname: `coin/${item.id}`,
-                                                query: {
-                                                    chart_day: "1"
-                                                }
-                                            }}>
+                                            <Link href={`/coin/${item.id}`}>
                                                 {i.value}
                                             </Link>
                                         </TableCell>
@@ -91,11 +77,10 @@ const CoinsTabale = () => {
                         </TableBody>
                     )}
                 </Table>
-                <TabalePagination />
             </TableContainer>
 
         </>
     );
 }
 
-export default CoinsTabale;
+export default CoinsTable;
