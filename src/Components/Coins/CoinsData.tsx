@@ -82,20 +82,20 @@ export const TabaleBody = (coins: iCoins) => {
         },
         {
             value:
-                <span className={color(+coins.price_change_percentage_1h_in_currency.toFixed(2))}>
-                    {`${coins.price_change_percentage_1h_in_currency.toFixed(2)}%`}
+                <span className={coins.price_change_percentage_1h_in_currency ? color(+coins.price_change_percentage_1h_in_currency.toFixed(2)) : color(0)}>
+                    {`${coins.price_change_percentage_1h_in_currency ? `${coins.price_change_percentage_1h_in_currency.toFixed(2)}%` : "undefined"}`}
                 </span>
         },
         {
             value:
-                <span className={color(+coins.price_change_percentage_24h_in_currency.toFixed(2))}>
-                    {`${coins.price_change_percentage_24h_in_currency.toFixed(2)}%`}
+                <span className={coins.price_change_percentage_24h_in_currency ? color(+coins.price_change_percentage_24h_in_currency.toFixed(2)) : color(0)}>
+                    {`${coins.price_change_percentage_24h_in_currency ? `${coins.price_change_percentage_24h_in_currency.toFixed(2)}%` : "undefined"}`}
                 </span>
         },
         {
             value:
-                <span className={color(+coins.price_change_percentage_7d_in_currency.toFixed(2))}>
-                    {`${coins.price_change_percentage_7d_in_currency.toFixed(2)}%`}
+                <span className={coins.price_change_percentage_7d_in_currency ? color(+coins.price_change_percentage_7d_in_currency.toFixed(2)) : color(0)}>
+                    {`${coins.price_change_percentage_7d_in_currency ? `${coins.price_change_percentage_7d_in_currency.toFixed(2)}%` : "undefined"}`}
                 </span>
         },
         {
