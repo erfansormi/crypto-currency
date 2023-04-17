@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import type { AppProps } from 'next/app'
 import Head from 'next/head';
 
@@ -29,10 +29,15 @@ import Header from '../Components/Header/Header'
 import Footer from '../Components/Footer/Footer'
 import ClientOnly from '../Components/Other/ClientOnly';
 
+// react query
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
 const MyApp = ({ Component, pageProps }: AppProps) => {
+    // Create a client
+    const [queryClient] = React.useState(() => new QueryClient())
 
     useEffect(() => {
-        
+
         // add root-nodes class to children element
         let root = document.getElementById("__next") as HTMLDivElement
 
@@ -42,7 +47,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     }, [])
 
     return (
-        <>
+        <QueryClientProvider client={queryClient}>
             <Provider store={store}>
                 <ClientOnly>
                     <GlobalStyles />
@@ -62,7 +67,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                     <Footer />
                 </ThemeProvider>
             </Provider>
-        </>
+        </QueryClientProvider>
     )
 }
 
