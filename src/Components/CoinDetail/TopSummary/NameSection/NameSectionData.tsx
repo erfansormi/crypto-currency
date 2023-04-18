@@ -1,4 +1,4 @@
-import { CoinDetailType } from "../../../../../types/Coins/coinDetail";
+import { CoinDetailType } from "../../../../types/Coins/coinDetail";
 
 export const nameHeader = (data: CoinDetailType) => {
     return [

@@ -1,4 +1,4 @@
-import { CoinDetail } from "../../../../../types/Coins/coinDetail";
+import { CoinDetail } from "../../../../types/Coins/coinDetail";
 
 export const StatesData = (data: CoinDetail) => {
     return [

@@ -4,15 +4,15 @@ import React, { createContext, useContext } from 'react'
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 
-// redux
-import { CoinDetail } from '../../../types/Coins/coinDetail';
-
 // getApi
 import { fetchApiCoinDetail } from '../../Components/CoinDetail/fetchCoinDetail';
 
 // components
 import CoinDetailComponent from '../../Components/CoinDetail/CoinDetail';
 import Error from '../_error';
+
+// types
+import { CoinDetail } from '../../types/Coins/coinDetail';
 
 interface Props {
     detail: CoinDetail,

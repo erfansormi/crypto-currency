@@ -10,8 +10,7 @@ import Head from 'next/head'
 import Error from './_error';
 
 // ts
-import { iCoins } from '../../types/Coins/coinsTypes';
-import { iCoinsInitialValue } from '../../types/Coins/coinsTypes';
+import { iCoins, iCoinsInitialValue } from '../types/Coins/coinsTypes';
 
 interface Props {
   coins: iCoins[],

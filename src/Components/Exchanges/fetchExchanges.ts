@@ -1,4 +1,3 @@
-import axios from "axios";
 import { iExchanges } from "../../Redux/Exchanges/exchangesSlice";
 
 export const fetchExchanges = async () => {
@@ -7,13 +6,10 @@ export const fetchExchanges = async () => {
     let error = "";
 
     const handleFetch = async () => {
-        await axios.get(dataUrl)
-            .then((res) => {
-                exchanges = res.data;
-            })
-            .catch((err) => {
-                error = err.message
-            })
+        await fetch(dataUrl)
+            .then((res) => res.json())
+            .then(json => exchanges = json)
+            .catch((err) => error = err.message || err)
     }
     await handleFetch()
 

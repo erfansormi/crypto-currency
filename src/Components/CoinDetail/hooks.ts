@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useQuery } from '@tanstack/react-query';
-import { CandleDetailType, Chart } from "../../../types/Coins/coinDetail";
+import { CandleDetailType, Chart } from "../../types/Coins/coinDetail";
 
 export const useCoinLineChart = (id: string, day: string) => {
     const query = useQuery<Chart, any>(["coin-line-chart", id, day],

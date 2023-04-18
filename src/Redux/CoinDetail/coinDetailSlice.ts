@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 // types
-import { CoinDetailInitialValue } from "../../../types/Coins/coinDetail";
+import { CoinDetailInitialValue } from "../../types/Coins/coinDetail";
 
 const initialState: CoinDetailInitialValue = {
     chartDay: "1",

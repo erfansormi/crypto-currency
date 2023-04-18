@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -10,12 +9,11 @@ import { State } from '../../../Redux/store'
 import styles from "./mainNav.module.css"
 
 // components
-import ModalSearch from './ModalSearch'
 import ClientOnly from '../../Other/ClientOnly'
+import SearchButton from './searchButton'
 
 const MainNav = () => {
     const darkMode = useSelector((state: State) => state.general.darkMode);
-    const [openModalSearch, setOpenModalSearch] = useState(false);
 
     return (
         <nav className={styles.container}>
@@ -45,8 +43,8 @@ const MainNav = () => {
                 </div>
                 <div className={styles.section_2}>
                     <div>
-                        {/* modalSearch */}
-                        <ModalSearch open={openModalSearch} setOpen={setOpenModalSearch} />
+                        {/* search coins */}
+                        <SearchButton />
                     </div>
                 </div>
 
@@ -55,4 +53,4 @@ const MainNav = () => {
     )
 }
 
-export default MainNav
+export default MainNav;

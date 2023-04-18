@@ -1,5 +1,4 @@
-import axios from "axios";
-import { CoinDetail } from "../../../types/Coins/coinDetail";
+import { CoinDetail } from "../../types/Coins/coinDetail";
 
 export const fetchApiCoinDetail = async (id: string | string[] | undefined) => {
     let detail: CoinDetail | null = null;

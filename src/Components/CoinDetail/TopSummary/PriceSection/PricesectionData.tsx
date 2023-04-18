@@ -1,4 +1,4 @@
-import { CoinDetail } from "../../../../../types/Coins/coinDetail";
+import { CoinDetail } from "../../../../types/Coins/coinDetail";
 let handleProgressValue = (low: number, nowPrice: number, high: number) => {
     const result: number = 100 * (nowPrice - low) / (high - low);
 
