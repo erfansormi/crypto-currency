@@ -41,3 +41,25 @@ export interface iCoins {
 export interface iCoinsInitialValue {
     coins: iCoins[],
 }
+
+interface SearchedCoins {
+    api_symbol: string
+    id: string
+    large: string
+    market_cap_rank: 1
+    name: string
+    symbol: string
+    thumb: string
+}
+
+interface Data {
+    coins: SearchedCoins[]
+}
+
+export interface SearchBarInitialValues {
+    data: null | Data,
+    loading: boolean,
+    searchedText: string,
+    error: string,
+    helperText: string
+}
