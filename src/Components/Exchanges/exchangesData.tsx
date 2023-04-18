@@ -1,6 +1,5 @@
 import Image from "next/image"
-import { iExchanges } from "../../Redux/Exchanges/exchangesSlice"
-import styles from "./exchanges.module.css"
+import { Exchanges } from "../../types/exchanges/exchanges";
 
 export const exchangesColumns = [
     {
@@ -26,7 +25,7 @@ export const exchangesColumns = [
     }
 ]
 
-export const exchangesRows = (data: iExchanges) => {
+export const exchangesRows = (data: Exchanges) => {
     return [
         {
             value: data.trust_score_rank

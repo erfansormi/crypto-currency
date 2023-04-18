@@ -1,8 +1,8 @@
-import { iExchanges } from "../../Redux/Exchanges/exchangesSlice";
+import { Exchanges } from "../../types/exchanges/exchanges";
 
 export const fetchExchanges = async () => {
     let dataUrl = `https://api.coingecko.com/api/v3/exchanges`;
-    let exchanges: null | iExchanges = null;
+    let exchanges: null | Exchanges = null;
     let error = "";
 
     const handleFetch = async () => {

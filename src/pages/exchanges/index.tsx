@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 
@@ -9,25 +9,15 @@ import { fetchExchanges } from '../../Components/Exchanges/fetchExchanges'
 import Error from '../_error'
 import ExchangesTable from '../../Components/Exchanges/Exchanges';
 
-// redux
-import { getExchanges } from '../../Redux/Exchanges/exchangesSlice';
-import { useDispatch } from 'react-redux'
-
 // ts type
-import { iExchanges } from '../../Redux/Exchanges/exchangesSlice';
+import { Exchanges } from '../../types/exchanges/exchanges';
 
 interface Props {
     error: string,
-    exchanges: iExchanges[]
+    exchanges: Exchanges[]
 }
 
 const Exchanges = ({ error, exchanges }: Props) => {
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(getExchanges(exchanges))
-    }, [])
-
     return (
         <>
             {
@@ -39,7 +29,7 @@ const Exchanges = ({ error, exchanges }: Props) => {
                                 Exchanges List
                             </title>
                         </Head>
-                        <ExchangesTable />
+                        <ExchangesTable exchanges={exchanges} />
                     </>
             }
         </>

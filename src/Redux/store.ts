@@ -4,14 +4,12 @@ import { configureStore } from "@reduxjs/toolkit";
 import globalReducer from "./Global/globalSlice";
 import generalReducer from "./General/generalSlice";
 import coinDetailReducer from "./CoinDetail/coinDetailSlice";
-import exchangesReducer from "./Exchanges/exchangesSlice"
 
 const store = configureStore({
     reducer: {
         global: globalReducer,
         general: generalReducer,
         coin_detail: coinDetailReducer,
-        exchanges: exchangesReducer
     }
 })
 
