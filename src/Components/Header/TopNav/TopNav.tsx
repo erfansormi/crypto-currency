@@ -13,12 +13,11 @@ import { BsArrowCounterclockwise } from "react-icons/bs";
 import SwitchDarkmode from '../../Other/SwitchDarkMode';
 import ClientOnly from '../../Other/ClientOnly';
 
-// get api with useSwr func
-import useGlobal from './useGlobal';
-
+// get data with react query hook
+import { useGlobalData } from './hooks';
 
 const TopNav = () => {
-    const { error, global, loading } = useGlobal();
+    const { error, data, isLoading } = useGlobalData();
 
     return (
         <nav className={`d-flex align-center ${styles.nav}`}>
@@ -26,7 +25,7 @@ const TopNav = () => {
 
                 {/* loading */}
                 {
-                    loading ?
+                    isLoading ?
                         <div style={{ padding: 15 }}>
                             Loading...
                         </div> :
@@ -44,7 +43,7 @@ const TopNav = () => {
 
                             // nav
                             <div className={`d-flex align-center full mr-3 ${styles.nav_content}`}>
-                                {navInfoData(global.data).map((item, index) =>
+                                {navInfoData(data.data).map((item, index) =>
                                     <div
                                         key={index * 6 + 27}
                                         className={"d-flex align-center"}
@@ -59,9 +58,9 @@ const TopNav = () => {
                                 )}
                                 <div className={"d-flex"}>
                                     <span className={"mr-2 capitalize"}>
-                                        {navDominanceData(global.data).text}
+                                        {navDominanceData(data.data).text}
                                     </span>
-                                    {navDominanceData(global.data).value.map((item, index) =>
+                                    {navDominanceData(data.data).value.map((item, index) =>
                                         <div
                                             key={index * 6 + 28}
                                             className={"primary-color d-flex mr-2"}
