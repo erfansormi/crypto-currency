@@ -9,19 +9,22 @@ import styles from "./nav.module.css";
 // icon
 import { BsArrowCounterclockwise } from "react-icons/bs";
 
-// components
-import SwitchDarkmode from '../../Other/SwitchDarkMode';
-import ClientOnly from '../../Other/ClientOnly';
-
 // get data with react query hook
 import { useGlobalData } from './hooks';
+
+// components
+import SwitchDarkMode from '../../Other/SwitchDarkMode';
+import { Box } from '@mui/material';
 
 const TopNav = () => {
     const { error, data, isLoading } = useGlobalData();
 
     return (
-        <nav className={`d-flex align-center ${styles.nav}`}>
-            <div className='light-color' >
+        <Box
+            component="nav" sx={{ bgcolor: "background.default" }}
+            className={`d-flex align-center ${styles.nav}`}
+        >
+            <div className='text-neutral-5' >
 
                 {/* loading */}
                 {
@@ -76,13 +79,11 @@ const TopNav = () => {
                                 </div>
                             </div>
                 }
-                <ClientOnly>
-                    <div className={styles.darkMode_container}>
-                        <SwitchDarkmode />
-                    </div>
-                </ClientOnly>
+                <div className={styles.darkMode_container}>
+                    <SwitchDarkMode />
+                </div>
             </div>
-        </nav>
+        </Box>
     )
 }
 

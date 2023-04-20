@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import type { AppProps } from 'next/app'
 import Head from 'next/head';
 
@@ -11,50 +11,29 @@ import '../styles/css/colors.css';
 import '../styles/css/spaces.css';
 import '../styles/css/sizes.css';
 
-// style
-import GlobalStyles from '../Components/Emotion/GlobalStyles';
-import TabaleStyles from '../Components/Emotion/TabaleStyles';
-import ColorsStyles from '../Components/Emotion/ColorsStyles';
-
 // mui
-import { ThemeProvider } from '@mui/material/styles';
-import { theme } from '../Components/Mui/CustomizeColor'
+import AppThemeProvider from '../Components/Mui/AppThemeProvider';
 
 // redux
 import { Provider } from 'react-redux';
 import store from '../Redux/store';
 
+// react query
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
 // components
 import Header from '../Components/Header/Header'
 import Footer from '../Components/Footer/Footer'
-import ClientOnly from '../Components/Other/ClientOnly';
-
-// react query
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import StylesContainer from '../Components/Emotion/StylesContainer';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
     // Create a client
     const [queryClient] = React.useState(() => new QueryClient())
 
-    useEffect(() => {
-
-        // add root-nodes class to children element
-        let root = document.getElementById("__next") as HTMLDivElement
-
-        root?.childNodes.forEach((item: any) => {
-            item.classList.add("root-nodes");
-        })
-    }, [])
-
     return (
         <QueryClientProvider client={queryClient}>
             <Provider store={store}>
-                <ClientOnly>
-                    <GlobalStyles />
-                    <TabaleStyles />
-                    <ColorsStyles />
-                </ClientOnly>
-                <ThemeProvider theme={theme} >
+                <AppThemeProvider>
                     <Head>
                         <meta charSet="UTF-8" />
                         <meta name="description" content="Digital currencies along with their details and exchanges lists and more..." />
@@ -62,10 +41,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                         <meta name="author" content="Erfan Sormi" />
                         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                     </Head>
+
+                    <StylesContainer />
+
                     <Header />
                     <Component {...pageProps} />
                     <Footer />
-                </ThemeProvider>
+                </AppThemeProvider>
             </Provider>
         </QueryClientProvider>
     )

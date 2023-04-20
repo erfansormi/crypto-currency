@@ -9,7 +9,7 @@ export const nameHeader = (data: CoinDetailType) => {
             value: <h2>{data?.name}</h2>
         },
         {
-            value: <span style={{ lineHeight: "25px" }} className={"pillName"}>{data?.symbol.toUpperCase()}</span>
+            value: <span style={{ lineHeight: "25px" }} className={"badge"}>{data?.symbol.toUpperCase()}</span>
         }
     ]
 }
@@ -17,10 +17,10 @@ export const nameHeader = (data: CoinDetailType) => {
 export const nameFooter = (data: CoinDetailType) => {
     return [
         {
-            value: <span className="pillName-primary pillName">rank #{data?.market_cap_rank} </span>
+            value: <span className="badge-primary badge">rank #{data?.market_cap_rank} </span>
         },
         {
-            value: <span className="pillName">coin</span>
+            value: <span className="badge">coin</span>
         }
     ]
 }

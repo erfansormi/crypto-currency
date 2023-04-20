@@ -5,7 +5,7 @@ export const StatesData = (data: CoinDetail) => {
         {
             value:
                 <div>
-                    <div className="light-color">
+                    <div className="text-neutral-5">
                         <span>
                             market cap
                         </span>
@@ -34,7 +34,7 @@ export const StatesData = (data: CoinDetail) => {
         {
             value:
                 <div>
-                    <div className="light-color">
+                    <div className="text-neutral-5">
                         <span>
                             fully diluted market cap
                         </span>
@@ -64,10 +64,10 @@ export const StatesData = (data: CoinDetail) => {
             value:
                 <>
                     <div>
-                        <div className="light-color">
+                        <div className="text-neutral-5">
                             <span>
                                 volume
-                                <span className="pillName ml-2">24h</span>
+                                <span className="badge ml-2">24h</span>
                             </span>
                         </div>
                         <div>
@@ -80,7 +80,7 @@ export const StatesData = (data: CoinDetail) => {
                         </div>
                     </div>
                     <div>
-                        <div className="light-color">
+                        <div className="text-neutral-5">
                             <span>volume / market cap</span>
                         </div>
                         <div>
@@ -95,36 +95,36 @@ export const StatesData = (data: CoinDetail) => {
             value:
                 <>
                     <div>
-                        <div className="light-color">
+                        <div className="text-neutral-5">
                             <span>circulating supply</span>
                         </div>
                         <div>
                             <span>
                                 {data.market_data.circulating_supply}
-                                <span className="pillName ml-2">{data.symbol.toUpperCase()}</span>
+                                <span className="badge ml-2">{data.symbol.toUpperCase()}</span>
                             </span>
                         </div>
                     </div>
                     <div>
                         <div className="align-center justify-between">
-                            <div className="light-color">
+                            <div className="text-neutral-5">
                                 <span>max supply</span>
                             </div>
                             <div>
                                 <span>
                                     {data.market_data.max_supply ? data.market_data.max_supply.toLocaleString() : "unregistered!"}
-                                    <span className="pillName ml-2">{data.symbol.toUpperCase()}</span>
+                                    <span className="badge ml-2">{data.symbol.toUpperCase()}</span>
                                 </span>
                             </div>
                         </div>
                         <div className="align-center justify-between">
-                            <div className="light-color">
+                            <div className="text-neutral-5">
                                 <span>total supply</span>
                             </div>
                             <div>
                                 <span>
                                     {data.market_data.total_supply ? data.market_data.total_supply.toLocaleString() : "unregistered!"}
-                                    <span className="pillName ml-2">{data.symbol.toUpperCase()}</span>
+                                    <span className="badge ml-2">{data.symbol.toUpperCase()}</span>
                                 </span>
                             </div>
                         </div>

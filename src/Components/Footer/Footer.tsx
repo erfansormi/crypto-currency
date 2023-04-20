@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Box } from '@mui/material';
 
 // css
 import styles from "./footer.module.css"
@@ -6,16 +7,10 @@ import styles from "./footer.module.css"
 // icon
 import { BsBoxArrowUpRight } from "react-icons/bs"
 
-//redux
-import { useSelector } from 'react-redux'
-import { State } from '../../Redux/store'
-
 const Footer = () => {
-    const darkMode = useSelector((state: State) => state.general.darkMode)
-
     return (
-        <footer className={styles.footer}>
-            <div className="light-color">
+        <Box sx={{ bgColor: "background.default" }} component={"footer"} className={styles.footer}>
+            <div className="text-neutral-5">
                 <div>
                     © 2022 Crypto Currency. All rights website reserved.
                 </div>
@@ -33,7 +28,7 @@ const Footer = () => {
                     </a>
                 </div>
             </div>
-        </footer>
+        </Box>
     )
 }
 

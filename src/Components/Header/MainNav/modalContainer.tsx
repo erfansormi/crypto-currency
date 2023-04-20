@@ -13,6 +13,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import ModalSearchBar from './modalSearchBar';
 import SearchedResult from './searchedResult';
+import { Box } from '@mui/material';
 
 const ModalContainer = ({ open, setOpen }: Props) => {
     const [values, setValues] = React.useState<SearchBarInitialValues>({
@@ -44,7 +45,7 @@ const ModalContainer = ({ open, setOpen }: Props) => {
             maxWidth={"sm"}
             fullWidth
         >
-            <div style={{ padding: "25px 25px 50px" }}>
+            <Box sx={{ padding: "25px 25px 50px", bgcolor: "neutral.main" }}>
                 <DialogTitle id="alert-dialog-title" sx={{ padding: 0, textAlign: "center" }}>
                     search box
                 </DialogTitle>
@@ -54,7 +55,7 @@ const ModalContainer = ({ open, setOpen }: Props) => {
 
                 {/* result */}
                 <SearchedResult handleClose={handleClose} values={values} />
-            </div>
+            </Box>
         </Dialog>
     );
 }

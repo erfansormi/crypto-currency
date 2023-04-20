@@ -11,7 +11,7 @@ export const priceData = (data: CoinDetail) => {
     return [
         {
             value:
-                <div className="light-color">
+                <div className="text-neutral-5">
                     <span>
                         {data.name} price {`(${data.symbol.toUpperCase()})`}
                     </span>
@@ -48,7 +48,7 @@ export const priceData = (data: CoinDetail) => {
                 <>
                     {data.symbol == "btc" ?
                         <>
-                            <div className="light-color">
+                            <div className="text-neutral-5">
                                 <span>
                                     {data.market_data.current_price.eth.toFixed(2)} ETH
                                 </span>
@@ -65,7 +65,7 @@ export const priceData = (data: CoinDetail) => {
                             </div>
                         </> :
                         <>
-                            <div className="light-color">
+                            <div className="text-neutral-5">
                                 <span>
                                     {data.market_data.current_price.btc.toFixed(4)} BTC
                                 </span>
@@ -89,7 +89,7 @@ export const priceData = (data: CoinDetail) => {
             value:
                 <>
                     <div>
-                        <span className="light-color mr-2">
+                        <span className="text-neutral-5 mr-2">
                             Low:
                         </span>
                         <span>
@@ -109,7 +109,7 @@ export const priceData = (data: CoinDetail) => {
                         </span>
                     </div>
                     <div>
-                        <span className="light-color mr-1">
+                        <span className="text-neutral-5 mr-1">
                             High:
                         </span>
                         <span>

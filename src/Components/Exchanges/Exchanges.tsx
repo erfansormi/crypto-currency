@@ -5,7 +5,6 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 
 // data
 import { exchangesColumns, exchangesRows } from './exchangesData';
@@ -15,16 +14,16 @@ import { Exchanges } from '../../types/exchanges/exchanges';
 
 const ExchangesTable = ({ exchanges }: { exchanges: Exchanges[] }) => {
     return (
-        <TableContainer component={Paper} className='root-nodes capitalize' sx={{ borderRadius: 0 }}>
+        <TableContainer component={"div"} className='capitalize' sx={{ borderRadius: 0 }}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
-                    <TableRow className='tr-hover'>
+                    <TableRow className='item-hover border-b'>
                         {
                             exchangesColumns.map((item, index) =>
                                 <TableCell
                                     key={index * 51}
                                     align={"left"}
-                                    className="border-b-color tr-color"
+                                    className="border-b tr-color"
                                     style={{ fontWeight: "600" }}
                                 >
                                     {item.title}
@@ -36,21 +35,21 @@ const ExchangesTable = ({ exchanges }: { exchanges: Exchanges[] }) => {
                 <TableBody>
                     {
                         exchanges.map((item, index) =>
-                            <TableRow className='tr-hover' sx={{ height: 55 }} key={index * 54}>
+                            <TableRow className='item-hover' sx={{ height: 55 }} key={index * 54}>
                                 {
                                     exchangesRows(item).map((i, index) =>
                                         index == 0 ?
                                             <TableCell
                                                 component="th"
                                                 scope="row"
-                                                className="border-b-color tr-color"
+                                                className="border-b tr-color"
                                                 key={index * 58}
                                             >
                                                 {i.value}
                                             </TableCell> :
                                             <TableCell
                                                 align="left"
-                                                className="border-b-color tr-color"
+                                                className="border-b tr-color"
                                                 key={index * 61}
                                             >
                                                 {i.value}

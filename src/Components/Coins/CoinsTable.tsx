@@ -2,13 +2,12 @@ import React from 'react';
 import Link from 'next/link';
 
 // mui
-import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import { Box } from '@mui/material';
 
 // context
 import { useCoinsContext } from '../../pages';
@@ -25,16 +24,17 @@ const CoinsTable = () => {
     return (
         <>
             {/* crypto table */}
-            <TableContainer component={Paper} className="root-nodes" sx={{ borderRadius: 0 }}>
-                <Table sx={{ minWidth: 650 }} aria-label="simple table" className={styles.tabale}>
+            <TableContainer component={"div"} sx={{ borderRadius: 0, bgcolor: "background.default" }}>
+                <Box component={"table"} sx={{ minWidth: 650 }} aria-label="simple table" className={`full ${styles.table}`}>
                     <TableHead>
                         <TableRow>
                             {
                                 TabaleHead.map((item, index) =>
                                     <TableCell
-                                        className={`border-b-color tr-color ${styles.tabale_head}`}
+                                        className={`${styles.table_head} text-neutral-1`}
                                         align={index <= 1 ? "left" : "center"}
                                         key={item.title + index}
+                                        sx={{ borderColor: "divider" }}
                                     >
                                         {item.title}
                                     </TableCell>
@@ -44,29 +44,37 @@ const CoinsTable = () => {
                     {coins.map((item) =>
                         <TableBody key={item.market_cap_rank + 20}>
                             <TableRow
-                                className="tr-hover"
+                                className="item-hover"
                                 style={{
                                     display: 'table-row',
                                     verticalAlign: 'middle',
-                                }}>
+                                }}
+                                sx={{
+                                    borderBottomColor: "divider",
+                                    borderBottomWidth: 1,
+                                    borderBottomStyle: "solid",
+                                }}
+
+                            >
                                 {TabaleBody(item).map((i, index) =>
                                     index == 0 ?
                                         <TableCell
+                                            className="text-neutral-2"
                                             component="th"
                                             scope="row"
                                             align='center'
                                             key={index}
-                                            className="border-b-color tr-color"
+                                            sx={{ borderColor: "divider" }}
                                         >
                                             {i.value}
                                         </TableCell>
                                         :
                                         <TableCell
+                                            className="text-neutral-2"
                                             size='small'
-                                            sx={{ borderBottom: 0 }}
+                                            sx={{ borderBottom: 0, width: index === 1 ? 200 : "unset" }}
                                             align={"center"}
                                             key={index}
-                                            className="border-b-color tr-color"
                                         >
                                             <Link href={`/coin/${item.id}`}>
                                                 {i.value}
@@ -76,7 +84,7 @@ const CoinsTable = () => {
                             </TableRow>
                         </TableBody>
                     )}
-                </Table>
+                </Box>
             </TableContainer>
 
         </>

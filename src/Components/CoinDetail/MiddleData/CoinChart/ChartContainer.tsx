@@ -35,9 +35,9 @@ const CoinChart = () => {
 
 
     return (
-        <>
+        <div className="border radius-5">
             <TopButtons handle={handle} />
-            <FullScreen handle={handle} className="root-nodes py-4">
+            <FullScreen handle={handle} className="py-4">
                 {
                     chartType == "line" ?
                         <LineChart isfullScActive={handle.active} /> :
@@ -45,7 +45,7 @@ const CoinChart = () => {
                             <CandleChart isfullScActive={handle.active} /> : null
                 }
             </FullScreen>
-        </>
+        </div>
     )
 }
 

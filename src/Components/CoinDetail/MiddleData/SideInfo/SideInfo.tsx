@@ -13,7 +13,7 @@ const SideInfo = () => {
   const { detail } = useCoinDetailContext();
 
   return (
-    <div className={`neutral-1 radius-5 ${styles.container}`}>
+    <div className={`bg-neutral-1 border radius-5 ${styles.container}`}>
       <div className={"p-8 flex-column"}>
         <div className={"mb-8"}>
           <h4 className="normal-color">

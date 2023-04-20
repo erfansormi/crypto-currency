@@ -19,17 +19,24 @@ const GlobalStyles = () => {
             border-bottom:0 !important;
         }
         
-        .border-color{
+        .border{
             ${darkMode ?
                 `border: 1px solid ${styles.border_color_dark};` :
                 `border: 1px solid ${styles.border_color};`
             }
         }
 
-        .border-b-color{
+        .border-b{
             ${darkMode ?
                 `border-bottom:1px solid ${styles.border_color_dark} !important;` :
                 `border-bottom:1px solid ${styles.border_color} !important;`
+            }
+        }
+
+        .border-t{
+            ${darkMode ?
+                `border-top:1px solid ${styles.border_color_dark} !important;` :
+                `border-top:1px solid ${styles.border_color} !important;`
             }
         }
 
@@ -86,28 +93,28 @@ const GlobalStyles = () => {
         }
 
         .header-input{
-        padding:8px;
-        border-radius:8px;
-            ${darkMode ?
-                `
-        background-color: rgb(34, 37, 49);
-        color: rgb(100, 107, 128);
-        `:
-                `
-        background-color: rgb(239, 242, 245);
-        color: rgb(166, 176, 195);
+            padding:8px;
+            border-radius:8px;
+                ${darkMode ?
+                    `
+            background-color: ${styles.color_neutral_3};
+            color: ${styles.color_neutral_5};
+            `:
+                    `
+            background-color: ${styles.color_light_neutral_2};
+            color: ${styles.color_light_neutral_5};
         `
             }
         }
 
         .header-input:hover{
-        animation-name: input-box-shadow;
-        animation-duration: 0.7s;
+            animation-name: input-box-shadow;
+            animation-duration: 0.7s;
         }
 
         @keyframes input-box-shadow {
         50% {
-            box-shadow: 0 0 7px 4px ${darkMode ? `${styles.color_neutral_2}` : `#ccc`};
+            box-shadow: 0 0 7px 4px ${darkMode ? `${styles.color_neutral_4}` : `${styles.color_light_neutral_4}`};
         }
 
         100% {

@@ -56,7 +56,7 @@ const HiddenLinks = ({ icon1, icon2, linksIcon, links, text }: iProps) => {
                 border-radius: 6px;
                 padding: 4px 6px;
                 ${darkMode ?
-                    `background-color: ${styles.color_neutral_2};
+                    `background-color: ${styles.color_neutral_3};
                 color: #fff;`:
                     `background-color:${styles.color_light_neutral_2};
                 color: #000;`
@@ -92,7 +92,7 @@ const HiddenLinks = ({ icon1, icon2, linksIcon, links, text }: iProps) => {
                 flex-direction:column;
                 padding:5px 0 0 0;
                 ${darkMode ?
-                    `background-color:${styles.color_neutral_2};
+                    `background-color:${styles.color_neutral_3};
                     color:#fff;`:
                     `background-color:#fff;
                     color:#000;`
@@ -120,7 +120,7 @@ const HiddenLinks = ({ icon1, icon2, linksIcon, links, text }: iProps) => {
                 box-shadow: ${styles.box_shadow};
     
                 ${darkMode ?
-                    `background-color: ${styles.color_neutral_2};` :
+                    `background-color: ${styles.color_neutral_3};` :
                     `background-color:#fff;
                         border: 1px solid #f9f9f9;`
                 }

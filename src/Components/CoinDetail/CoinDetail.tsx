@@ -11,7 +11,7 @@ import { useCoinDetailContext } from '../../pages/coin/[coin_id]';
 
 // components
 import TopSummary from './TopSummary/TopSummary';
-import CoinChart from './MiddleData/CoinChart/CoinChart';
+import ChartContainer from './MiddleData/CoinChart/ChartContainer';
 import SideInfo from './MiddleData/SideInfo/SideInfo';
 
 const CoinDetail = () => {
@@ -27,7 +27,7 @@ const CoinDetail = () => {
                         </div>
                         <Grid container sx={{ padding: "20px 0 50px" }} spacing={2}>
                             <Grid xs={12} md={8}>
-                                <CoinChart />
+                                <ChartContainer />
                             </Grid>
                             <Grid xs={12} md={4}>
                                 <SideInfo />

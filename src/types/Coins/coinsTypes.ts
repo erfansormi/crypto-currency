@@ -42,7 +42,7 @@ export interface iCoinsInitialValue {
     coins: iCoins[],
 }
 
-interface SearchedCoins {
+export interface SearchedCoins {
     api_symbol: string
     id: string
     large: string

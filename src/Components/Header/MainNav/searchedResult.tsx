@@ -19,7 +19,7 @@ const SearchedResult = ({ values, handleClose }: Props) => {
                 {
                     values.loading ?
                         // loading
-                        <h6 className='light-color' style={{ textAlign: "center" }}>
+                        <h6 className='text-neutral-5' style={{ textAlign: "center" }}>
                             loading...
                         </h6> :
 
@@ -43,7 +43,7 @@ const SearchedResult = ({ values, handleClose }: Props) => {
                                 // valid result
                                 values.data?.coins.map((item, index) =>
                                     <div
-                                        className={`${styles.coin_container} d-flex align-center`}
+                                        className={`${styles.coin_container} d-flex align-center item-hover`}
                                         key={index * 6 + 26}
                                         onClick={handleClose}
                                     >
@@ -56,7 +56,7 @@ const SearchedResult = ({ values, handleClose }: Props) => {
                                             }}
                                             as={`/coin/${item.id}`}
                                         >
-                                            <div>
+                                            <div className='d-flex align-center'>
                                                 <div>
                                                     <img src={item.thumb} alt={`${item.name} symbol image`} />
                                                 </div>
@@ -66,14 +66,14 @@ const SearchedResult = ({ values, handleClose }: Props) => {
                                                     </span>
                                                 </div>
                                                 <div>
-                                                    <span className={`light-color`} style={{ fontSize: "0.8rem" }}>
+                                                    <span className={`text-neutral-5`} style={{ fontSize: "0.8rem", display: "contents" }}>
                                                         {item.symbol}
                                                     </span>
                                                 </div>
                                             </div>
                                             <div>
                                                 <div>
-                                                    <span className={`light-color`}>
+                                                    <span className={`text-neutral-5`}>
                                                         #{item.market_cap_rank}
                                                     </span>
                                                 </div>

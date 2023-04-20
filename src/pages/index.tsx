@@ -11,6 +11,7 @@ import Error from './_error';
 
 // ts
 import { iCoins, iCoinsInitialValue } from '../types/Coins/coinsTypes';
+import { Box } from '@mui/material';
 
 interface Props {
   coins: iCoins[],

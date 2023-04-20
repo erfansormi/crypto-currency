@@ -7,9 +7,9 @@ const TagSection = () => {
   const { detail } = useCoinDetailContext();
 
   return (
-    <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
+    <div className='d-flex align-center' style={{ justifyContent: "flex-end" }}>
       <div className='mb-2'>
-        <span className='light-color mr-2'>
+        <span className='text-neutral-4 mr-2'>
           Tags:
         </span>
       </div>
@@ -18,7 +18,7 @@ const TagSection = () => {
           detail.categories.map((item, index) =>
             index <= 4 ?
               <div key={index * 6 + 24} className="align-center mr-2 mb-2">
-                <span className="pillName">
+                <span className="badge">
                   {item}
                 </span>
               </div> : null

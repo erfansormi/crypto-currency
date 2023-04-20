@@ -41,8 +41,8 @@ const TopButtons = ({ handle }: Props) => {
     }
 
     return (
-        <div>
-            <div className="mb-12">
+        <div className='py-8 px-6'>
+            <div>
                 <div className="mb-5">
                     <h3>{detail?.name} Price Chart ({chartDay != "max" ? `${chartDay}d` : chartDay})</h3>
                 </div>
@@ -53,7 +53,7 @@ const TopButtons = ({ handle }: Props) => {
                                 key={index * 6 + 29}
                                 value={item.value}
                                 onClick={handleClick}
-                                className={`mr-2 fs-5 mb-2 p-2 ${chartDay == item.value ? "pillName-primary pillName" : "pillName"}`}
+                                className={`mr-2 fs-5 mb-2 p-2 ${chartDay == item.value ? "badge-primary badge" : "badge"}`}
                             >
                                 {item.text}
                             </button>
@@ -62,7 +62,7 @@ const TopButtons = ({ handle }: Props) => {
                     <div>
                         <Tooltip title={"Line Chart"}>
                             <button
-                                className={`${chartType == "line" ? "pillName-primary" : ""} mr-2 pillName fs-7`}
+                                className={`${chartType == "line" ? "badge-primary" : ""} mr-2 badge fs-7`}
                                 onClick={() => dispatch(changeChartType("line"))}
                             >
                                 <BiLineChart />
@@ -70,7 +70,7 @@ const TopButtons = ({ handle }: Props) => {
                         </Tooltip>
                         <Tooltip title={"Candle Chart"}>
                             <button
-                                className={`${chartType == "candle" ? "pillName-primary" : ""} mr-2 pillName fs-7`}
+                                className={`${chartType == "candle" ? "badge-primary" : ""} mr-2 badge fs-7`}
                                 onClick={() => dispatch(changeChartType("candle"))}
                             >
                                 <TbChartCandle />
@@ -79,7 +79,7 @@ const TopButtons = ({ handle }: Props) => {
                         <Tooltip title={"Fullscreen"}>
                             <button
                                 onClick={handle.enter}
-                                className={`mr-2 pillName fs-7`}
+                                className={`mr-2 badge fs-7`}
                             >
                                 <MdFullscreen />
                             </button>

@@ -16,7 +16,7 @@ const MainNav = () => {
     const darkMode = useSelector((state: State) => state.general.darkMode);
 
     return (
-        <nav className={styles.container}>
+        <nav className={`${styles.container}`}>
             <div className={styles.layout_container}>
                 <div className={`${styles.section_1} d-flex align-center`}>
                     <Link href={"/"} as={"/"} className={`d-flex align-center`}>

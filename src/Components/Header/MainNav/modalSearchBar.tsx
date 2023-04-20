@@ -27,7 +27,7 @@ const ModalSearchBar = ({ values, setValues }: Props) => {
         e.preventDefault();
         if (values.searchedText.length >= 1) {
             setValues({ ...values, loading: true })
-
+            
             axios.get(`https://api.coingecko.com/api/v3/search?query=${values.searchedText}`)
                 .then(response => {
                     setValues({
