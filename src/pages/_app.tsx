@@ -7,9 +7,6 @@ import '../styles/css/reset.css';
 import "../styles/css/mui_styles.css";
 import "../styles/css/library.css";
 import '../styles/css/global.css';
-import '../styles/css/colors.css';
-import '../styles/css/spaces.css';
-import '../styles/css/sizes.css';
 
 // mui
 import AppThemeProvider from '../Components/Mui/AppThemeProvider';

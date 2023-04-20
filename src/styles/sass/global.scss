@@ -1,11 +1,12 @@
 @import "variable";
 @import "fonts";
 @import "mixins";
+@import "spaces";
+@import "sizes";
+@import "colors";
 
 * {
-    font-family: VarelaRound, SecularOne, 'Courier New', Courier, monospace, SecularOne -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-        sans-serif !important;
+    font-family: VarelaRound, SecularOne, 'Courier New', Courier, -apple-system, sans-serif !important;
 }
 
 #js-licensing {
