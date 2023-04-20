@@ -1,13 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
 
-// mui
+// components
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { Box } from '@mui/material';
+import TablePagination from './Pagination';
 
 // context
 import { useCoinsContext } from '../../pages';
@@ -19,7 +20,7 @@ import { TabaleHead, TabaleBody } from "./CoinsData"
 import styles from "./coinsTabale.module.css"
 
 const CoinsTable = () => {
-    const { coins } = useCoinsContext();
+    const { initialValues: { navigatedCoins } } = useCoinsContext();
 
     return (
         <>
@@ -41,7 +42,7 @@ const CoinsTable = () => {
                                 )}
                         </TableRow>
                     </TableHead>
-                    {coins.map((item) =>
+                    {navigatedCoins.map((item) =>
                         <TableBody key={item.market_cap_rank + 20}>
                             <TableRow
                                 className="item-hover"
@@ -87,6 +88,8 @@ const CoinsTable = () => {
                 </Box>
             </TableContainer>
 
+            {/* pagination */}
+            <TablePagination />
         </>
     );
 }

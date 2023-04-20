@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createContext, useContext } from 'react';
 import { GetStaticProps } from 'next';
 
@@ -10,8 +11,7 @@ import Head from 'next/head'
 import Error from './_error';
 
 // ts
-import { iCoins, iCoinsInitialValue } from '../types/Coins/coinsTypes';
-import { Box } from '@mui/material';
+import { iCoins, iCoinsInitialValues, HomeContextValues } from '../types/Coins/coinsTypes';
 
 interface Props {
   coins: iCoins[],
@@ -19,12 +19,20 @@ interface Props {
 }
 
 // context
-const CoinsContext = createContext({} as iCoinsInitialValue);
+const CoinsContext = createContext({} as HomeContextValues);
 export const useCoinsContext = () => useContext(CoinsContext);
 
 const Index = ({ coins, error }: Props) => {
+  const [initialValues, setInitialValues] = useState<iCoinsInitialValues>({
+    allCoins: coins,
+    error,
+    navigatedCoins: coins.slice(0, 30),
+    page: 1,
+    skip: 30
+  })
+
   return (
-    <CoinsContext.Provider value={{ coins }}>
+    <CoinsContext.Provider value={{ initialValues, setInitialValues }}>
       {
         error ?
           <Error errorMessage={error} /> :

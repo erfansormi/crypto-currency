@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react"
+
 // interfaces
 export interface iCoins {
     id: string,
@@ -38,8 +40,17 @@ export interface iCoins {
     price_change_percentage_7d_in_currency?: number
 }
 
-export interface iCoinsInitialValue {
-    coins: iCoins[],
+export interface iCoinsInitialValues {
+    navigatedCoins: iCoins[],
+    allCoins: iCoins[],
+    page: number,
+    skip: number,
+    error: string
+}
+
+export interface HomeContextValues {
+    initialValues: iCoinsInitialValues,
+    setInitialValues: Dispatch<SetStateAction<iCoinsInitialValues>>
 }
 
 export interface SearchedCoins {
