@@ -17,7 +17,7 @@ import SwitchDarkMode from '../../Other/SwitchDarkMode';
 import { Box } from '@mui/material';
 
 const TopNav = () => {
-    const { error, data, isLoading } = useGlobalData();
+    const { error, data, isLoading, refetch } = useGlobalData();
 
     return (
         <Box
@@ -35,10 +35,12 @@ const TopNav = () => {
 
                         // error
                         error ?
-                            <div className={"down-color"}>
+                            <div className={"down-color pointer"} onClick={() => refetch()}>
                                 <div className='h-100 d-flex align-center'>
-                                    failed to load
-                                    <button className="down-color d-flex">
+                                    <span className='mr-1'>
+                                        failed to load
+                                    </span>
+                                    <button className="down-color d-flex fs-3">
                                         <BsArrowCounterclockwise />
                                     </button>
                                 </div>
