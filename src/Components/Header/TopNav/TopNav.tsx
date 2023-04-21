@@ -3,9 +3,6 @@ import React from 'react';
 // data
 import { navInfoData, navDominanceData } from './NavData';
 
-// css
-import styles from "./nav.module.css";
-
 // icon
 import { BsArrowCounterclockwise } from "react-icons/bs";
 
@@ -22,9 +19,10 @@ const TopNav = () => {
     return (
         <Box
             component="nav" sx={{ bgcolor: "background.default" }}
-            className={`d-flex align-center ${styles.nav}`}
+            className="flex align-center fs-1"
+            style={{ height: 53 }}
         >
-            <div className='text-neutral-5' >
+            <div className='text-neutral-5 flex justify-between full align-center' >
 
                 {/* loading */}
                 {
@@ -36,22 +34,22 @@ const TopNav = () => {
                         // error
                         error ?
                             <div className={"down-color pointer"} onClick={() => refetch()}>
-                                <div className='h-100 d-flex align-center'>
+                                <div className='h-100 flex align-center'>
                                     <span className='mr-1'>
                                         failed to load
                                     </span>
-                                    <button className="down-color d-flex fs-3">
+                                    <button className="down-color flex fs-3">
                                         <BsArrowCounterclockwise />
                                     </button>
                                 </div>
                             </div> :
 
                             // nav
-                            <div className={`d-flex align-center full mr-3 ${styles.nav_content}`}>
+                            <div className={`flex align-center full mr-3 overflow-x-auto`}>
                                 {navInfoData(data.data).map((item, index) =>
                                     <div
                                         key={index * 6 + 27}
-                                        className={"d-flex align-center"}
+                                        className={"flex align-center"}
                                     >
                                         <span className={"capitalize max-content"}>
                                             {item.text}:
@@ -61,14 +59,14 @@ const TopNav = () => {
                                         </span>
                                     </div>
                                 )}
-                                <div className={"d-flex"}>
+                                <div className={"flex"}>
                                     <span className={"mr-2 capitalize"}>
                                         {navDominanceData(data.data).text}
                                     </span>
                                     {navDominanceData(data.data).value.map((item, index) =>
                                         <div
                                             key={index * 6 + 28}
-                                            className={"primary-color d-flex mr-2"}
+                                            className={"primary-color flex mr-2"}
                                         >
                                             <span>
                                                 {item.text}
@@ -81,7 +79,7 @@ const TopNav = () => {
                                 </div>
                             </div>
                 }
-                <div className={styles.darkMode_container}>
+                <div>
                     <SwitchDarkMode />
                 </div>
             </div>

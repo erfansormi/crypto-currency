@@ -4,13 +4,10 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 
 // mui
-import Grid from '@mui/material/Unstable_Grid2/Grid2'
-
-// css
-import styles from "../styles/css/error.module.css"
+import Grid from '@mui/material/Unstable_Grid2/Grid2';
 
 // icon
-import { BsArrowCounterclockwise } from "react-icons/bs"
+import { BsArrowCounterclockwise } from "react-icons/bs";
 
 // redux
 import { useSelector } from 'react-redux';
@@ -32,10 +29,10 @@ const Error = ({ errorMessage }: iProps) => {
                     An error occurred | {errorMessage}
                 </title>
             </Head>
-            <div className={`md-shadow ${styles.container}`}>
+            <div className='md-shadow m-sm-7 p-3 p-3 radius-4 p-sm-15 fs-4'>
                 <Grid container spacing={4}>
                     <Grid xs={12} md={6}>
-                        <div className={styles.img_container}>
+                        <div className="w-full h-auto object-cover">
                             <Image
                                 width={750}
                                 height={500}
@@ -47,25 +44,25 @@ const Error = ({ errorMessage }: iProps) => {
                         </div>
                     </Grid>
                     <Grid xs={12} md={6}>
-                        <div className={styles.texts_container}>
-                            <div className={styles.text_container}>
+                        <div className="h-full flex flex-col justify-evenly capitalize gap-y-4">
+                            <div className="flex">
                                 <p className='down-color error-alert'>
                                     an error has been occurred!
                                 </p>
                             </div>
-                            <div className={styles.text_container}>
-                                <p className='light-color neutral-alert'>
-                                    please try again a few minutes latar!
+                            <div className="flex justify-end">
+                                <p className='text-neutral-5 neutral-alert'>
+                                    please try again a few minutes later!
                                 </p>
                             </div>
-                            <div className={styles.text_container}>
+                            <div className="flex">
                                 <p className='down-color error-alert'>
                                     problem {"->"} {errorMessage}!
                                 </p>
                             </div>
-                            <div className={styles.text_container}>
+                            <div className="flex justify-end">
                                 <p
-                                    className='light-color neutral-alert'
+                                    className='text-neutral-5 neutral-alert pointer'
                                     onClick={() => router.reload()}
                                 >
                                     click here to reload page!

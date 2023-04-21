@@ -26,13 +26,18 @@ const CoinsTable = () => {
         <>
             {/* crypto table */}
             <TableContainer component={"div"} sx={{ borderRadius: 0, bgcolor: "background.default" }}>
-                <Box component={"table"} sx={{ minWidth: 650 }} aria-label="simple table" className={`full ${styles.table}`}>
+                <Box
+                    component={"table"}
+                    sx={{ minWidth: 650 }}
+                    aria-label="simple table"
+                    className={`full ${styles.table}`}
+                >
                     <TableHead>
                         <TableRow>
                             {
                                 TabaleHead.map((item, index) =>
                                     <TableCell
-                                        className={`${styles.table_head} text-neutral-1`}
+                                        className={`capitalize fs-2 fw-bolder text-neutral-1`}
                                         align={index <= 1 ? "left" : "center"}
                                         key={item.title + index}
                                         sx={{ borderColor: "divider" }}

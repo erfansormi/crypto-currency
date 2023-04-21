@@ -21,9 +21,7 @@ export const priceData = (data: CoinDetail) => {
             value:
                 <>
                     <div>
-                        <h3
-                            style={{ fontSize: "1.8rem", lineHeight: "35px" }}
-                        >
+                        <h3 className="fs-7 leading-3">
                             ${data.market_data.current_price.usd > 999 ?
                                 data.market_data.current_price.usd.toLocaleString() :
                                 data.market_data.current_price.usd
@@ -99,7 +97,7 @@ export const priceData = (data: CoinDetail) => {
                             }
                         </span>
                     </div>
-                    <div className="align-center d-flex" style={{ width: 170, height: 20 }}>
+                    <div className="align-center flex" style={{ width: 170, height: 20 }}>
                         <span className="progress-bar">
                             <span
                                 className="progress-value"

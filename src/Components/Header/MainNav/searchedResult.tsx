@@ -1,9 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 
-// css
-import styles from "./mainNav.module.css"
-
 // ts
 import { SearchBarInitialValues } from '../../../types/Coins/coinsTypes';
 
@@ -14,7 +11,7 @@ interface Props {
 
 const SearchedResult = ({ values, handleClose }: Props) => {
     return (
-        <div className={styles.result_search_container}>
+        <div className={"mt-8"}>
             <div>
                 {
                     values.loading ?
@@ -43,21 +40,16 @@ const SearchedResult = ({ values, handleClose }: Props) => {
                                 // valid result
                                 values.data?.coins.map((item, index) =>
                                     <div
-                                        className={`${styles.coin_container} d-flex align-center item-hover`}
+                                        className={`py-5 px-3 radius-3 mb-2 flex align-center item-hover`}
                                         key={index * 6 + 26}
                                         onClick={handleClose}
                                     >
                                         <Link
-                                            href={{
-                                                pathname: `${item.id}`,
-                                                query: {
-                                                    chart_day: "1"
-                                                }
-                                            }}
-                                            as={`/coin/${item.id}`}
+                                            href={`/coin/${item.id}`}
+                                            className='flex justify-between align-center w-full'
                                         >
-                                            <div className='d-flex align-center'>
-                                                <div>
+                                            <div className='flex justify-between align-center gap-x-2'>
+                                                <div className='mt-1'>
                                                     <img src={item.thumb} alt={`${item.name} symbol image`} />
                                                 </div>
                                                 <div>
@@ -66,7 +58,7 @@ const SearchedResult = ({ values, handleClose }: Props) => {
                                                     </span>
                                                 </div>
                                                 <div>
-                                                    <span className={`text-neutral-5`} style={{ fontSize: "0.8rem", display: "contents" }}>
+                                                    <span className={`text-neutral-5 fs-2`}>
                                                         {item.symbol}
                                                     </span>
                                                 </div>

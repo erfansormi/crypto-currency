@@ -1,0 +1,65 @@
+@import "mixins";
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+span {
+  @include text(inherit, inherit, capitalize);
+}
+
+// h1 - h6
+@for $i from 1 to 7 {
+  h#{$i} {
+    @include text(2.2rem - ($i * 0.2), inherit, capitalize);
+  }
+}
+
+// font weight
+.fw-light {
+  font-weight: 300;
+}
+
+.fw-regular {
+  font-weight: 400;
+}
+
+.fw-md {
+  font-weight: 500;
+}
+
+.fw-bold {
+  font-weight: 700;
+}
+
+.fw-bolder {
+  font-weight: 900;
+}
+
+// line height
+.leading-1 {
+  line-height: 1;
+}
+
+@for $i from 2 to 13 {
+  .leading-#{$i} {
+    line-height: 1 + (($i * 0.2) - 0.2);
+  }
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.pointer {
+  cursor: pointer;
+}

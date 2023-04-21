@@ -61,8 +61,8 @@ export const TabaleBody = (coins: iCoins) => {
         },
         {
             value:
-                <div className="align-center d-flex">
-                    <div className="align-center d-flex">
+                <div className="align-center flex">
+                    <div className="align-center flex">
                         <Image
                             width={25}
                             height={25}

@@ -51,7 +51,7 @@ const ModalSearchBar = ({ values, setValues }: Props) => {
     }
 
     return (
-        <div className={styles.searchBox_container}>
+        <div className="mt-8 flex w-full justify-center">
             <form
                 className={styles.searchBox}
                 onSubmit={handleSubmit}

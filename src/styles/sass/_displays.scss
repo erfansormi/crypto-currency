@@ -1,0 +1,65 @@
+@import "mixins";
+
+.contents {
+  @include display(contents);
+}
+
+.block {
+  @include display(block);
+}
+
+.inline {
+  @include display(inline);
+}
+
+.flex {
+  @include display(flex);
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-sm-row {
+  @include media-query(sm) {
+    @include display(flex);
+    flex-direction: row;
+  }
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-start {
+  align-items: start;
+}
+
+.align-end {
+  align-items: end;
+}
+
+.justify-end {
+  justify-content: end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+.justify-around {
+  justify-content: space-around;
+}

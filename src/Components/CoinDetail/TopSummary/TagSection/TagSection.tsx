@@ -7,13 +7,13 @@ const TagSection = () => {
   const { detail } = useCoinDetailContext();
 
   return (
-    <div className='d-flex align-center' style={{ justifyContent: "flex-end" }}>
+    <div className='flex align-center justify-end'>
       <div className='mb-2'>
         <span className='text-neutral-4 mr-2'>
           Tags:
         </span>
       </div>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
+      <div className='flex flex-wrap'>
         {
           detail.categories.map((item, index) =>
             index <= 4 ?

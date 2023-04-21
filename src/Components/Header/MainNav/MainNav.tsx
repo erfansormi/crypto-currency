@@ -16,27 +16,28 @@ const MainNav = () => {
     const darkMode = useSelector((state: State) => state.general.darkMode);
 
     return (
-        <nav className={`${styles.container}`}>
-            <div className={styles.layout_container}>
-                <div className={`${styles.section_1} d-flex align-center`}>
-                    <Link href={"/"} as={"/"} className={`d-flex align-center`}>
+        <nav className="py-5 flex align-center" style={{ minHeight: 80 }}>
+            <div className="flex justify-between w-full">
+                <div className="flex align-center">
+                    <Link href={"/"} as={"/"} className={`flex align-center mr-8`}>
                         <ClientOnly>
                             <Image
                                 src={"/images/logo.png"}
                                 alt="crypto logo"
-                                className={`${styles.logo_img} ${darkMode ? "invert-img" : null}`}
+                                className={`mr-1 h-auto ${darkMode ? "invert-img" : null}`}
                                 width={30}
                                 height={28}
                             />
                         </ClientOnly>
-                        <h3>
+                        <h3 className='fs-6'>
                             crypto currency
                         </h3>
                     </Link>
                     <Link
                         href={"/exchanges"}
+                        className='mr-8'
                     >
-                        <h3>
+                        <h3 className='fs-6'>
                             exchanges
                         </h3>
                     </Link>

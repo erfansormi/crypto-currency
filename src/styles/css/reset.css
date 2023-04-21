@@ -20,7 +20,9 @@ a {
 }
 
 /* Remove list styles (bullets/numbers) */
-ol, ul, menu {
+ol,
+ul,
+menu {
     list-style: none;
 }
 

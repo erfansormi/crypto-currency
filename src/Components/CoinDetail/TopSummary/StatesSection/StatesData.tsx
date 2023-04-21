@@ -106,7 +106,7 @@ export const StatesData = (data: CoinDetail) => {
                         </div>
                     </div>
                     <div>
-                        <div className="align-center justify-between">
+                        <div>
                             <div className="text-neutral-5">
                                 <span>max supply</span>
                             </div>
@@ -117,7 +117,7 @@ export const StatesData = (data: CoinDetail) => {
                                 </span>
                             </div>
                         </div>
-                        <div className="align-center justify-between">
+                        <div>
                             <div className="text-neutral-5">
                                 <span>total supply</span>
                             </div>

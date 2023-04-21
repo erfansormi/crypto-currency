@@ -1,38 +1,42 @@
 @mixin text($size, $color, $transform) {
-    font-size: $size;
-    color: $color;
-    text-transform: $transform;
+  font-size: $size;
+  color: $color;
+  text-transform: $transform;
 }
 
 @mixin chip($bg-color) {
-    padding: 4px 6px;
-    border-radius: 6px;
-    background-color: $bg-color;
-    color: #fff !important;
+  padding: 4px 6px;
+  border-radius: 6px;
+  background-color: $bg-color;
+  color: #fff !important;
 }
 
 @mixin media-query($size) {
-    @if($size==sm) {
-        @media (min-width:600px) {
-            @content;
-        }
+  @if ($size==sm) {
+    @media (min-width: 600px) {
+      @content;
     }
+  }
 
-    @if($size==md) {
-        @media (min-width:900px) {
-            @content;
-        }
+  @if ($size==md) {
+    @media (min-width: 900px) {
+      @content;
     }
+  }
 
-    @if($size==lg) {
-        @media (min-width:1200px) {
-            @content;
-        }
+  @if ($size==lg) {
+    @media (min-width: 1200px) {
+      @content;
     }
+  }
 
-    @if($size==xl) {
-        @media (min-width:1536px) {
-            @content;
-        }
+  @if ($size==xl) {
+    @media (min-width: 1536px) {
+      @content;
     }
+  }
+}
+
+@mixin display($display) {
+  display: $display;
 }

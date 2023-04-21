@@ -3,23 +3,6 @@
     font-weight: 600;
 }
 
-.table_head {
-    text-transform: capitalize;
-    font-size: 0.85rem !important;
-    font-weight: 900 !important;
-}
-
-.container_td_content {
-    display: flex;
-    align-items: center;
-}
-
-.container_td_content>div:last-child {
-    display: flex;
-    margin-left: 5px;
-    align-items: center;
-}
-
 .coin_img {
     width: 25px;
     height: fit-content;

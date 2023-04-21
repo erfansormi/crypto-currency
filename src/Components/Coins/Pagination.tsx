@@ -13,7 +13,7 @@ export default function TablePagination() {
     const { allCoins, page, skip } = initialValues;
 
     return (
-        <Box className='d-flex justify-center py-10'>
+        <Box className='flex justify-center py-10'>
             <Stack spacing={2}>
                 <Pagination
                     count={Math.ceil(allCoins.length / skip)}

@@ -64,6 +64,11 @@ const BgColors = () => {
             max-width:100%;
         }
 
+        .item-hover{
+            transition: 0.2s;
+            transition-property:background;
+        }
+
         .item-hover:hover{
             ${darkMode ?
                 `background-color: #1a1b22 !important;` :

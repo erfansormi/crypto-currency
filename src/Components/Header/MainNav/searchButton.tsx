@@ -19,13 +19,13 @@ const SearchButton = () => {
     return (
         <>
             <div
-                className={`${styles.input_container} header-input d-flex align-center`}
+                className={`${styles.input_container} header-input flex align-center pointer`}
                 onClick={handleClickOpen}
             >
-                <div>
+                <div className='flex align-center mr-3'>
                     <BiSearch />
                 </div>
-                <div>
+                <div className='flex align-center'>
                     search...
                 </div>
             </div>

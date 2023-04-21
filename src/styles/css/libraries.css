@@ -2,7 +2,7 @@
   padding: 6px !important;
 }
 
-.MuiTableCell-root > a canvas {
+.MuiTableCell-root>a canvas {
   width: 210px !important;
   height: 90px !important;
 }
@@ -14,4 +14,14 @@
     width: 100% !important;
   }
 }
+
+#detail-chart {
+  touch-action: auto !important;
+}
+
+#detail-chart_tooltip_path {
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
 /*# sourceMappingURL=mui_Styles.css.map */

@@ -1,123 +1,46 @@
-@import "variable";
-@import "fonts";
-@import "mixins";
-@import "spaces";
-@import "sizes";
-@import "colors";
+@use "variable";
+@use "fonts";
+@use "spaces";
+@use "sizes";
+@use "colors";
+@use "displays";
+@use "text";
+@use "images";
+@use "layout";
 
 * {
-    font-family: VarelaRound, SecularOne, 'Courier New', Courier, -apple-system, sans-serif !important;
+  font-family: VarelaRound, SecularOne, "Courier New", Courier, -apple-system,
+    sans-serif !important;
 }
 
 #js-licensing {
-    display: none !important;
+  display: none !important;
 }
 
 html {
-    font-size: 16px;
+  font-size: 16px;
 }
 
-@media (max-width:767px) {
-    html {
-        font-size: 14px;
-    }
+@media (max-width: 767px) {
+  html {
+    font-size: 14px;
+  }
 }
 
 body {
-    font-weight: 600;
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-weight: 600;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 button {
-    background-color: inherit;
-    border: 0;
-    cursor: pointer;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-span {
-    @include text(inherit, inherit, capitalize);
-}
-
-.topSummary_grid_container__Fg9zm>div {
-    margin-bottom: 15px;
-}
-
-.d-flex {
-    display: flex;
-}
-
-.flex-column {
-    display: flex;
-    flex-direction: column;
-}
-
-.flex-sm-row {
-    @include media-query(sm) {
-        display: flex;
-        flex-direction: row;
-    }
-}
-
-.flex-wrap {
-    flex-wrap: wrap;
-}
-
-.align-center {
-    align-items: center;
-}
-
-.justify-center {
-    justify-content: center;
-}
-
-.justify-between {
-    justify-content: space-between;
-}
-
-.h-100 {
-    height: 100%;
-}
-
-.w-100 {
-    width: 100%;
-}
-
-.full {
-    height: 100%;
-    width: 100%;
-}
-
-.fit-content {
-    min-width: fit-content;
-}
-
-.max-content {
-    min-width: max-content;
-}
-
-.capitalize {
-    text-transform: capitalize;
-}
-
-.uppercase {
-    text-transform: uppercase;
-}
-
-.lowercase {
-    text-transform: lowercase;
-}
-
-.pointer {
-    cursor: pointer;
+  background-color: inherit;
+  border: 0;
+  cursor: pointer;
 }

@@ -14,7 +14,7 @@ const NameSection = () => {
 
     return (
         <div className={"mt-9"}>
-            <div className={`d-flex align-center ${styles.header_name}`} >
+            <div className={`flex align-center ${styles.header_name}`} >
                 {
                     nameHeader(detail).map((item, index) =>
                         <div key={index * 6 + 20}>
@@ -23,7 +23,7 @@ const NameSection = () => {
                     )
                 }
             </div>
-            <div className={`d-flex align-center ${styles.header_name}`}>
+            <div className={`flex align-center ${styles.header_name}`}>
                 {
                     nameFooter(detail).map((item, index) =>
                         <div key={index * 6 + 21}>
@@ -36,4 +36,4 @@ const NameSection = () => {
     )
 }
 
-export default NameSection
+export default NameSection;

@@ -1,111 +1,24 @@
-.container {
-    min-height: 80px;
-    padding: 15px 0;
-    display: flex;
-    align-items: center;
-}
-
-.layout_container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.layout_container .section_1 .logo_img {
-    height: auto;
-    margin-right: 4px;
-}
-
-.layout_container .section_1 a {
-    margin-right: 25px;
-}
-
-.layout_container .section_1 a h3 {
-    font-size: 1.2rem;
-}
-
-.layout_container .input_container {
+.input_container {
     height: 40px;
     width: 250px;
-    cursor: pointer;
 }
 
-.layout_container .input_container>div {
-    display: flex;
-    align-items: center;
-}
-
-.layout_container .input_container>div:first-child {
-    margin-right: 8px;
-}
-
-.searchBox_container {
-    margin-top: 25px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.searchBox_container>.searchBox {
+.searchBox {
     width: 70%;
     position: relative;
 }
 
-.searchBox_container>.searchBox div {
+.searchBox div {
     width: 100%;
 }
 
-.searchBox_container>.searchBox div div {
-    width: 100%;
-}
-
-.searchBox_container>.searchBox .search_icon {
+.searchBox .search_icon {
     cursor: pointer;
     position: absolute;
     right: 10px;
     top: calc(28px - (28.8px / 2));
     font-size: 1.8rem;
     color: #777;
-}
-
-.result_search_container {
-    margin-top: 25px;
-}
-
-.result_search_container .coin_container {
-    padding: 15px 10px;
-    border-radius: 6px;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    -ms-border-radius: 6px;
-    -o-border-radius: 6px;
-    margin-bottom: 5px;
-    transition: 0.4s all;
-    -webkit-transition: 0.4s all;
-    -moz-transition: 0.4s all;
-    -ms-transition: 0.4s all;
-    -o-transition: 0.4s all;
-}
-
-.result_search_container .coin_container:hover {
-    background-color: var(--color-light-neutral-2);
-}
-
-.result_search_container .coin_container a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.result_search_container .coin_container a div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.result_search_container .coin_container a div:first-child div {
-    margin-right: 5px;
 }
 
 @media (max-width:767px) {
@@ -122,7 +35,7 @@
         width: 80vw;
     }
 
-    .searchBox_container>.searchBox {
+    .searchBox {
         width: 100%;
     }
 }
