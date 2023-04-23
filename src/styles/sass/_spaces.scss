@@ -4,67 +4,39 @@
 $size: 3px;
 
 @for $i from 0 to 21 {
-  // margins
-  .m-#{$i} {
-    margin: $size * $i;
-  }
+  // ************* margins *************
+  @include handle-spaces(m, margin, $size, $i);
+  // sm
+  @include media-handle-spaces(sm, m, margin, $size, $i);
 
-  .mt-#{$i} {
-    margin-top: $size * $i;
-  }
+  // md
+  @include media-handle-spaces(md, m, margin, $size, $i);
 
-  .mb-#{$i} {
-    margin-bottom: $size * $i;
-  }
+  // lg
+  @include media-handle-spaces(lg, m, margin, $size, $i);
 
-  .mr-#{$i} {
-    margin-right: $size * $i;
-  }
+  // xl
+  @include media-handle-spaces(xl, m, margin, $size, $i);
 
-  .ml-#{$i} {
-    margin-left: $size * $i;
-  }
+  // 2xl
+  @include media-handle-spaces(xxl, m, margin, $size, $i);
 
-  .mx-#{$i} {
-    margin-right: $size * $i;
-    margin-left: $size * $i;
-  }
+  // ************* paddings *************
+  @include handle-spaces(p, padding, $size, $i);
+  // sm
+  @include media-handle-spaces(sm, p, padding, $size, $i);
 
-  .my-#{$i} {
-    margin-top: $size * $i;
-    margin-bottom: $size * $i;
-  }
+  // md
+  @include media-handle-spaces(md, p, padding, $size, $i);
 
-  // paddings
-  .p-#{$i} {
-    padding: $size * $i;
-  }
+  // lg
+  @include media-handle-spaces(lg, p, padding, $size, $i);
 
-  .pt-#{$i} {
-    padding-top: $size * $i;
-  }
+  // xl
+  @include media-handle-spaces(xl, p, padding, $size, $i);
 
-  .pb-#{$i} {
-    padding-bottom: $size * $i;
-  }
-
-  .pr-#{$i} {
-    padding-right: $size * $i;
-  }
-
-  .pl-#{$i} {
-    padding-left: $size * $i;
-  }
-
-  .px-#{$i} {
-    padding-right: $size * $i;
-    padding-left: $size * $i;
-  }
-
-  .py-#{$i} {
-    padding-top: $size * $i;
-    padding-bottom: $size * $i;
-  }
+  // 2xl
+  @include media-handle-spaces(xxl, p, padding, $size, $i);
 
   // gaps
   .gap-#{$i} {
@@ -77,72 +49,5 @@ $size: 3px;
 
   .gap-y-#{$i} {
     row-gap: $size * $i;
-  }
-}
-
-// media qury
-@for $i from 0 to 21 {
-  @include media-query(sm) {
-    // margin screen > 600
-    .m-sm-#{$i} {
-      margin: $size * $i;
-    }
-
-    .mb-sm-#{$i} {
-      margin-bottom: $size * $i;
-    }
-
-    .mt-sm-#{$i} {
-      margin-top: $size * $i;
-    }
-
-    .mr-sm-#{$i} {
-      margin-right: $size * $i;
-    }
-
-    .ml-sm-#{$i} {
-      margin-left: $size * $i;
-    }
-
-    .my-sm-#{$i} {
-      margin-top: $size * $i;
-      margin-bottom: $size * $i;
-    }
-
-    .mx-sm-#{$i} {
-      margin-left: $size * $i;
-      margin-right: $size * $i;
-    }
-
-    // padding screen > 600
-    .p-sm-#{$i} {
-      padding: $size * $i;
-    }
-
-    .pb-sm-#{$i} {
-      padding-bottom: $size * $i;
-    }
-
-    .pt-sm-#{$i} {
-      padding-top: $size * $i;
-    }
-
-    .pr-sm-#{$i} {
-      padding-right: $size * $i;
-    }
-
-    .pl-sm-#{$i} {
-      padding-left: $size * $i;
-    }
-
-    .py-sm-#{$i} {
-      padding-top: $size * $i;
-      padding-bottom: $size * $i;
-    }
-
-    .px-sm-#{$i} {
-      padding-left: $size * $i;
-      padding-right: $size * $i;
-    }
   }
 }

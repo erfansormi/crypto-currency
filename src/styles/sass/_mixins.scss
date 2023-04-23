@@ -19,18 +19,24 @@
   }
 
   @if ($size==md) {
-    @media (min-width: 900px) {
+    @media (min-width: 768px) {
       @content;
     }
   }
 
   @if ($size==lg) {
-    @media (min-width: 1200px) {
+    @media (min-width: 1024px) {
       @content;
     }
   }
 
   @if ($size==xl) {
+    @media (min-width: 1280px) {
+      @content;
+    }
+  }
+
+  @if ($size== xxl) {
     @media (min-width: 1536px) {
       @content;
     }
@@ -39,4 +45,70 @@
 
 @mixin display($display) {
   display: $display;
+}
+
+@mixin handle-spaces($className, $element, $size, $i) {
+  .#{$className}-#{$i} {
+    #{$element}: $size * $i;
+  }
+
+  .#{$className}b-#{$i} {
+    #{$element}-bottom: $size * $i;
+  }
+
+  .#{$className}t-#{$i} {
+    #{$element}-top: $size * $i;
+  }
+
+  .#{$className}r-#{$i} {
+    #{$element}-right: $size * $i;
+  }
+
+  .#{$className}l-#{$i} {
+    #{$element}-left: $size * $i;
+  }
+
+  .#{$className}y-#{$i} {
+    #{$element}-top: $size * $i;
+    #{$element}-bottom: $size * $i;
+  }
+
+  .#{$className}x-#{$i} {
+    #{$element}-left: $size * $i;
+    #{$element}-right: $size * $i;
+  }
+}
+
+@mixin media-handle-spaces($screen, $className, $element, $size, $i) {
+  @include media-query($screen) {
+    .#{$screen}-#{$className}-#{$i} {
+      #{$element}: $size * $i;
+    }
+
+    .#{$screen}-#{$className}b-#{$i} {
+      #{$element}-bottom: $size * $i;
+    }
+
+    .#{$screen}-#{$className}t-#{$i} {
+      #{$element}-top: $size * $i;
+    }
+
+    .#{$screen}-#{$className}r-#{$i} {
+      #{$element}-right: $size * $i;
+    }
+
+    .#{$screen}-#{$className}l-#{$i} {
+      #{$element}-left: $size * $i;
+    }
+
+    .#{$screen}-#{$className}y-#{$i} {
+      #{$element}-top: $size * $i;
+      #{$element}-bottom: $size * $i;
+    }
+
+    .#{$screen}-#{$className}x-#{$i} {
+      #{$element}-left: $size * $i;
+      #{$element}-right: $size * $i;
+    }
+  }
 }

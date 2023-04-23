@@ -1,3 +1,4 @@
+// overflows
 .overflow-x-hidden {
   overflow-x: hidden;
 }
@@ -32,4 +33,13 @@
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+// positions
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
 }

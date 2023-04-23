@@ -28,12 +28,39 @@
   }
 }
 
+.sm-flex-row {
+  @include media-query(sm) {
+    @include display(flex);
+    flex-direction: row;
+  }
+}
+
+.md-flex-row {
+  @include media-query(md) {
+    @include display(flex);
+    flex-direction: row;
+  }
+}
+
+.lg-flex-row {
+  @include media-query(lg) {
+    @include display(flex);
+    flex-direction: row;
+  }
+}
+
 .flex-wrap {
   flex-wrap: wrap;
 }
 
 .align-center {
   align-items: center;
+}
+
+.md-align-center {
+  @include media-query(md) {
+    align-items: center;
+  }
 }
 
 .align-start {
@@ -62,4 +89,36 @@
 
 .justify-around {
   justify-content: space-around;
+}
+
+@for $i from 1 to 13 {
+  .order-#{$i} {
+    order: $i;
+  }
+}
+
+@for $i from 1 to 13 {
+  @include media-query(sm) {
+    .sm-order-#{$i} {
+      order: $i;
+    }
+  }
+
+  @include media-query(md) {
+    .md-order-#{$i} {
+      order: $i;
+    }
+  }
+
+  @include media-query(lg) {
+    .lg-order-#{$i} {
+      order: $i;
+    }
+  }
+
+  @include media-query(xl) {
+    .xl-order-#{$i} {
+      order: $i;
+    }
+  }
 }

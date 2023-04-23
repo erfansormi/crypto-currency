@@ -13,25 +13,6 @@
   }
 }
 
-// border-radius
-@for $i from 1 to 9 {
-  .radius-#{$i} {
-    border-radius: $i * 2px;
-    -webkit-border-radius: $i * 2px;
-    -moz-border-radius: $i * 2px;
-    -ms-border-radius: $i * 2px;
-    -o-border-radius: $i * 2px;
-  }
-}
-
-.circle {
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-}
-
 // width and height
 .fit-content {
   min-width: fit-content;
@@ -39,6 +20,16 @@
 
 .max-content {
   min-width: max-content;
+}
+
+@for $i from 1 to 11 {
+  .w-#{$i}-10 {
+    width: $i * 10%;
+  }
+
+  .h-#{$i}-10 {
+    height: $i * 10%;
+  }
 }
 
 .h-full {
