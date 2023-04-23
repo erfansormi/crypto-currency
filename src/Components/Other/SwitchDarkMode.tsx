@@ -65,6 +65,7 @@ const SwitchDarkMode = () => {
 
     return (
         <FormControlLabel
+            sx={{ marginRight: 0 }}
             control={<MaterialUISwitch
                 checked={darkMode}
                 onChange={e => dispatch(changeDarkMode(e.target.checked))}

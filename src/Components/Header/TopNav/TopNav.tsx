@@ -22,7 +22,7 @@ const TopNav = () => {
             className="flex align-center fs-1"
             style={{ height: 53 }}
         >
-            <div className='text-neutral-5 flex justify-between full align-center' >
+            <div className='text-neutral-5 flex justify-between full align-center gap-x-2' >
 
                 {/* loading */}
                 {

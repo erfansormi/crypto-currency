@@ -3,7 +3,7 @@ import { CoinDetailType } from "../../../../types/Coins/coinDetail";
 export const nameHeader = (data: CoinDetailType) => {
     return [
         {
-            value: <img src={data?.image.small} alt="coin image" />
+            value: <img style={{ width: 35 }} src={data?.image.small} alt="coin image" className="h-auto" />
         },
         {
             value: <h2>{data?.name}</h2>

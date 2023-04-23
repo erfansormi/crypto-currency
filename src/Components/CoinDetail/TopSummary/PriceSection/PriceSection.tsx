@@ -1,8 +1,5 @@
 import React from 'react'
 
-// css
-import styles from "../topSummary.module.css"
-
 // context
 import { useCoinDetailContext } from '../../../../pages/coin/[coin_id]';
 
@@ -13,10 +10,10 @@ const PriceSection = () => {
     const { detail } = useCoinDetailContext();
 
     return (
-        <div className={styles.price_section_container}>
+        <div className="flex flex-col align-end h-full gap-3">
             {
                 priceData(detail).map((item, index) =>
-                    <div className={styles.price_value_container} key={index * 49}>
+                    <div className="flex align-center flex-wrap gap-3" key={index * 49}>
                         {item.value}
                     </div>
                 )

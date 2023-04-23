@@ -17,7 +17,7 @@ import { StatesData } from './StatesData';
 import variable from "../../../../styles/sass/_variables.module.scss";
 
 // css
-import styles from "../topSummary.module.css";
+import styles from "./state.module.css";
 
 const StatesSection = () => {
     const { detail } = useCoinDetailContext();
@@ -58,9 +58,11 @@ const StatesSection = () => {
             {
                 StatesData(detail).map((item, index) =>
                     <Grid
-                        sx={borderColor(index)} xs={6} md={6} lg={3} key={index * 6 + 25}
+                        xs={6} md={6} lg={3}
+                        className={`${styles.container} border-color`}
+                        key={index * 6 + 25}
                     >
-                        <div className={`${styles.states_section_container}`}>
+                        <div className={`w-full flex flex-col justify-between py-8 px-5 ${styles.box}`}>
                             {item.value}
                         </div>
                     </Grid>

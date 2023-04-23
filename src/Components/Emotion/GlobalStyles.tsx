@@ -40,6 +40,13 @@ const GlobalStyles = () => {
             }
         }
 
+        .border-color{
+            ${darkMode ?
+                `border-color: ${styles.border_color_dark} !important;` :
+                `border-color: ${styles.border_color} !important;`
+            }
+        }
+
         .err-dark-img{
             ${darkMode ?
                 `
@@ -96,11 +103,11 @@ const GlobalStyles = () => {
             padding:8px;
             border-radius:8px;
                 ${darkMode ?
-                    `
+                `
             background-color: ${styles.color_neutral_3};
             color: ${styles.color_neutral_5};
             `:
-                    `
+                `
             background-color: ${styles.color_light_neutral_2};
             color: ${styles.color_light_neutral_5};
         `

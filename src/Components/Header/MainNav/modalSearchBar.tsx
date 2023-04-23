@@ -53,7 +53,7 @@ const ModalSearchBar = ({ values, setValues }: Props) => {
     return (
         <div className="mt-8 flex w-full justify-center">
             <form
-                className={styles.searchBox}
+                className={`${styles.searchBox} w-7-10 relative`}
                 onSubmit={handleSubmit}
             >
                 <TextField

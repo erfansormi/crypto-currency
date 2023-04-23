@@ -1,0 +1,31 @@
+.container {
+    border-right: 0;
+    border-left: 0;
+}
+
+.container:nth-child(odd) {
+    border-right: 1px solid;
+}
+
+.container:nth-child(n + 3) {
+    border-top: 1px solid;
+}
+
+.box {
+    min-height: 200px;
+}
+
+@media (min-width:1200px) {
+    .container {
+        border: 1px solid;
+        border-left: 0;
+    }
+
+    .container:first-child {
+        border-left: 0;
+    }
+
+    .container:last-child {
+        border-right: 0;
+    }
+}

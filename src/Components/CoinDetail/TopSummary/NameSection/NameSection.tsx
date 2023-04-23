@@ -6,27 +6,24 @@ import { useCoinDetailContext } from '../../../../pages/coin/[coin_id]';
 // data
 import { nameHeader, nameFooter } from './NameSectionData';
 
-// css
-import styles from "../topSummary.module.css"
-
 const NameSection = () => {
     const { detail } = useCoinDetailContext();
 
     return (
-        <div className={"mt-9"}>
-            <div className={`flex align-center ${styles.header_name}`} >
+        <div className="sm-mt-9 mt-5 flex flex-col gap-3">
+            <div className={`flex align-center gap-3`} >
                 {
                     nameHeader(detail).map((item, index) =>
-                        <div key={index * 6 + 20}>
+                        <div key={index * 6 + 20} className='flex align-center'>
                             {item.value}
                         </div>
                     )
                 }
             </div>
-            <div className={`flex align-center ${styles.header_name}`}>
+            <div className={`flex align-center gap-3`}>
                 {
                     nameFooter(detail).map((item, index) =>
-                        <div key={index * 6 + 21}>
+                        <div key={index * 6 + 21} className='flex align-center'>
                             {item.value}
                         </div>
                     )

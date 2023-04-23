@@ -1,9 +1,6 @@
 import React from 'react';
 import { Box } from '@mui/material';
 
-// css
-import styles from "./footer.module.css"
-
 // icon
 import { BsBoxArrowUpRight } from "react-icons/bs"
 
@@ -12,9 +9,9 @@ const Footer = () => {
         <Box
             sx={{ bgColor: "background.default" }}
             component={"footer"}
-            className={`${styles.footer} border-t`}
+            className="border-t py-10 px-8 flex align-center"
         >
-            <div className="text-neutral-5">
+            <div className="text-neutral-5 flex md-flex-row flex-col w-full justify-between md-align-center gap-y-4">
                 <div>
                     © 2022 Crypto Currency. All rights website reserved.
                 </div>
@@ -23,10 +20,10 @@ const Footer = () => {
                     <a
                         href="https://erfansormi.vercel.app"
                         target={"_blank"}
-                        className="align-center normal-color"
+                        className="align-center normal-color ml-1"
                     >
                         Erfan Sormi
-                        <span>
+                        <span className='ml-1 mt-1 fs-2'>
                             <BsBoxArrowUpRight />
                         </span>
                     </a>

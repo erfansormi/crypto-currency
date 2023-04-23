@@ -1,13 +1,8 @@
-import { useRouter } from 'next/router';
-
 // mui
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 
 // css
 import styles from "./coin.module.css"
-
-// context
-import { useCoinDetailContext } from '../../pages/coin/[coin_id]';
 
 // components
 import TopSummary from './TopSummary/TopSummary';
@@ -15,17 +10,15 @@ import ChartContainer from './MiddleData/CoinChart/ChartContainer';
 import SideInfo from './MiddleData/SideInfo/SideInfo';
 
 const CoinDetail = () => {
-    const { detail } = useCoinDetailContext();
-
     return (
         <>
             <div className="root-nodes">
-                <article className={`ice-bg ${styles.layout_container}`}>
-                    <div className={styles.container}>
+                <article className={`ice-bg flex flex-col ${styles.layout_container}`}>
+                    <div className="px-7 flex flex-col gap-y-8">
                         <div className={styles.top_summary_container}>
                             <TopSummary />
                         </div>
-                        <Grid container sx={{ padding: "20px 0 50px" }} spacing={2}>
+                        <Grid container sx={{ padding: "0 0 50px" }} spacing={2}>
                             <Grid xs={12} md={8}>
                                 <ChartContainer />
                             </Grid>

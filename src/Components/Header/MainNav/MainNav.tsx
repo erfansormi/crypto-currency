@@ -17,9 +17,9 @@ const MainNav = () => {
 
     return (
         <nav className="py-5 flex align-center" style={{ minHeight: 80 }}>
-            <div className="flex justify-between w-full">
-                <div className="flex align-center">
-                    <Link href={"/"} as={"/"} className={`flex align-center mr-8`}>
+            <div className="flex flex-col gap-y-4 md-flex-row justify-between w-full">
+                <div className="flex align-center gap-x-4">
+                    <Link href={"/"} as={"/"} className={`flex align-center`}>
                         <ClientOnly>
                             <Image
                                 src={"/images/logo.png"}
@@ -33,10 +33,7 @@ const MainNav = () => {
                             crypto currency
                         </h3>
                     </Link>
-                    <Link
-                        href={"/exchanges"}
-                        className='mr-8'
-                    >
+                    <Link href={"/exchanges"}>
                         <h3 className='fs-6'>
                             exchanges
                         </h3>

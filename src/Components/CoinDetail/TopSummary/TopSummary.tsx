@@ -12,18 +12,18 @@ import StatesSection from './StatesSection/StatesSection';
 
 const TopSummary = () => {
     return (
-        <Grid container className={"py-8"}>
-            <Grid xs={12} container className='mb-0 mb-sm-13'>
+        <Grid container className={"gap-y-6"}>
+            <Grid xs={12} container className='gap-y-3'>
                 <Grid xs={12} sm={6}>
                     <NameSection />
                 </Grid>
-                <Grid xs={12} sm={6}>
-                    <PriceSection />
-                </Grid>
-                <Grid xs={12} sm={6}>
+                <Grid xs={12} sm={6} className='order-2 sm-order-3'>
                     <LinkSection />
                 </Grid>
-                <Grid xs={12} sm={6}>
+                <Grid xs={12} sm={6} className="order-3 sm-order-2">
+                    <PriceSection />
+                </Grid>
+                <Grid xs={12} sm={6} className='order-4'>
                     <TagSection />
                 </Grid>
             </Grid>
