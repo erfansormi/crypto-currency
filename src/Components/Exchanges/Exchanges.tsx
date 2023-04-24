@@ -23,7 +23,7 @@ const ExchangesTable = ({ exchanges }: { exchanges: Exchanges[] }) => {
                                 <TableCell
                                     key={index * 51}
                                     align={"left"}
-                                    className="border-b tr-color"
+                                    className="border-b"
                                     style={{ fontWeight: "600" }}
                                 >
                                     {item.title}
@@ -42,14 +42,14 @@ const ExchangesTable = ({ exchanges }: { exchanges: Exchanges[] }) => {
                                             <TableCell
                                                 component="th"
                                                 scope="row"
-                                                className="border-b tr-color"
+                                                className="border-b"
                                                 key={index * 58}
                                             >
                                                 {i.value}
                                             </TableCell> :
                                             <TableCell
                                                 align="left"
-                                                className="border-b tr-color"
+                                                className="border-b"
                                                 key={index * 61}
                                             >
                                                 {i.value}

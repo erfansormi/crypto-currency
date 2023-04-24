@@ -37,7 +37,8 @@ const CoinChart = () => {
     return (
         <div className="border radius-5">
             <TopButtons handle={handle} />
-            <FullScreen handle={handle} className="py-4">
+            
+            <FullScreen handle={handle} className="py-4 primary-bg">
                 {
                     chartType == "line" ?
                         <LineChart isfullScActive={handle.active} /> :

@@ -13,10 +13,24 @@ const BgColors = () => {
 
     return (
         <Global styles={css`
+        .primary-bg{
+            ${darkMode ?
+                `background-color:${styles.dark_bg_1};` :
+                `background-color: #fff;`
+            }
+        }
+
         .bg-neutral-1{
             ${darkMode ?
                 `background-color:${styles.color_neutral_1};` :
                 `background-color:${styles.color_light_neutral_1};`
+            }
+        }
+        
+        .bg-neutral-2{
+            ${darkMode ?
+                `background-color:${styles.color_neutral_2};` :
+                `background-color:${styles.color_light_neutral_2};`
             }
         }
 
