@@ -18,6 +18,7 @@ import store from '../Redux/store';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 // components
+import NextTopLoader from 'nextjs-toploader';
 import Header from '../Components/Header/Header'
 import Footer from '../Components/Footer/Footer'
 import StylesContainer from '../Components/Emotion/StylesContainer';
@@ -39,6 +40,17 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                     </Head>
 
                     <StylesContainer />
+                    <NextTopLoader
+                        color="#3861fb"
+                        initialPosition={0.08}
+                        crawlSpeed={200}
+                        height={3}
+                        crawl={true}
+                        showSpinner={false}
+                        easing="ease"
+                        speed={200}
+                        zIndex={1600}
+                    />
 
                     <Header />
                     <Component {...pageProps} />
