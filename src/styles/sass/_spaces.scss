@@ -50,4 +50,37 @@ $size: 3px;
   .gap-y-#{$i} {
     row-gap: $size * $i;
   }
+
+  // insets
+  .right-#{$i} {
+    right: $size * $i;
+  }
+
+  .top-#{$i} {
+    top: $size * $i;
+  }
+
+  .left-#{$i} {
+    left: $size * $i;
+  }
+
+  .bottom-#{$i} {
+    bottom: $size * $i;
+  }
+
+  .-right-#{$i} {
+    right: -$size * $i;
+  }
+
+  .-top-#{$i} {
+    top: -$size * $i;
+  }
+
+  .-left-#{$i} {
+    left: -$size * $i;
+  }
+
+  .-bottom-#{$i} {
+    bottom: -$size * $i;
+  }
 }

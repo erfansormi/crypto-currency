@@ -78,11 +78,14 @@ const CoinsTable = () => {
                                         <TableCell
                                             className="text-neutral-2"
                                             size='small'
-                                            sx={{ borderBottom: 0, width: index === 1 ? 200 : "unset" }}
+                                            sx={{ borderBottom: 0, width: index === 1 ? 200 : "unset", padding: 0 }}
                                             align={"center"}
                                             key={index}
                                         >
-                                            <Link href={`/coin/${item.id}`}>
+                                            <Link
+                                                href={`/coin/${item.id}`}
+                                                className='flex align-center h-full p-2'
+                                            >
                                                 {i.value}
                                             </Link>
                                         </TableCell>

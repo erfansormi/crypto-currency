@@ -32,7 +32,7 @@ export const exchangesRows = (data: Exchanges) => {
         },
         {
             value:
-                <div className="align-center d-flex">
+                <div className="align-center flex">
                     <Image
                         src={data.image}
                         alt={data.name}

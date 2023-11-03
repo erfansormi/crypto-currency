@@ -15,6 +15,13 @@ const TextColors = () => {
 
     return (
         <Global styles={css`
+        .primary-text{
+            ${darkMode ?
+                `color:#fff !important;` :
+                `color:${styles.dark_bg_1} !important;`
+            }
+        }
+
         .text-neutral-1{
             ${darkMode ?
                 `color:${styles.color_light_neutral_1} !important;` :

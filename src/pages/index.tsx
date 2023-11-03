@@ -33,15 +33,15 @@ const Index = ({ coins, error }: Props) => {
 
   return (
     <CoinsContext.Provider value={{ initialValues, setInitialValues }}>
+      <Head>
+        <title>
+          Crypto Currency | Home
+        </title>
+      </Head>
       {
         error ?
           <Error errorMessage={error} /> :
           <>
-            <Head>
-              <title>
-                Crypto Currency | Home
-              </title>
-            </Head>
             <CoinsTable />
           </>
       }
